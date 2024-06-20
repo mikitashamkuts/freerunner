@@ -1,0 +1,17 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "assets/fonts/TestFoundersGrotesk-Medium.otf",
+      "sha1": "c03cf63a0c9136c6d368eeac8f1776a5a3e00619"
+    },
+    {
+      "path": "assets/fonts/TestFoundersGrotesk-Regular.otf",
+      "sha1": "57a44805d796ed09c53ae335745465d7f5e05ac4"
+    },
+    {
+      "path": "assets/fonts/TestFoundersGrotesk-Semibold.otf",
+      "sha1": "15195df2ed2dbf10b8a6635d6de9464be56e70cd"
+    }
+  ]
+}

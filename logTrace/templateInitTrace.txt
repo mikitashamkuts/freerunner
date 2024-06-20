@@ -1,0 +1,73 @@
+mikitashamkuts@Mikitas-MacBook-Pro Desktop % npx react-native@latest init AwesomeProject --version 0.73.8 
+
+
+Running: npx @react-native-community/cli init
+
+                                                          
+               ######                ######               
+             ###     ####        ####     ###             
+            ##          ###    ###          ##            
+            ##             ####             ##            
+            ##             ####             ##            
+            ##           ##    ##           ##            
+            ##         ###      ###         ##            
+             ##  ########################  ##             
+          ######    ###            ###    ######          
+      ###     ##    ##              ##    ##     ###      
+   ###         ## ###      ####      ### ##         ###   
+  ##           ####      ########      ####           ##  
+ ##             ###     ##########     ###             ## 
+  ##           ####      ########      ####           ##  
+   ###         ## ###      ####      ### ##         ###   
+      ###     ##    ##              ##    ##     ###      
+          ######    ###            ###    ######          
+             ##  ########################  ##             
+            ##         ###      ###         ##            
+            ##           ##    ##           ##            
+            ##             ####             ##            
+            ##             ####             ##            
+            ##          ###    ###          ##            
+             ###     ####        ####     ###             
+               ######                ######               
+                                                          
+
+                  Welcome to React Native!                
+                 Learn once, write anywhere               
+
+✔ Downloading template
+✔ Copying template
+⠹ Processing template(node:98255) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+⠴ Processing template➤ YN0000: You don't seem to have Corepack enabled; we'll have to rely on yarnPath instead
+➤ YN0000: Downloading https://repo.yarnpkg.com/3.6.4/packages/yarnpkg-cli/bin/yarn.js
+⠏ Processing template➤ YN0000: Saving the new release in .yarn/releases/yarn-3.6.4.cjs
+➤ YN0000: Done with warnings in 1s 156ms
+⠸ Processing template➤ YN0000: Successfully set nodeLinker to 'node-modules'
+✔ Processing template
+✔ Installing dependencies
+✔ Do you want to install CocoaPods now? Only needed if you run your project in Xcode directly … yes
+✔ Installing Ruby Gems
+✔ Installing CocoaPods dependencies  (this may take a few minutes)
+
+
+info 💡 To enable automatic CocoaPods installation when building for iOS you can create react-native.config.js with automaticPodsInstallation field. 
+For more details, see https://github.com/react-native-community/cli/blob/main/docs/projects.md#projectiosautomaticpodsinstallation
+            
+✔ Initializing Git repository
+
+  
+  Run instructions for Android:
+    • Have an Android emulator running (quickest way to get started), or a device connected.
+    • cd "/Users/mikitashamkuts/Desktop/AwesomeProject" && npx react-native run-android
+  
+  Run instructions for iOS:
+    • cd "/Users/mikitashamkuts/Desktop/AwesomeProject"
+    
+    • npx react-native run-ios
+    - or -
+    • Open AwesomeProject/ios/AwesomeProject.xcworkspace in Xcode or run "xed -b ios"
+    • Hit the Run button
+    
+  Run instructions for macOS:
+    • See https://aka.ms/ReactNativeGuideMacOS for the latest up-to-date instructions.
+    
