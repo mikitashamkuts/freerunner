@@ -1,3 +1,5 @@
 {
+  // Extends the base TypeScript configuration provided by the @react-native/typescript-config package.
+  // This configuration contains a set of sensible defaults for React Native projects.
   "extends": "@react-native/typescript-config/tsconfig.json"
 }
