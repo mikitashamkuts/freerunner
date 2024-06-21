@@ -1,4 +1,5 @@
 import {Platform} from 'react-native';
+import {HapticFeedbackTypes} from 'react-native-haptic-feedback';
 
 export enum tabs {
   HomeTab = 'HomeTab',
@@ -31,5 +32,10 @@ export const priceDigitLimit = 15; // for preventing text overflow, presuming EU
 export const overflowSymbolLimit = 16; // for preventing text overflow,
 
 export enum exceptionList {
-  InvalidParam = 'Undefined or Falsy or Incorrect Parameter',
+  InvalidParam = 'InvalidParam', //'Undefined or Falsy or Incorrect Parameter',
+  UnavailableModule = 'UnavailableModule', //'Unavailable Module Or Service Not Initiated Or Failed',
+}
+
+export enum hapticFeedbackModeList {
+  Default = HapticFeedbackTypes.soft,
 }
