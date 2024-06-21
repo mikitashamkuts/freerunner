@@ -19,7 +19,7 @@ export const getFunctionTryCatchWrapped = (func: any) => {
       if (isDevelopmentEnvironment) {
         console.error(`${place}: `, error);
       } else {
-        Sentry.captureException({
+        Sentry?.captureException({
           place,
           error,
         });
