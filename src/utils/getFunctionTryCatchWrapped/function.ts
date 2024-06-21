@@ -9,11 +9,12 @@ export const getFunctionTryCatchWrapped = (func: any) => {
     try {
       return func(...args);
     } catch (error) {
+      const place = func?.name || 'arrow function';
       if (isDevelopmentEnvironment) {
-        console.error(`${func.name}: `, error);
+        console.error(`${place}: `, error);
       } else {
         Sentry.captureException({
-          place: func?.name || 'arrow function',
+          place,
           error,
         });
       }
