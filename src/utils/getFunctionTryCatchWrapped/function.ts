@@ -3,6 +3,12 @@ import _ from 'lodash';
 
 import {isDevelopmentEnvironment} from '../../constants';
 
+/**
+ * Wraps a function with a try-catch block for error handling.
+ *
+ * @param {Function} func - The function to wrap.
+ * @returns {Function} - The wrapped function with error handling.
+ */
 export const getFunctionTryCatchWrapped = (func: any) => {
   // eslint-disable-next-line @typescript-eslint/no-shadow
   return _.wrap(func, (func, ...args) => {
