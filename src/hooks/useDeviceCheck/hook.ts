@@ -3,7 +3,7 @@ import {useEffect, useState} from 'react';
 import DeviceInfo from 'react-native-device-info';
 import {isDevelopmentEnvironment} from '../../constants';
 
-const useDeviceCheck = (): {isDeviceApproved: boolean; isDeviceVerifyed: boolean} => {
+export const useDeviceCheck = (): {isDeviceApproved: boolean; isDeviceVerifyed: boolean} => {
   const [isDeviceApproved, setIsDeviceApproved] = useState(true);
   const [isDeviceVerifyed, setIsDeviceVerifyed] = useState(false);
 
@@ -22,5 +22,3 @@ const useDeviceCheck = (): {isDeviceApproved: boolean; isDeviceVerifyed: boolean
 
   return {isDeviceApproved, isDeviceVerifyed};
 };
-
-export default useDeviceCheck;
