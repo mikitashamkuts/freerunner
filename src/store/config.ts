@@ -15,6 +15,7 @@ import {
 import createSagaMiddleware from 'redux-saga';
 
 import {isDevelopmentEnvironment} from '../constants';
+import {getFunctionTryCatchWrapped as tryCatch} from '../utils';
 import rootSaga from './sagas/config';
 import {stateStructure} from './slices';
 
@@ -26,36 +27,51 @@ const persistConfig = {
 };
 
 // Combine the reducers to create the root reducer
-const rootReducer = combineReducers(stateStructure);
+const rootReducer = tryCatch(function getRootReducer() {
+  return combineReducers(stateStructure);
+})();
 
 // Enhance the root reducer with persistence capabilities
-const persistedReducer = persistReducer(persistConfig, rootReducer);
+const persistedReducer = tryCatch(function getPersistedReducer() {
+  return persistReducer(persistConfig, rootReducer);
+})();
 
 // Create Saga middleware for handling asynchronous actions
-const sagaMiddleware = createSagaMiddleware();
+const sagaMiddleware = tryCatch(function getSagaMiddleware() {
+  return createSagaMiddleware();
+})();
 const middlewareList = [sagaMiddleware];
 
 // Initialize Redux Logger for logging actions and state changes
 if (isDevelopmentEnvironment) {
-  const logger = createLogger({});
+  const logger = tryCatch(function getLogger() {
+    return createLogger({});
+  })();
   middlewareList.push(logger as any);
 }
+
 // Configure the Redux store
-export const store = configureStore({
-  reducer: persistedReducer,
-  middleware: getDefaultMiddleware =>
-    getDefaultMiddleware({
-      serializableCheck: {
-        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-      },
-    }).concat(middlewareList), // Add Saga middleware and logger middleware
-});
+export const store = tryCatch(function getStore() {
+  return configureStore({
+    reducer: persistedReducer,
+    middleware: getDefaultMiddleware =>
+      getDefaultMiddleware({
+        serializableCheck: {
+          ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+        },
+      }).concat(middlewareList), // Add Saga middleware and logger middleware
+  });
+})();
 
 // Run the root saga
-sagaMiddleware.run(rootSaga);
+tryCatch(function getSagaMiddlewareRun() {
+  sagaMiddleware.run(rootSaga);
+})();
 
 // Create a persistor to persist the store
-export const persistor = persistStore(store);
+export const persistor = tryCatch(function getPersistor() {
+  return persistStore(store);
+})();
 
 // Define RootState type to represent the entire Redux state
 export type RootState = ReturnType<typeof store.getState>;
