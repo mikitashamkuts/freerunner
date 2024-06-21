@@ -6,7 +6,7 @@ import {useColorScheme} from 'react-native';
 
 import {defaultAnimationDuration, routes} from '../../constants';
 
-import {OrderDetailScreen, OrderListScreen} from '.';
+import {OrderListScreen} from '.';
 
 // Create the stack navigator
 const ClientStack = createNativeStackNavigator();
@@ -26,7 +26,6 @@ const HomeStack = () => {
       screenOptions={{...screenOptionsConfig, navigationBarColor: isDarkMode ? 'black' : 'white'}}>
       {/* Define each screen in the stack */}
       <ClientStack.Screen name={routes.OrderListScreen} component={OrderListScreen} />
-      <ClientStack.Screen name={routes.OrderDetailScreen} component={OrderDetailScreen} />
     </ClientStack.Navigator>
   );
 };
