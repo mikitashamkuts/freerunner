@@ -53,7 +53,7 @@ function App(): React.JSX.Element {
       if (isDeviceVerifyed && isDeviceApproved && isStateReady) {
         setIsAppReady(true);
       }
-    });
+    })();
   }, [isDeviceApproved, isDeviceVerifyed, isStateReady]);
 
   // Hide splash screen when the app is ready
