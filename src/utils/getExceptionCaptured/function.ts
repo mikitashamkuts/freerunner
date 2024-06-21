@@ -8,12 +8,16 @@ import {exceptionList, isDevelopmentEnvironment} from '../../constants';
  * @param {{name: string}} context - The context where the exception occurred.
  * @param {keyof typeof exceptionList} exception - The exception to be captured.
  */
-const getExceptionCaptured = (context: {name: string}, exception: keyof typeof exceptionList) => {
-  const exeptionData = {place: context?.name, exception};
+const getExceptionCaptured = (
+  context: {name: string},
+  exception: keyof typeof exceptionList,
+  details: any,
+) => {
+  const exeptionData = {place: context?.name, exception, details};
   if (isDevelopmentEnvironment) {
     console.warn('Exception Captured: ', exeptionData);
   } else {
-    Sentry.captureMessage(JSON.stringify(exeptionData));
+    Sentry?.captureMessage(JSON.stringify(exeptionData));
   }
 };
 
