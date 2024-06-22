@@ -1,3 +1,3 @@
 export * from './useDeviceCheck';
-export * from './useImageCachingHandler';
+export * from './useImageCaching';
 export * from './useTypedNavigation';

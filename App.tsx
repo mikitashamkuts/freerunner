@@ -10,16 +10,12 @@ import SplashScreen from 'react-native-splash-screen';
 import {Provider} from 'react-redux';
 import {PersistGate} from 'redux-persist/integration/react';
 
-import {useDeviceCheck, useImageCachingHandler} from './src/hooks';
+import {useDeviceCheck, useImageCaching} from './src/hooks';
 import {Navigation} from './src/navigation';
-import {initImageCaching, initSentryService} from './src/services';
+import {initSentryService} from './src/services';
 import {persistor, store} from './src/store';
 import {initTranslation} from './src/translation';
 import {getFunctionTryCatchWrapped as tryCatch} from './src/utils';
-
-/* Initialize caching of the downloaded image assets
-for avoiding redownloading while transitioning between the screens */
-initImageCaching();
 
 // Initialize Sentry for error tracking and monitoring
 initSentryService();
@@ -29,8 +25,11 @@ function App(): React.JSX.Element {
   const [isAppReady, setIsAppReady] = useState(false);
   const [isStateReady, setIsStateReady] = useState(false);
 
-  // Manage image cache overflow
-  useImageCachingHandler();
+  /* Initialize caching of the downloaded image assets
+     for avoiding redownloading while transitioning between the screens
+     with  image cache overflow management
+ */
+  const {isEnabled: isImageCachingEnabled} = useImageCaching();
   // Initialize internationalization
   initTranslation();
   // Initialize device distinguishing
@@ -50,11 +49,11 @@ function App(): React.JSX.Element {
     // tryCatch is for unifyed error handling, tryCatch is returns wrapped version of the function, so we call that function
     // handleSetIsAppReady named function declaration is used for identifying and accesing name and arguments properties inside tryCatch
     tryCatch(function handleSetIsAppReady() {
-      if (isDeviceVerifyed && isDeviceApproved && isStateReady) {
+      if (isDeviceVerifyed && isDeviceApproved && isStateReady && isImageCachingEnabled) {
         setIsAppReady(true);
       }
     })();
-  }, [isDeviceApproved, isDeviceVerifyed, isStateReady]);
+  }, [isDeviceApproved, isDeviceVerifyed, isImageCachingEnabled, isStateReady]);
 
   // Hide splash screen when the app is ready
   useEffect(() => {
@@ -96,7 +95,7 @@ export default App;
  *   - Uses `useState` to manage the state of the application readiness.
  *   - Uses `useEffect` hooks to manage side effects.
  *
- * - **useImageCachingHandler()**:
+ * - **useImageCaching()**:
  *   - Manages image cache overflow.
  *
  * - **initTranslation()**:
