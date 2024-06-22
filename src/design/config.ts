@@ -16,8 +16,8 @@ export enum fontSizeList {
 }
 
 export enum backgroundColorList {
-  Default = '#FFFFFF',
-  Sucess = '#B6EEE5',
+  Dark = '#000000',
+  Light = '#FFFFFF',
   Avatar = '#C4C4C4',
 }
 
