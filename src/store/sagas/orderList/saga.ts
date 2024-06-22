@@ -19,7 +19,7 @@ interface FetchOrdersResponse {
 }
 
 // Saga to fetch order list
-const fetchOrderListSaga = tryCatch(function* fetchOrderListSagaSafe() {
+export const fetchOrderListSaga = tryCatch(function* fetchOrderListSagaSafe() {
   const response: AxiosResponse<FetchOrdersResponse> = yield call(sendFetchOrderListRequest);
   switch (response.status) {
     case httpResponceStatusList.OK:
@@ -34,7 +34,7 @@ const fetchOrderListSaga = tryCatch(function* fetchOrderListSagaSafe() {
 });
 
 // Watcher saga to watch for fetchOrderListRequest actions
-const watchFetchOrderListRequest = tryCatch(function* watchFetchOrderListRequestSafe() {
+export const watchFetchOrderListRequest = tryCatch(function* watchFetchOrderListRequestSafe() {
   yield takeLatest(fetchOrderListRequest.type, fetchOrderListSaga);
 });
 
