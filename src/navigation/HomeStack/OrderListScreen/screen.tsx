@@ -1,12 +1,14 @@
 import {FC, useEffect, useRef} from 'react';
-import {Animated} from 'react-native';
+import {Animated, useColorScheme} from 'react-native';
 
-import {OrderListScreenScreenHeaderHolder, StatusBar} from '../../../components';
-
-import {styles} from '.';
+import {whyDidItRenderConfig} from '../../../../debug';
+import {StatusBar} from '../../../components';
 import {defaultAnimationDuration} from '../../../constants';
 
+import {styles} from '.';
+
 const OrderListScreen: FC = () => {
+  const isDarkMode = useColorScheme() === 'dark';
   const fadeAnim = useRef(new Animated.Value(0)).current; // Initial value for opacity: 0
 
   useEffect(() => {
@@ -23,13 +25,11 @@ const OrderListScreen: FC = () => {
         styles.container,
         {opacity: fadeAnim}, // Bind opacity to animated value
       ]}>
-      <StatusBar style={'dark'} />
-      <OrderListScreenScreenHeaderHolder />
-      {/* <OrderListScreenOrderList /> */}
+      <StatusBar style={isDarkMode ? 'dark' : 'light'} />
     </Animated.View>
   );
 };
 
-OrderListScreen.whyDidYouRender = true;
+OrderListScreen.whyDidYouRender = whyDidItRenderConfig.ScreenComponentDebugActive;
 
 export default OrderListScreen;
