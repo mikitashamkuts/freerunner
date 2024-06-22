@@ -22,7 +22,7 @@ interface FetchOrdersResponse {
 export const fetchOrderListSaga = tryCatch(function* fetchOrderListSagaSafe() {
   const response: AxiosResponse<FetchOrdersResponse> = yield call(sendFetchOrderListRequest);
   switch (response.status) {
-    case httpResponceStatusList.OK:
+    case httpResponceStatusList.Ok:
       const orders = response.data.data.orders;
       yield put(fetchOrderListSuccess(orders));
       break;

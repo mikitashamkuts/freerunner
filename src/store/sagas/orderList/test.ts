@@ -22,7 +22,7 @@ const mockOrders: OrderType[] = [
 
 const mockResponse: AxiosResponse = {
   data: {data: {orders: mockOrders}},
-  status: httpResponceStatusList.OK,
+  status: httpResponceStatusList.Ok,
   statusText: 'OK',
   headers: {},
   config: {},
