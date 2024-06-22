@@ -1,6 +1,18 @@
 import {ReactNode} from 'react';
-import {TextStyle, ViewStyle} from 'react-native/types';
+import {ImageStyle, TextStyle, ViewStyle} from 'react-native/types';
 import {loadingStatusList, routes} from '../constants';
+
+/**
+ * Combined style sheet type options.
+ *
+ * This type represents a union of different style types available in React Native.
+ * It can be used to define styles that can be applied to various components like Views, Text, and Images.
+ *
+ * - `ViewStyle`: Defines styles for View components.
+ * - `TextStyle`: Defines styles for Text components.
+ * - `ImageStyle`: Defines styles for Image components.
+ */
+export type DefaultStyleSheetStyleType = ViewStyle | TextStyle | ImageStyle;
 
 /**
  * Props for a custom component.
@@ -10,7 +22,7 @@ import {loadingStatusList, routes} from '../constants';
  * @property {ReactNode} [children] - The children nodes.
  */
 export type CustomComponentProps = {
-  containerStyle?: ViewStyle | TextStyle | ViewStyle[];
+  containerStyle?: DefaultStyleSheetStyleType | DefaultStyleSheetStyleType[];
   children?: ReactNode;
 };
 
