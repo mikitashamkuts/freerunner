@@ -1,6 +1,7 @@
 import * as Sentry from '@sentry/react-native';
 
 import {SENTRY_DSN} from '@env'; // Import the Sentry DSN (Data Source Name) from environment variables
+import {getFunctionTryCatchWrapped} from '../../utils';
 
 /**
  * Initializes the Sentry service for error tracking and monitoring.
@@ -8,6 +9,7 @@ import {SENTRY_DSN} from '@env'; // Import the Sentry DSN (Data Source Name) fro
  */
 function initSentryService() {
   // Check if SENTRY_DSN is defined before initializing Sentry
+  // env configuration does not allow building with no specified key in .env file
   if (SENTRY_DSN) {
     Sentry.init({
       dsn: SENTRY_DSN, // Set the DSN to configure Sentry with the correct project
@@ -15,4 +17,4 @@ function initSentryService() {
   }
 }
 
-export default initSentryService;
+export default getFunctionTryCatchWrapped(initSentryService);
