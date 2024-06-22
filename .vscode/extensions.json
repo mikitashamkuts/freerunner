@@ -11,7 +11,8 @@
     "wix.vscode-import-cost",
     "yoavbls.pretty-ts-errors",
     "eamodio.gitlens",
-    "bradlc.vscode-tailwindcss"
+    "bradlc.vscode-tailwindcss",
+    "streetsidesoftware.code-spell-checker"
   ],
   // List of extensions recommended by VS Code that should not be recommended for users of this workspace.
   "unwantedRecommendations": []
