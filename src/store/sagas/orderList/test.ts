@@ -1,8 +1,8 @@
 // orderListSaga.test.js
 import {AxiosResponse} from 'axios';
 import {expectSaga, testSaga} from 'redux-saga-test-plan';
-import {throwError} from 'redux-saga-test-plan/providers';
 import {call} from 'redux-saga/effects';
+
 import {sendFetchOrderListRequest} from '../../../api';
 import {exceptionList, httpResponceStatusList} from '../../../constants';
 import {OrderType} from '../../../types';
@@ -12,9 +12,9 @@ import {
   fetchOrderListRequest,
   fetchOrderListSuccess,
 } from '../../slices/orderList';
-import fetchOrderListSaga, {watchFetchOrderListRequest} from './saga';
 
-// Mock data
+import {fetchOrderListSaga, watchFetchOrderListRequest} from '.';
+
 const mockOrders: OrderType[] = [
   {id: '1', merchantName: 'Merchant 1'},
   {id: '2', merchantName: 'Merchant 2'},
@@ -28,7 +28,11 @@ const mockResponse: AxiosResponse = {
   config: {},
 };
 
-// Test for fetchOrderListSaga
+jest.mock('../../../utils', () => ({
+  getExceptionCaptured: jest.fn(),
+  getFunctionTryCatchWrapped: jest.fn(fn => fn),
+}));
+
 describe('fetchOrderListSaga', () => {
   it('should handle success scenario', () => {
     return expectSaga(fetchOrderListSaga)
@@ -37,7 +41,7 @@ describe('fetchOrderListSaga', () => {
       .run();
   });
 
-  it('should handle failure scenario', () => {
+  it('should handle failure scenario with status not OK', () => {
     const errorResponse: AxiosResponse = {
       data: {},
       status: 500,
@@ -47,16 +51,19 @@ describe('fetchOrderListSaga', () => {
     };
 
     return expectSaga(fetchOrderListSaga)
-      .provide([
-        [call(sendFetchOrderListRequest), throwError(errorResponse)],
-        [call(getExceptionCaptured, fetchOrderListSaga, exceptionList.Network, errorResponse)],
-      ])
+      .provide([[call(sendFetchOrderListRequest), errorResponse]])
       .put(fetchOrderListFailure())
-      .run();
+      .run()
+      .then(() => {
+        expect(getExceptionCaptured).toHaveBeenCalledWith(
+          fetchOrderListSaga,
+          exceptionList.Network,
+          errorResponse,
+        );
+      });
   });
 });
 
-// Test for watchFetchOrderListRequest
 describe('watchFetchOrderListRequest', () => {
   it('should take latest fetchOrderListRequest and call fetchOrderListSaga', () => {
     testSaga(watchFetchOrderListRequest)
