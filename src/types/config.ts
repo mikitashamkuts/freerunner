@@ -146,10 +146,8 @@ export type IconSettingsType = {
  * A type representing the parameter list for the root stack navigator.
  *
  * @typedef {Object} RootStackParamList
- * @property {undefined} [routes.OrderListScreen] - The order list screen route.
- * @property {undefined} [routes.OrderDetailScreen] - The order detail screen route.
+ * @property {undefined} [routes.AgendaScreen] - The main schedule displaying screen route.
  */
 export type RootStackParamList = {
-  [routes.OrderListScreen]: undefined;
-  [routes.OrderDetailScreen]: undefined;
+  [routes.AgendaScreen]: undefined;
 };

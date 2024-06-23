@@ -6,8 +6,7 @@ export enum tabs {
 }
 
 export enum routes {
-  OrderListScreen = 'OrderListScreen',
-  OrderDetailScreen = 'OrderDetailScreen',
+  AgendaScreen = 'AgendaScreen',
 }
 
 export enum loadingStatusList {

@@ -9,7 +9,7 @@ import {defaultAnimationDuration, routes} from '../../constants';
 import {backgroundColorList} from '../../design';
 import {getFunctionTryCatchWrapped as tryCatch} from '../../utils';
 
-import {OrderListScreen} from '.';
+import {AgendaScreen} from '.';
 
 // Create the stack navigator
 const ClientStack = createNativeStackNavigator();
@@ -35,7 +35,7 @@ const HomeStack = () => {
   return (
     <ClientStack.Navigator screenOptions={screenOptionsConfig}>
       {/* Define each screen in the stack */}
-      <ClientStack.Screen name={routes.OrderListScreen} component={OrderListScreen} />
+      <ClientStack.Screen name={routes.AgendaScreen} component={AgendaScreen} />
     </ClientStack.Navigator>
   );
 };
