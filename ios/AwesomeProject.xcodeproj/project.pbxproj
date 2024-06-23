@@ -13,9 +13,13 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		1A6BBA6D2C24B00900E43767 /* libRNReactNativeHapticFeedback.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A6BBA6C2C24B00900E43767 /* libRNReactNativeHapticFeedback.a */; };
 		1EEF007DC34988A79327F153 /* libPods-AwesomeProject-AwesomeProjectTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0114B74750E0B0747E762A55 /* libPods-AwesomeProject-AwesomeProjectTests.a */; };
+		40A269531BB44192A8372F87 /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A6A0ECF483A44C45B200B18E /* Inter-Regular.ttf */; };
 		6132EF182BDFF13200BBE14D /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 6132EF172BDFF13200BBE14D /* PrivacyInfo.xcprivacy */; };
+		801D5F2A47C64FE4B607B48C /* Inter-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BE6F840DCDE942BFACEA0AC1 /* Inter-Light.ttf */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		8FBE33F64F9158311AFF2FD6 /* libPods-AwesomeProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DB02928ACF721E4E661B4C12 /* libPods-AwesomeProject.a */; };
+		ABB7DAF5813F4489AB8B94D8 /* Inter-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 486EBDD7F7D74137B38D272C /* Inter-Bold.ttf */; };
+		FBBB3855CDB74F91BB05A6B3 /* Inter-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6C55A0D7E0A6481F9761FD5B /* Inter-SemiBold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,10 +54,14 @@
 		1A6BBA622C24AECA00E43767 /* RNHapticFeedback.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNHapticFeedback.xcodeproj; path = "../node_modules/react-native-haptic-feedback/ios/RNHapticFeedback.xcodeproj"; sourceTree = "<group>"; };
 		1A6BBA6C2C24B00900E43767 /* libRNReactNativeHapticFeedback.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libRNReactNativeHapticFeedback.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EFC90494FB7791EDFA22DAE /* Pods-AwesomeProject-AwesomeProjectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AwesomeProject-AwesomeProjectTests.release.xcconfig"; path = "Target Support Files/Pods-AwesomeProject-AwesomeProjectTests/Pods-AwesomeProject-AwesomeProjectTests.release.xcconfig"; sourceTree = "<group>"; };
+		486EBDD7F7D74137B38D272C /* Inter-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-Bold.ttf"; path = "../assets/fonts/Inter-Bold.ttf"; sourceTree = "<group>"; };
 		6132EF172BDFF13200BBE14D /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = AwesomeProject/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		6A49DE13F71020127151AE4D /* Pods-AwesomeProject-AwesomeProjectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AwesomeProject-AwesomeProjectTests.debug.xcconfig"; path = "Target Support Files/Pods-AwesomeProject-AwesomeProjectTests/Pods-AwesomeProject-AwesomeProjectTests.debug.xcconfig"; sourceTree = "<group>"; };
+		6C55A0D7E0A6481F9761FD5B /* Inter-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-SemiBold.ttf"; path = "../assets/fonts/Inter-SemiBold.ttf"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = AwesomeProject/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8826DAB13BCDEB1419E9A4C2 /* Pods-AwesomeProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AwesomeProject.release.xcconfig"; path = "Target Support Files/Pods-AwesomeProject/Pods-AwesomeProject.release.xcconfig"; sourceTree = "<group>"; };
+		A6A0ECF483A44C45B200B18E /* Inter-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-Regular.ttf"; path = "../assets/fonts/Inter-Regular.ttf"; sourceTree = "<group>"; };
+		BE6F840DCDE942BFACEA0AC1 /* Inter-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-Light.ttf"; path = "../assets/fonts/Inter-Light.ttf"; sourceTree = "<group>"; };
 		D9C80BC7AAEF5FEEC608A19D /* Pods-AwesomeProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AwesomeProject.debug.xcconfig"; path = "Target Support Files/Pods-AwesomeProject/Pods-AwesomeProject.debug.xcconfig"; sourceTree = "<group>"; };
 		DB02928ACF721E4E661B4C12 /* libPods-AwesomeProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AwesomeProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -133,6 +141,10 @@
 		6CD0EA0071654C4D8C994B50 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				486EBDD7F7D74137B38D272C /* Inter-Bold.ttf */,
+				BE6F840DCDE942BFACEA0AC1 /* Inter-Light.ttf */,
+				A6A0ECF483A44C45B200B18E /* Inter-Regular.ttf */,
+				6C55A0D7E0A6481F9761FD5B /* Inter-SemiBold.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -295,6 +307,10 @@
 				6132EF182BDFF13200BBE14D /* PrivacyInfo.xcprivacy in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				ABB7DAF5813F4489AB8B94D8 /* Inter-Bold.ttf in Resources */,
+				801D5F2A47C64FE4B607B48C /* Inter-Light.ttf in Resources */,
+				40A269531BB44192A8372F87 /* Inter-Regular.ttf in Resources */,
+				FBBB3855CDB74F91BB05A6B3 /* Inter-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
