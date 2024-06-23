@@ -1,5 +1,3 @@
-// api/axiosConfig.ts
-
 import {AxiosResponse} from 'axios';
 
 import {axiosInstance} from '..';
