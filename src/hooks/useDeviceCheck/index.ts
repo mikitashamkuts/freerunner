@@ -1,1 +1,1 @@
-export * from './hook';
+export {default as useDeviceCheck} from './hook';

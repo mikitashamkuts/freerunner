@@ -1,24 +1,27 @@
 import {useEffect, useState} from 'react';
-
 import DeviceInfo from 'react-native-device-info';
-import {isDevelopmentEnvironment} from '../../constants';
 
-export const useDeviceCheck = (): {isDeviceApproved: boolean; isDeviceVerifyed: boolean} => {
+import {isDevelopmentEnvironment} from '../../constants';
+import {getFunctionTryCatchWrapped} from '../../utils';
+
+function useDeviceCheck(): {isDeviceApproved: boolean; isDeviceVerified: boolean} {
   const [isDeviceApproved, setIsDeviceApproved] = useState(true);
-  const [isDeviceVerifyed, setIsDeviceVerifyed] = useState(false);
+  const [isDeviceVerified, setIsDeviceVerified] = useState(false);
 
   useEffect(() => {
     const checkDevice = async () => {
-      // execute here all the veerification methods
+      // execute here all the verification methods
       const isEmulator = await DeviceInfo.isEmulator();
       if (isEmulator && !isDevelopmentEnvironment) {
         setIsDeviceApproved(false);
       }
-      setIsDeviceVerifyed(true);
+      setIsDeviceVerified(true);
     };
 
     checkDevice();
   }, []);
 
-  return {isDeviceApproved, isDeviceVerifyed};
-};
+  return {isDeviceApproved, isDeviceVerified};
+}
+
+export default getFunctionTryCatchWrapped(useDeviceCheck);
