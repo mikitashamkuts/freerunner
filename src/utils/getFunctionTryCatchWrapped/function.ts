@@ -9,7 +9,7 @@ import {isDevelopmentEnvironment} from '../../constants';
  * @param {Function} func - The function to wrap.
  * @returns {Function} - The wrapped function with error handling.
  */
-export const getFunctionTryCatchWrapped = (func: any) => {
+const getFunctionTryCatchWrapped = (func: any) => {
   // eslint-disable-next-line @typescript-eslint/no-shadow
   return _.wrap(func, (func, ...args) => {
     try {
@@ -27,3 +27,5 @@ export const getFunctionTryCatchWrapped = (func: any) => {
     }
   });
 };
+
+export default getFunctionTryCatchWrapped;
