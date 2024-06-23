@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StatusBar Component Renders with dark style and matches previous snapshot:  1`] = `null`;
+
+exports[`StatusBar Component Renders with default props and matches previous snapshot:  1`] = `null`;
+
+exports[`StatusBar Component Renders with light style and matches previous snapshot:  1`] = `null`;
