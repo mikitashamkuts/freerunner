@@ -17,12 +17,12 @@ describe('StatusBar Component', () => {
   });
 
   it('Renders with light style and matches previous snapshot: ', () => {
-    const tree = renderer.create(<StatusBar style="light" />).toJSON();
+    const tree = renderer.create(<StatusBar customStyle="light" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it('Renders with dark style and matches previous snapshot: ', () => {
-    const tree = renderer.create(<StatusBar style="dark" />).toJSON();
+    const tree = renderer.create(<StatusBar customStyle="dark" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });

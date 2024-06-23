@@ -1,16 +1,19 @@
 import React, {FC, memo} from 'react';
-import {StatusBar as RNStatusBar} from 'react-native';
+import {StatusBar as RNStatusBar, useColorScheme} from 'react-native';
 
 import {whyDidItRenderConfig} from '../../../debug';
 
 import {Props} from '.';
 
-const StatusBar: FC<Props> = ({style = 'light'}) => {
+const StatusBar: FC<Props> = ({customStyle}) => {
+  const isDarkMode = useColorScheme() === 'dark';
+  const defaultStatusBarStyle = isDarkMode ? 'light' : 'dark';
+
   return (
     <RNStatusBar
       translucent={true}
       animated={true}
-      barStyle={`${style}-content`}
+      barStyle={`${customStyle || defaultStatusBarStyle}-content`}
       backgroundColor="transparent"
     />
   );
