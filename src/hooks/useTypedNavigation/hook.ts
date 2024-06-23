@@ -4,6 +4,10 @@ import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {RootStackParamList} from '../../types';
 import {getFunctionTryCatchWrapped} from '../../utils';
 
+/**
+ * Custom hook to use typed navigation throughout the app.
+ * This ensures that the navigation prop is correctly typed based on the app's root stack parameter list.
+ */
 function useTypedNavigation() {
   return useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 }
