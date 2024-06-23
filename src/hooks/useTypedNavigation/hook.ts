@@ -2,9 +2,10 @@ import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
 import {RootStackParamList} from '../../types';
+import {getFunctionTryCatchWrapped} from '../../utils';
 
-const useTypedNavigation = () => {
+function useTypedNavigation() {
   return useNavigation<NativeStackNavigationProp<RootStackParamList>>();
-};
+}
 
-export default useTypedNavigation;
+export default getFunctionTryCatchWrapped(useTypedNavigation);
