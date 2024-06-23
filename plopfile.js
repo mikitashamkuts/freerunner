@@ -90,22 +90,3 @@ module.exports = plop => {
     ],
   });
 };
-
-/**
- * Detailed Explanation:
- *
- * - **plop.setGenerator('Component', {...})**: Defines a generator named 'Component'.
- *   - **description**: A brief description of what this generator does.
- *   - **prompts**: Questions asked to the user to gather input. In this case, it asks for the component name.
- *   - **actions**: Steps Plop will take to create the component. This includes adding files based on templates and appending an export statement to the `index.ts` file.
- *
- * - **plop.setGenerator('Util', {...})**: Defines a generator named 'Util' for creating utility functions.
- *   - **description**: A brief description of what this generator does.
- *   - **prompts**: Questions asked to the user to gather input. In this case, it asks for the utility function name.
- *   - **actions**: Steps Plop will take to create the utility function. This includes adding files based on templates and appending an export statement to the `index.ts` file.
- *
- * Benefits of Using Plop:
- * - **Consistency**: Ensures that all components and utilities follow the same structure and naming conventions.
- * - **Efficiency**: Automates repetitive tasks, saving time and reducing the chance of errors.
- * - **Scalability**: Easy to add more generators and templates as the project grows.
- */
