@@ -7,20 +7,20 @@ import {exceptionList, isDevelopmentEnvironment} from '../../constants';
  *
  * @param {{name: string}} context - The context where the exception occurred.
  * @param {keyof typeof exceptionList} exception - The exception to be captured.
- * @param {{details?: any}} details is additional details of the captured exeption.
+ * @param {{details?: any}} details is additional details of the captured exception.
  */
 const getExceptionCaptured = (
   context: {name: string},
   exception: keyof typeof exceptionList,
   details?: any,
 ) => {
-  const exeptionData = {place: context?.name, exception, details};
+  const exceptionData = {place: context?.name, exception, details};
   if (isDevelopmentEnvironment) {
-    console.warn('Exception Captured: ', exeptionData);
+    console.warn('Exception Captured: ', exceptionData);
   } else {
-    Sentry?.captureMessage(JSON.stringify(exeptionData));
+    Sentry?.captureMessage(JSON.stringify(exceptionData));
   }
 };
 
-// intentionaly unwrapped in tryCatch in case of occurance the unhadnled error to captured by the extenral handler
+// intentionally unwrapped in tryCatch in case of occurrence the unhandled error to captured by the external handler
 export default getExceptionCaptured;
