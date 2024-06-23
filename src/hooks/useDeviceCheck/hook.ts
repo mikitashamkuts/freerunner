@@ -4,6 +4,9 @@ import DeviceInfo from 'react-native-device-info';
 import {isDevelopmentEnvironment} from '../../constants';
 import {getFunctionTryCatchWrapped} from '../../utils';
 
+/**
+ * Custom hook to check the device's approval and verification status.
+ */
 function useDeviceCheck(): {isDeviceApproved: boolean; isDeviceVerified: boolean} {
   const [isDeviceApproved, setIsDeviceApproved] = useState(true);
   const [isDeviceVerified, setIsDeviceVerified] = useState(false);
