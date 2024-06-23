@@ -18,6 +18,22 @@ module.exports = {
 
     // Disable the max-len rule (line length), allowing lines to exceed 100 characters, but ignoring URLs
     'max-len': [0, 100, 2, {ignoreUrls: true}],
+    'no-restricted-imports': 'off',
+    '@typescript-eslint/no-restricted-imports': [
+      'warn',
+      {
+        name: 'react-redux',
+        importNames: ['useSelector', 'useDispatch'],
+        message:
+          'Use typed hooks `useTypedDispatch` and `useTypedSelector` from src/hooks instead.',
+      },
+      'warn',
+      {
+        name: '@react-navigation/native',
+        importNames: ['useNavigation'],
+        message: 'Use typed hooks `useTypedNavigation` from src/hooks instead.',
+      },
+    ],
   },
 
   // Specifies the environments the code is designed to run in
