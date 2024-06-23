@@ -2,6 +2,7 @@ import React, {FC, memo} from 'react';
 import {StyleSheet, View} from 'react-native';
 import {Path, Svg} from 'react-native-svg';
 
+import {whyDidItRenderConfig} from '../../../debug';
 import {iconColorList, iconList} from '../../design';
 
 import {Props, iconSettings} from '.';
@@ -59,5 +60,7 @@ const Icon: FC<Props> = ({name, color, containerStyle}) => {
     </View>
   );
 };
+
+Icon.whyDidYouRender = whyDidItRenderConfig.UIComponentDebugActive;
 
 export default memo(Icon);
