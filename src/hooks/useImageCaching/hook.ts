@@ -2,15 +2,18 @@ import {useEffect, useState} from 'react';
 
 import {initImageCaching, manageCacheCapacity} from '../../services';
 
+/**
+ * Custom hook to handle image caching initialization and management.
+ */
 export const useImageCaching = () => {
-  const [isIamgeCachingEnabled, setIsEmageCachingEnabled] = useState(false);
+  const [isImageCachingEnabled, setIsImageCachingEnabled] = useState(false);
   const [isImageCachingCapacityManaged, setIsImageCachingCapacityManaged] = useState(false);
 
-  initImageCaching(setIsEmageCachingEnabled);
+  initImageCaching(setIsImageCachingEnabled);
 
   useEffect(() => {
-    isIamgeCachingEnabled && manageCacheCapacity(setIsImageCachingCapacityManaged);
-  }, [isIamgeCachingEnabled]);
+    isImageCachingEnabled && manageCacheCapacity(setIsImageCachingCapacityManaged);
+  }, [isImageCachingEnabled]);
 
-  return {isEnabled: isIamgeCachingEnabled && isImageCachingCapacityManaged};
+  return {isEnabled: isImageCachingEnabled && isImageCachingCapacityManaged};
 };
