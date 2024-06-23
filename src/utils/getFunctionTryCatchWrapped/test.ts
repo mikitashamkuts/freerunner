@@ -1,4 +1,4 @@
-import {getFunctionTryCatchWrapped} from './function';
+import getFunctionTryCatchWrapped from './function';
 
 jest.mock('@sentry/react-native');
 
