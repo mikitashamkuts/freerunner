@@ -13,6 +13,9 @@ const Text: FC<Props> = ({
   color = 'Default',
   containerStyle,
   numberOfLines,
+  accessibilityLabel,
+  accessibilityHint,
+  accessibilityRole = 'text',
 }) => {
   const styles = StyleSheet.create({
     container: {
@@ -23,7 +26,12 @@ const Text: FC<Props> = ({
   });
 
   return (
-    <RNText numberOfLines={numberOfLines} style={[styles.container, containerStyle]}>
+    <RNText
+      accessibilityLabel={accessibilityLabel}
+      accessibilityHint={accessibilityHint}
+      accessibilityRole={accessibilityRole}
+      numberOfLines={numberOfLines}
+      style={[styles.container, containerStyle]}>
       {text}
     </RNText>
   );

@@ -1,5 +1,5 @@
+import {fontFamilyList, fontSizeList, fontWeightList, textColorList} from '../../design';
 import {CustomComponentProps} from '../../types';
-import {fontFamilyList, fontWeightList, fontSizeList, textColorList} from '../../design';
 
 export interface Props extends CustomComponentProps {
   text: string;
@@ -8,4 +8,7 @@ export interface Props extends CustomComponentProps {
   fontSize?: keyof typeof fontSizeList;
   color?: keyof typeof textColorList;
   numberOfLines?: number;
+  accessibilityLabel?: string;
+  accessibilityHint?: string;
+  accessibilityRole?: 'header' | 'text';
 }
