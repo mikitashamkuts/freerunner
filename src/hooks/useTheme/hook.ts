@@ -1,13 +1,15 @@
 // useTheme.ts
 import {useMemo} from 'react';
 import {StyleSheet, useColorScheme} from 'react-native';
+
 import {DefaultStyleSheetStyleType} from '../../types';
+import {getFunctionTryCatchWrapped} from '../../utils';
 
 type StyleSheetStyleObjectType = {
   [key: string]: DefaultStyleSheetStyleType;
 };
 
-const useTheme = (styles: StyleSheetStyleObjectType): StyleSheetStyleObjectType => {
+function useTheme(styles: StyleSheetStyleObjectType): StyleSheetStyleObjectType {
   const theme = useColorScheme();
   const defaultTheme = 'light';
 
@@ -27,6 +29,6 @@ const useTheme = (styles: StyleSheetStyleObjectType): StyleSheetStyleObjectType 
 
     return StyleSheet.create(mergedStyleObject);
   }, [theme, styles]);
-};
+}
 
-export default useTheme;
+export default getFunctionTryCatchWrapped(useTheme);

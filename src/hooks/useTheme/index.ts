@@ -1,1 +1,1 @@
-export * from './hook';
+export {default as useTheme} from './hook';
