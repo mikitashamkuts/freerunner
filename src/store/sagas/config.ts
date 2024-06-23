@@ -1,7 +1,7 @@
-import {all} from 'redux-saga/effects'; // Import 'all' effect from redux-saga to run multiple sagas concurrently
+import {all} from 'redux-saga/effects';
 
 import {getFunctionTryCatchWrapped as tryCatch} from '../../utils';
-import orderListRootSaga from './orderList/saga'; // Import the root saga for order list functionality
+import orderListRootSaga from './orderList/saga';
 
 /**
  * The root saga that combines all other sagas in the application.
