@@ -6,6 +6,7 @@
  */
 
 import React, {useCallback, useEffect, useState} from 'react';
+import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import SplashScreen from 'react-native-splash-screen';
 import {Provider} from 'react-redux';
 import {PersistGate} from 'redux-persist/integration/react';
@@ -70,7 +71,11 @@ function App(): React.JSX.Element {
       {/* PersistGate delays rendering until the persisted state has been retrieved and saved to Redux */}
       <PersistGate loading={null} persistor={persistor} onBeforeLift={handleOnBeforeLift}>
         {/* Main navigation component */}
-        {isAppReady && <Navigation />}
+        {isAppReady && (
+          <GestureHandlerRootView>
+            <Navigation />
+          </GestureHandlerRootView>
+        )}
       </PersistGate>
     </Provider>
   );
