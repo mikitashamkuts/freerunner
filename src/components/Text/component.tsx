@@ -10,7 +10,7 @@ const Text: FC<Props> = ({
   text = '',
   fontWeight = 'Regular',
   fontSize = 'Regular',
-  color = 'Default',
+  color = 'Dark',
   containerStyle,
   numberOfLines,
   accessibilityLabel,
@@ -19,7 +19,7 @@ const Text: FC<Props> = ({
 }) => {
   const styles = StyleSheet.create({
     container: {
-      fontFamily: `${fontFamilyList.TestFoundersGrotesk}-${fontWeightList[fontWeight]}`,
+      fontFamily: `${fontFamilyList.Default}-${fontWeightList[fontWeight]}`,
       fontSize: fontSizeList[fontSize],
       color: textColorList[color],
     },
