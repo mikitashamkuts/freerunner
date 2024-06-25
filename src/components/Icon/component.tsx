@@ -41,19 +41,8 @@ const Icon: FC<Props> = ({name, color, containerStyle}) => {
           fill={color ? iconColorList[color] : iconConfig.settings.color}
         />
         <Path
+          fillRule="evenodd"
           d={iconConfig.paths.d2}
-          fill={color ? iconColorList[color] : iconConfig.settings.color}
-        />
-        <Path
-          d={iconConfig.paths.d3}
-          fill={color ? iconColorList[color] : iconConfig.settings.color}
-        />
-        <Path
-          d={iconConfig.paths.d4}
-          fill={color ? iconColorList[color] : iconConfig.settings.color}
-        />
-        <Path
-          d={iconConfig.paths.d5}
           fill={color ? iconColorList[color] : iconConfig.settings.color}
         />
       </Svg>
