@@ -5,11 +5,11 @@ import {whyDidItRenderConfig} from '../../../debug';
 
 import {iconColorList} from '../../design';
 
-import {Props, styles} from '.';
+import {Props} from '.';
 
 const LoadingIndicator: FC<Props> = ({}) => {
   return (
-    <View style={styles.container}>
+    <View>
       <ActivityIndicator size={'large'} color={iconColorList.Action} />
     </View>
   );
