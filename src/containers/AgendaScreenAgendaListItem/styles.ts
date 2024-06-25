@@ -18,5 +18,7 @@ export const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     flexDirection: 'row',
+    paddingLeft: paddingList.Default,
+    paddingRight: paddingList.Default * 2,
   },
 });

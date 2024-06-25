@@ -1,3 +1,3 @@
-import {CustomComponentProps} from '../../types';
+import {AgendaSlotType, CustomComponentProps} from '../../types';
 
-export interface Props extends CustomComponentProps {}
+export interface Props extends CustomComponentProps, AgendaSlotType {}
