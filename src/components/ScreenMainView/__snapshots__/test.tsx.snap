@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ScreenMainView Component Renders with children and matches snapshot (no animation) :  1`] = `
+<View
+  collapsable={false}
+  style={
+    {
+      "alignItems": "center",
+      "backgroundColor": "white",
+      "flex": 1,
+      "justifyContent": "center",
+      "opacity": 1,
+    }
+  }
+>
+  <Text>
+    Test Child
+  </Text>
+</View>
+`;
+
+exports[`ScreenMainView Component Renders without children and matches snapshot (no animation) :  1`] = `
+<View
+  collapsable={false}
+  style={
+    {
+      "alignItems": "center",
+      "backgroundColor": "white",
+      "flex": 1,
+      "justifyContent": "center",
+      "opacity": 1,
+    }
+  }
+/>
+`;
