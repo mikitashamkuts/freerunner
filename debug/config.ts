@@ -1,4 +1,5 @@
 // Define individual flags to enable or disable the why-did-you-render debugging feature
+export const isWhyDidItRenderEnabled = false;
 const UIComponentWhyDidItRenderDebugActive = true;
 const ScreenComponentWhyDidItRenderDebugActive = true;
 const HolderComponentWhyDidItRenderDebugActive = true;

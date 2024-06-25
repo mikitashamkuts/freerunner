@@ -1,9 +1,10 @@
 import React from 'react';
 
+import {isWhyDidItRenderEnabled} from './debug';
 import {isDevelopmentEnvironment} from './src/constants';
 
 // Only apply `why-did-you-render` in the development environment
-if (isDevelopmentEnvironment) {
+if (isDevelopmentEnvironment && isWhyDidItRenderEnabled) {
   // Dynamically import the `why-did-you-render` library
   const whyDidYouRender = require('@welldone-software/why-did-you-render');
 
