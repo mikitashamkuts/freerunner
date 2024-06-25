@@ -14,6 +14,7 @@ import {
 } from 'redux-persist';
 import createSagaMiddleware from 'redux-saga';
 
+import {isReduxLoggerEnabled} from '../../debug';
 import {isDevelopmentEnvironment} from '../constants';
 import {getFunctionTryCatchWrapped as tryCatch} from '../utils';
 import rootSaga from './sagas/config';
@@ -43,7 +44,7 @@ const sagaMiddleware = tryCatch(function getSagaMiddleware() {
 const middlewareList = [sagaMiddleware];
 
 // Initialize Redux Logger for logging actions and state changes
-if (isDevelopmentEnvironment) {
+if (isDevelopmentEnvironment && isReduxLoggerEnabled) {
   const logger = tryCatch(function getLogger() {
     return createLogger({});
   })();

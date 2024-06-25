@@ -13,3 +13,5 @@ export const whyDidItRenderConfig = {
   // Flag to enable/disable why-did-you-render debugging for holder components
   HolderComponentDebugActive: HolderComponentWhyDidItRenderDebugActive,
 };
+
+export const isReduxLoggerEnabled = false;
