@@ -23,7 +23,7 @@ export const styles = StyleSheet.create({
   daySelectorContainer: {
     paddingHorizontal: paddingList.Default,
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'space-around',
     flex: 1,
   },
   dateTextContainer: {
