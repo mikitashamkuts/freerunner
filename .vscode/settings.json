@@ -2,5 +2,5 @@
   "editor.codeActionsOnSave": {
     "source.organizeImports": "always"
   },
-  "cSpell.words": ["Persistor", "redownloading"]
+  "cSpell.words": ["Persistor", "Pressable", "redownloading"]
 }
