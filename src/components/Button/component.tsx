@@ -7,7 +7,7 @@ import {getFunctionTryCatchWrapped as tryCatch} from '../../utils';
 
 import {Props, styles} from '.';
 
-const Button: FC<Props> = ({onPress, text}) => {
+const Button: FC<Props> = ({onPress, text, accessibilityLabel, accessibilityHint}) => {
   const handleOnPress = useCallback(() => {
     tryCatch(function handleOnPressSafe() {
       onPress?.();
@@ -15,8 +15,12 @@ const Button: FC<Props> = ({onPress, text}) => {
   }, [onPress]);
 
   return (
-    <Pressable onPress={handleOnPress} style={styles.container}>
-      <Text color="Light" text={text} />
+    <Pressable
+      accessibilityLabel={accessibilityLabel}
+      accessibilityHint={accessibilityHint}
+      onPress={handleOnPress}
+      style={styles.container}>
+      <Text numberOfLines={1} color="Light" text={text} />
     </Pressable>
   );
 };
