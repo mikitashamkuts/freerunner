@@ -3,7 +3,7 @@ import {initReactI18next} from 'react-i18next';
 
 import {getFunctionTryCatchWrapped} from '../utils';
 
-import {es} from '.';
+import {en} from '.';
 
 /**
  * Initializes the internationalization (i18n) setup using i18next and react-i18next.
@@ -14,10 +14,10 @@ function initTranslation() {
     .init({
       compatibilityJSON: 'v3', // Ensures compatibility with i18next JSON format version 3
       resources: {
-        es, // Spanish translations
+        en, // Spanish translations
       },
-      lng: 'es', // Default language
-      fallbackLng: 'es', // Fallback language in case the desired language is not available
+      lng: 'en', // Default language
+      fallbackLng: 'en', // Fallback language in case the desired language is not available
       interpolation: {
         escapeValue: false, // React already escapes values to prevent XSS
       },
