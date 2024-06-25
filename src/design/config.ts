@@ -1,63 +1,66 @@
 export enum fontFamilyList {
-  TestFoundersGrotesk = 'TestFoundersGrotesk',
+  Default = 'Inter',
 }
 
 export enum fontWeightList {
-  Regular = 'Regular', // 400
-  Medium = 'Medium', // 500
-  SemiBold = 'SemiBold', // 600
+  Bold = 'Bold',
+  Light = 'Light',
+  Regular = 'Regular',
+  SemiBold = 'SemiBold',
+}
+
+const darkColor = '#000000';
+const lightColor = '#FFFFFF';
+const accentColor = '#FF382B';
+const fadedColor = '#8E8E93';
+
+export enum backgroundColorList {
+  Light = lightColor,
+  Dark = darkColor,
+}
+
+export enum separatorColorList {
+  Light = '#C7C7CC',
+  Dark = '#464649',
+}
+
+export enum separatorWidthList {
+  Default = 1,
+}
+
+export enum barBackgroundColorList {
+  Light = lightColor,
+  Dark = '#28282A',
 }
 
 export enum fontSizeList {
-  Big = 32,
-  Medium = 20,
   Regular = 18,
-  Small = 16,
-}
-
-export enum backgroundColorList {
-  Dark = '#000000',
-  Light = '#FFFFFF',
-  Avatar = '#C4C4C4',
-}
-
-const defaultColor = '#1C1C1C';
-const inversiveColor = '#FFFFFF';
-const accentColor = '#D00000';
-
-export enum textColorList {
-  Default = defaultColor,
-  Inversive = inversiveColor,
-  Accent = accentColor,
-}
-
-export enum ButtonColorList {
-  Default = defaultColor,
-}
-
-export enum iconColorList {
-  Default = defaultColor,
-  Inversive = inversiveColor,
-  Accent = accentColor,
-}
-
-export enum effectsColorList {
-  Shadow = '#0000009C',
-}
-
-export enum borderRadiusList {
-  Default = 24,
-}
-
-export enum paddingList {
-  Default = 24,
+  Small = 10,
 }
 
 export enum iconList {
-  BagXS = 'bag-xs',
-  CheckSmall = 'check-sm',
   Arrow = 'arrow-md',
-  CheckBig = 'check-xl',
-  Lorry = 'lorry-xs',
-  Receipt = 'receipt-xs',
+  Plus = 'plus-md',
+  CalendarChecked = 'calendar-checked-md',
+}
+
+export enum textColorList {
+  Action = accentColor,
+  Faded = fadedColor,
+  Light = lightColor,
+  Dark = darkColor,
+}
+
+export enum iconColorList {
+  Action = accentColor,
+  Faded = fadedColor,
+}
+
+export enum paddingList {
+  Default = 20,
+  Small = 10,
+}
+
+export enum ButtonColorList {
+  Action = accentColor,
 }
