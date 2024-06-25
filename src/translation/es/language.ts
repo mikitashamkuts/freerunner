@@ -2,12 +2,29 @@ import {TranslationType} from '../../types';
 
 export const es: TranslationType = {
   translation: {
-    orderListScreen: {
-      screenHeaderHolder: {
-        screenHeaderTitle: {
+    agendaScreen: {
+      footer: {
+        todayButton: {
           text: '',
           accessibilityLabel: '',
           accessibilityHint: '',
+        },
+        filterButton: {
+          all: {
+            text: '',
+            accessibilityLabel: '',
+            accessibilityHint: '',
+          },
+          booked: {
+            text: '',
+            accessibilityLabel: '',
+            accessibilityHint: '',
+          },
+          available: {
+            text: '',
+            accessibilityLabel: '',
+            accessibilityHint: '',
+          },
         },
       },
     },
