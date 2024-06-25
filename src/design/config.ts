@@ -19,6 +19,11 @@ export enum backgroundColorList {
   Dark = darkColor,
 }
 
+export enum overlayColorList {
+  Light = lightColor,
+  Dark = '#1C1C1E',
+}
+
 export enum separatorColorList {
   Light = '#C7C7CC',
   Dark = '#464649',
