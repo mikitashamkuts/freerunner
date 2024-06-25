@@ -1,6 +1,19 @@
 import {ReactNode} from 'react';
 import {ImageStyle, TextStyle, ViewStyle} from 'react-native/types';
-import {loadingStatusList, routes} from '../constants';
+
+import {routes} from '../constants';
+import {AgendaSlotListStateType} from '../store';
+
+export type AgendaSlotStartType = string;
+export type AgendaSlotEndType = string;
+export type AgendaSlotIsTakenType = boolean;
+export interface AgendaSlotType {
+  Start: AgendaSlotStartType;
+  End: AgendaSlotEndType;
+  Taken?: AgendaSlotIsTakenType;
+}
+
+export type AgendaSlotListType = AgendaSlotType[];
 
 /**
  * Combined style sheet type options.
@@ -48,58 +61,17 @@ type TranslationValueType = {
  */
 export type TranslationType = {
   translation: {
-    orderListScreen: {
-      screenHeaderHolder: {
-        screenHeaderTitle: TranslationValueType;
+    agendaScreen: {
+      footer: {
+        todayButton: TranslationValueType;
+        filterButton: {
+          all: TranslationValueType;
+          booked: TranslationValueType;
+          available: TranslationValueType;
+        };
       };
     };
   };
-};
-
-/**
- * A type representing an order ID.
- * @typedef {string} OrderIdType
- */
-export type OrderIdType = string;
-
-/**
- * A type representing an order merchant name.
- * @typedef {string} OrderMerchantNameType
- */
-export type OrderMerchantNameType = string;
-
-/**
- * Interface representing an order.
- *
- * @interface OrderType
- * @property {OrderIdType} id - The ID of the order.
- * @property {OrderMerchantNameType} merchantName - The name of the merchant.
- */
-export interface OrderType {
-  id: OrderIdType;
-  merchantName: OrderMerchantNameType;
-}
-
-/**
- * A type representing the state of the order list.
- *
- * @typedef {Object} OrderListStateType
- * @property {OrderType[]} list - The list of orders.
- * @property {keyof typeof loadingStatusList} status - The loading status of the order list.
- */
-export type OrderListStateType = {
-  list: OrderType[];
-  status: keyof typeof loadingStatusList;
-};
-
-/**
- * A type representing the state of a single order.
- *
- * @typedef {Object} OrderStateType
- * @property {OrderType} order - The order object.
- */
-export type OrderStateType = {
-  order: OrderType;
 };
 
 /**
@@ -110,8 +82,7 @@ export type OrderStateType = {
  * @property {OrderStateType} order - The state of a single order.
  */
 export type GlobalStateType = {
-  orderList: OrderListStateType;
-  order: OrderStateType;
+  agendaSlotList: AgendaSlotListStateType;
 };
 
 /**
