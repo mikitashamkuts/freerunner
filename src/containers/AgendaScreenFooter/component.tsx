@@ -43,12 +43,14 @@ const AgendaScreenFooter: FC<Props> = ({config}) => {
   return (
     <View style={[themedStyles.container, dynamicStyles.container]}>
       <Pressable
+        hitSlop={5}
         accessibilityLabel={t('agendaScreen.footer.todayButton.accessibilityLabel')}
         accessibilityHint={t('agendaScreen.footer.todayButton.accessibilityHint')}
         style={themedStyles.buttonContainer}>
         <Text color="Action" text={t('agendaScreen.footer.todayButton.text')} />
       </Pressable>
       <Pressable
+        hitSlop={5}
         accessibilityLabel={t(
           `agendaScreen.footer.filterButton.${filterOptionSequence[filterOptionIndex]}.accessibilityLabel`,
         )}

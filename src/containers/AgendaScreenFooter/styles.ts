@@ -23,5 +23,7 @@ export const styles = StyleSheet.create({
   },
   buttonContainer: {
     paddingVertical: paddingList.Default,
+    alignItems: 'center',
+    minWidth: 44,
   },
 });
