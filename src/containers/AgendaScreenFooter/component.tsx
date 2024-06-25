@@ -5,10 +5,11 @@ import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
 import {whyDidItRenderConfig} from '../../../debug';
 import {Text} from '../../components';
-import {useTheme} from '../../hooks';
-import {getFunctionTryCatchWrapped as tryCatch} from '../../utils';
+import {useTheme, useTypedDispatch} from '../../hooks';
+import {getHapticFeedbackTriggered, getFunctionTryCatchWrapped as tryCatch} from '../../utils';
 
 import {Props, styles} from '.';
+import {hapticFeedbackModeList} from '../../constants';
 
 const filterOptionSequence = ['all', 'booked', 'available'];
 
@@ -17,6 +18,7 @@ const AgendaScreenFooter: FC<Props> = ({config}) => {
   const insets = useSafeAreaInsets();
   const {t} = useTranslation();
 
+  const dispatch = useTypedDispatch();
   const themedStyles = useTheme(styles);
 
   const {setAgendaSlotListFilter} = config;
@@ -31,6 +33,7 @@ const AgendaScreenFooter: FC<Props> = ({config}) => {
         setAgendaSlotListFilter(filterOptionSequence[shift]);
         setFilterOptionIndex(shift);
       }
+      getHapticFeedbackTriggered(hapticFeedbackModeList.Default);
     })();
   }, [filterOptionIndex, setAgendaSlotListFilter]);
 
@@ -46,7 +49,12 @@ const AgendaScreenFooter: FC<Props> = ({config}) => {
         hitSlop={5}
         accessibilityLabel={t('agendaScreen.footer.todayButton.accessibilityLabel')}
         accessibilityHint={t('agendaScreen.footer.todayButton.accessibilityHint')}
-        style={themedStyles.buttonContainer}>
+        style={themedStyles.buttonContainer}
+        onPress={() => {
+          console.log('not implemented yet functionality');
+          //  dispatch(fetchAgendaSlotListRequest(0));
+          getHapticFeedbackTriggered(hapticFeedbackModeList.Default);
+        }}>
         <Text color="Action" text={t('agendaScreen.footer.todayButton.text')} />
       </Pressable>
       <Pressable
