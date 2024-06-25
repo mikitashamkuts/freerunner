@@ -70,6 +70,13 @@ export type TranslationType = {
           available: TranslationValueType;
         };
       };
+      selectedSlot: {
+        bottomSheet: {
+          fromDate: TranslationValueType;
+          untilDate: TranslationValueType;
+          bookButton: TranslationValueType;
+        };
+      };
     };
   };
 };
