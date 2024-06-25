@@ -1,2 +1,2 @@
+export * from './agendaSlotList';
 export * from './config';
-export * from './orderList';

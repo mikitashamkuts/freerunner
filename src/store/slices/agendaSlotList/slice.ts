@@ -1,33 +1,32 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 
 import {loadingStatusList} from '../../../constants';
-import {OrderType} from '../../../types';
+import {AgendaSlotListType} from '../../../types';
 import {getFunctionTryCatchWrapped as tryCatch} from '../../../utils';
 
 // Define the shape of the state
-interface OrderListStateType {
-  list: OrderType[];
+export interface AgendaSlotListStateType {
+  list: AgendaSlotListType;
   status: keyof typeof loadingStatusList;
 }
 
-// Initial state of the order list
-const initialState: OrderListStateType = {
+// Initial state of the agenda slot list
+const initialState: AgendaSlotListStateType = {
   list: [],
   status: loadingStatusList.Success,
 };
 
-// Create a slice for orders with actions and reducers
-const orderListSlice = tryCatch(function getOrderListSlice() {
+const agendaSlotListSlice = tryCatch(function getAgendaSlotListSlice() {
   return createSlice({
-    name: 'orderList',
+    name: 'agendaSlotList',
     initialState,
     reducers: {
       /**
        * Sets the loading status when the fetch order list request is initiated.
        * @param state - Current state of the order list.
        */
-      fetchOrderListRequest(state) {
-        tryCatch(function fetchOrderListRequestSafe() {
+      fetchAgendaSlotListRequest(state) {
+        tryCatch(function fetchAgendaSlotListRequestSafe() {
           state.status = loadingStatusList.Loading;
         })();
       },
@@ -36,8 +35,8 @@ const orderListSlice = tryCatch(function getOrderListSlice() {
        * @param state - Current state of the order list.
        * @param action - Action containing the payload with the list of orders.
        */
-      fetchOrderListSuccess(state, action: PayloadAction<OrderType[]>) {
-        tryCatch(function fetchOrderListSuccessSafe() {
+      fetchAgendaSlotListSuccess(state, action: PayloadAction<AgendaSlotListType>) {
+        tryCatch(function fetchAgendaSlotListSuccessSafe() {
           state.list = action.payload;
           state.status = loadingStatusList.Success;
         })();
@@ -46,8 +45,8 @@ const orderListSlice = tryCatch(function getOrderListSlice() {
        * Sets the error status when the fetch order list request fails.
        * @param state - Current state of the order list.
        */
-      fetchOrderListFailure(state) {
-        tryCatch(function fetchOrderListFailureSafe() {
+      fetchAgendaSlotListFailure(state) {
+        tryCatch(function fetchAgendaSlotListFailureSafe() {
           state.status = loadingStatusList.Error;
         })();
       },
@@ -56,8 +55,8 @@ const orderListSlice = tryCatch(function getOrderListSlice() {
 })();
 
 // Export actions to be used in components and sagas
-export const {fetchOrderListRequest, fetchOrderListSuccess, fetchOrderListFailure} =
-  orderListSlice.actions;
+export const {fetchAgendaSlotListRequest, fetchAgendaSlotListSuccess, fetchAgendaSlotListFailure} =
+  agendaSlotListSlice.actions;
 
 // Export the reducer to be used in the store
-export default orderListSlice.reducer;
+export default agendaSlotListSlice.reducer;

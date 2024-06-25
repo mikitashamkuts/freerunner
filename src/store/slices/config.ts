@@ -1,6 +1,6 @@
 // Define the structure of the global state
-import orderListReducer from './orderList/slice';
+import agendaSlotListReducer from './agendaSlotList/slice';
 
 export const stateStructure = {
-  orderList: orderListReducer,
+  agendaSlotList: agendaSlotListReducer,
 };
