@@ -11,7 +11,7 @@ import {
   fetchOrderListFailure,
   fetchOrderListRequest,
   fetchOrderListSuccess,
-} from '../../slices/orderList';
+} from '../../slices/agendaSlotList';
 
 import {fetchOrderListSaga, watchFetchOrderListRequest} from '.';
 

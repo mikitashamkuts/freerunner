@@ -1,7 +1,7 @@
 import {all} from 'redux-saga/effects';
 
 import {getFunctionTryCatchWrapped as tryCatch} from '../../utils';
-import orderListRootSaga from './orderList/saga';
+import agendaSlotListRootSaga from './agendaSlotList/saga';
 
 /**
  * The root saga that combines all other sagas in the application.
@@ -12,7 +12,7 @@ import orderListRootSaga from './orderList/saga';
 export default tryCatch(function getRootSaga() {
   return function* rootSaga() {
     yield all([
-      orderListRootSaga(), // Combine the order list root saga
+      agendaSlotListRootSaga(), // Combine the order list root saga
     ]);
   };
 })();
