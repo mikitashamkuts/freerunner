@@ -1,4 +1,4 @@
-import React, {FC, memo, useCallback} from 'react';
+import React, {FC, memo, useCallback, useMemo} from 'react';
 import {Pressable, useColorScheme} from 'react-native';
 
 import {whyDidItRenderConfig} from '../../../debug';
@@ -17,6 +17,12 @@ const DayLetterWithNumberActionColumn: FC<Props> = ({isActive, dayLetter, dayNum
     })();
   }, [onPress]);
 
+  const dayNumberTextColor = useMemo(() => {
+    return tryCatch(function getDayNumberTextColor() {
+      return (isActive && 'Light') || isDarkMode ? 'Light' : 'Dark';
+    })();
+  }, [isActive, isDarkMode]);
+
   return (
     <Pressable onPress={handleOnPress} style={styles.container}>
       <DayLetterText text={dayLetter} containerStyle={styles.dayLetterTextContainer} />
@@ -26,7 +32,7 @@ const DayLetterWithNumberActionColumn: FC<Props> = ({isActive, dayLetter, dayNum
           styles.dayNumberTextContainer,
           isActive ? styles.dayNumberTextContainerActive : {},
         ]}
-        color={(isActive && 'Light') || isDarkMode ? 'Light' : 'Dark'}
+        color={dayNumberTextColor}
       />
     </Pressable>
   );
