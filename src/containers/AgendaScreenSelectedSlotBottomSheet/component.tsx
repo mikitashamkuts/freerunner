@@ -8,7 +8,11 @@ import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {Button, Text} from '../../components';
 import {paddingList} from '../../design';
 import {useTheme} from '../../hooks';
-import {getHapticFeedbackTriggered, getFunctionTryCatchWrapped as tryCatch} from '../../utils';
+import {
+  getHapticFeedbackTriggered,
+  getSymbolLimitedText,
+  getFunctionTryCatchWrapped as tryCatch,
+} from '../../utils';
 
 import {Props, styles} from '.';
 import {whyDidItRenderConfig} from '../../../debug';
@@ -64,7 +68,7 @@ const AgendaScreenSelectedSlotBottomSheet: FC<Props> = ({config}) => {
       <View style={[themedStyles.contentContainer, dynamicStyles.contentContainer]}>
         <View>
           <Text
-            numberOfLines={1}
+            numberOfLines={2}
             color="Faded"
             containerStyle={themedStyles.dateContainer}
             text={agendaSlot?.Start && format(new Date(agendaSlot.Start), 'eeee, MMMM do, yyyy')}
@@ -82,7 +86,10 @@ const AgendaScreenSelectedSlotBottomSheet: FC<Props> = ({config}) => {
             <Text
               numberOfLines={1}
               color={isDarkMode ? 'Light' : 'Dark'}
-              text={agendaSlot?.Start && format(new Date(agendaSlot.Start), 'h:mm a')}
+              text={getSymbolLimitedText(
+                agendaSlot?.Start && format(new Date(agendaSlot.Start), 'h:mm a'),
+                9,
+              )}
             />
           </View>
           <View style={themedStyles.textWrapperContainer}>
@@ -99,7 +106,10 @@ const AgendaScreenSelectedSlotBottomSheet: FC<Props> = ({config}) => {
               numberOfLines={1}
               color={isDarkMode ? 'Light' : 'Dark'}
               fontSize="Regular"
-              text={agendaSlot?.End && format(new Date(agendaSlot.End), ' h:mm a')}
+              text={
+                agendaSlot?.End &&
+                getSymbolLimitedText(format(new Date(agendaSlot.End), ' h:mm a'), 9)
+              }
             />
           </View>
         </View>
