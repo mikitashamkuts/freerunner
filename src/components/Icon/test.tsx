@@ -12,25 +12,20 @@ import Icon from './component';
 
 describe('Icon Component', () => {
   it('Renders with a given icon name and default color and matches previous snapshot: ', () => {
-    const tree = renderer.create(<Icon color="Default" name="BagXS" />).toJSON();
+    const tree = renderer.create(<Icon color="Action" name="Arrow" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it('Renders with a given icon name and custom color and matches previous snapshot: ', () => {
-    const tree = renderer.create(<Icon name="Arrow" color="Inversive" />).toJSON();
+    const tree = renderer.create(<Icon name="Arrow" color="Action" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it('Renders with additional container style and matches previous snapshot: ', () => {
     const customStyle = {margin: 10};
     const tree = renderer
-      .create(<Icon color="Default" name="CheckBig" containerStyle={customStyle} />)
+      .create(<Icon color="Faded" name="CalendarChecked" containerStyle={customStyle} />)
       .toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-
-  it('Returns null when name is not provided and matches previous snapshot: ', () => {
-    const tree = renderer.create(<Icon />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });

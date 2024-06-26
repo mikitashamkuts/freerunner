@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoadingIndicator Component Renders with custom props and matches previous snapshot:  1`] = `
+<View>
+  <ActivityIndicator
+    color="#FF382B"
+    size="large"
+  />
+</View>
+`;
+
+exports[`LoadingIndicator Component Renders with default props and matches previous snapshot:  1`] = `
+<View>
+  <ActivityIndicator
+    color="#FF382B"
+    size="large"
+  />
+</View>
+`;

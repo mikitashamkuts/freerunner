@@ -7,12 +7,39 @@ import 'react-native';
 import renderer from 'react-test-renderer';
 // Note: import explicitly to use the types shipped with jest.
 import {it} from '@jest/globals';
+
 import {default as Button} from './component';
 
-it('Renders correctly: ', () => {
-  renderer.create(<Button />);
-});
+describe('Button Component', () => {
+  it('Renders with default props and matches previous snapshot: ', () => {
+    expect(
+      renderer
+        .create(
+          <Button
+            onPress={function (): void {}}
+            text={'Button Title'}
+            accessibilityLabel={''}
+            accessibilityHint={''}
+          />,
+        )
+        .toJSON(),
+    ).toMatchSnapshot();
+  });
 
-it('Matches previous snapshot: ', () => {
-  expect(renderer.create(<Button />).toJSON()).toMatchSnapshot();
+  it('Renders with custom props and matches previous snapshot: ', () => {
+    expect(
+      renderer
+        .create(
+          <Button
+            onPress={function (): void {}}
+            text={'Button Title'}
+            accessibilityLabel={''}
+            accessibilityHint={''}
+            // eslint-disable-next-line react-native/no-inline-styles
+            containerStyle={{margin: 20}}
+          />,
+        )
+        .toJSON(),
+    ).toMatchSnapshot();
+  });
 });

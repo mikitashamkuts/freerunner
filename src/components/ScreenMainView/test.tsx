@@ -9,6 +9,7 @@ import renderer from 'react-test-renderer';
 import {it} from '@jest/globals';
 import React from 'react';
 import {Text} from 'react-native';
+
 import ScreenMainView from './component';
 
 // Mock the useTheme hook to return a static style

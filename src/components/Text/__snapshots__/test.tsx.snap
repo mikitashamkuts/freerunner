@@ -5,13 +5,13 @@ exports[`Text Component Renders with custom props and matches previous snapshot:
   accessibilityHint="Custom Hint"
   accessibilityLabel="Custom Label"
   accessibilityRole="header"
-  numberOfLines={1}
+  numberOfLines={2}
   style={
     [
       {
-        "color": undefined,
-        "fontFamily": "undefined-Bold",
-        "fontSize": undefined,
+        "color": "#000000",
+        "fontFamily": "Inter-Bold",
+        "fontSize": 10,
       },
       {
         "margin": 10,
@@ -19,7 +19,7 @@ exports[`Text Component Renders with custom props and matches previous snapshot:
     ]
   }
 >
-  Custom Text
+  Test
 </Text>
 `;
 
@@ -29,8 +29,8 @@ exports[`Text Component Renders with default props and matches previous snapshot
   style={
     [
       {
-        "color": "#1C1C1C",
-        "fontFamily": "undefined-Regular",
+        "color": "#000000",
+        "fontFamily": "Inter-Regular",
         "fontSize": 18,
       },
       undefined,

@@ -17,18 +17,21 @@ describe('Text Component', () => {
   });
 
   it('Renders with custom props and matches previous snapshot: ', () => {
-    const customProps = {
-      text: 'Custom Text',
-      fontWeight: 'Bold',
-      fontSize: 'Large',
-      color: 'Primary',
-      numberOfLines: 1,
-      accessibilityLabel: 'Custom Label',
-      accessibilityHint: 'Custom Hint',
-      accessibilityRole: 'header',
-      containerStyle: {margin: 10},
-    };
-    const tree = renderer.create(<Text {...customProps} />).toJSON();
+    const tree = renderer
+      .create(
+        <Text
+          fontSize="Small"
+          fontWeight="Bold"
+          text="Test"
+          accessibilityLabel="Custom Label"
+          accessibilityHint="Custom Hint"
+          accessibilityRole="header"
+          numberOfLines={2}
+          // eslint-disable-next-line react-native/no-inline-styles
+          containerStyle={{margin: 10}}
+        />,
+      )
+      .toJSON();
     expect(tree).toMatchSnapshot();
   });
 });
