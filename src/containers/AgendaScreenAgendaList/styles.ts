@@ -1,7 +1,11 @@
 import {StyleSheet} from 'react-native';
+import {paddingList} from '../../design';
 
 export const styles = StyleSheet.create({
   container: {
-   // paddingVertical: 20,
+    flex: 1,
+  },
+  contentContainer: {
+    paddingTop: paddingList.Small,
   },
 });
