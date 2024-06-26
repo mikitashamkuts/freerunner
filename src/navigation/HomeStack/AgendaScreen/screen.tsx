@@ -78,7 +78,6 @@ const AgendaScreen: FC = () => {
         setSelectedWeekShift,
         uniqueDayList: uniqueQayList,
         uniqueSelectedDay: uniqueQayList[selectedDay],
-        isPreviousToSelectedWeekDateAvailable: true,
         setSelectedDay,
         handleAddSlotToBookedAgendaSlotList,
       };
