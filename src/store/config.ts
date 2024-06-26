@@ -25,6 +25,7 @@ const persistConfig = {
   key: 'root',
   storage: AsyncStorage,
   version: 1,
+  whitelist: ['agendaSlotList'],
 };
 
 // Combine the reducers to create the root reducer
