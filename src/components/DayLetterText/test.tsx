@@ -7,7 +7,7 @@ import 'react-native';
 import renderer from 'react-test-renderer';
 // Note: import explicitly to use the types shipped with jest.
 import {it} from '@jest/globals';
-import {default as DayLetterText } from './component';
+import {default as DayLetterText} from './component';
 
 it('Renders correctly: ', () => {
   renderer.create(<DayLetterText />);

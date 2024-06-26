@@ -7,7 +7,7 @@ import 'react-native';
 import renderer from 'react-test-renderer';
 // Note: import explicitly to use the types shipped with jest.
 import {it} from '@jest/globals';
-import {default as ActionText } from './component';
+import {default as ActionText} from './component';
 
 it('Renders correctly: ', () => {
   renderer.create(<ActionText />);
