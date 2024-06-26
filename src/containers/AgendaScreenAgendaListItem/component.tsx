@@ -1,3 +1,4 @@
+import {format} from 'date-fns';
 import React, {FC, memo, useCallback} from 'react';
 import {Pressable, View} from 'react-native';
 
@@ -5,7 +6,11 @@ import {whyDidItRenderConfig} from '../../../debug';
 import {AgendaRowTimeText, Icon} from '../../components';
 import {hapticFeedbackModeList} from '../../constants';
 import {useTheme} from '../../hooks';
-import {getHapticFeedbackTriggered, getFunctionTryCatchWrapped as tryCatch} from '../../utils';
+import {
+  getHapticFeedbackTriggered,
+  getSymbolLimitedText,
+  getFunctionTryCatchWrapped as tryCatch,
+} from '../../utils';
 
 import {Props, styles} from '.';
 
@@ -26,7 +31,7 @@ const AgendaScreenAgendaListItem: FC<Props> = item => {
   return (
     <Pressable onPress={handleOnPress} style={themedStyles.container}>
       <View style={themedStyles.contentContainer}>
-        <AgendaRowTimeText text={Start.slice(11).slice(0, 5)} />
+        <AgendaRowTimeText text={getSymbolLimitedText(format(new Date(Start), 'h:mm a'), 9)} />
         <Icon color={Taken ? 'Faded' : 'Action'} name={Taken ? 'CalendarChecked' : 'Plus'} />
       </View>
     </Pressable>
