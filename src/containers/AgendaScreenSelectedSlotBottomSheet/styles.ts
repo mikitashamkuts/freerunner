@@ -37,4 +37,8 @@ export const styles = StyleSheet.create({
   dateContainer: {
     paddingBottom: paddingList.Small,
   },
+  reservedSLotTextContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 });

@@ -1,11 +1,10 @@
 import BottomSheet, {BottomSheetBackdrop} from '@gorhom/bottom-sheet';
 import {format} from 'date-fns';
-import React, {FC, memo, useCallback} from 'react';
+import React, {FC, memo, useCallback, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import {StyleSheet, View, useColorScheme} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
-import {whyDidItRenderConfig} from '../../../debug';
 import {Button, Text} from '../../components';
 import {hapticFeedbackModeList} from '../../constants';
 import {paddingList} from '../../design';
@@ -13,15 +12,17 @@ import {useTheme} from '../../hooks';
 import {getHapticFeedbackTriggered, getFunctionTryCatchWrapped as tryCatch} from '../../utils';
 
 import {Props, styles} from '.';
+import {whyDidItRenderConfig} from '../../../debug';
 
 const AgendaScreenSelectedSlotBottomSheet: FC<Props> = ({config}) => {
   const insets = useSafeAreaInsets();
   const {t} = useTranslation();
   const isDarkMode = useColorScheme() === 'dark';
+  const [isBookedButtonPressed, setIsBookedButtonPressed] = useState(false);
 
   const themedStyles = useTheme(styles);
 
-  const {setIsBottomSheetShown, agendaSlot} = config;
+  const {setIsBottomSheetShown, agendaSlot, handleAddSlotToBookedAgendaSlotList} = config;
 
   const renderBackdrop = useCallback(
     (props: any) => (
@@ -93,19 +94,33 @@ const AgendaScreenSelectedSlotBottomSheet: FC<Props> = ({config}) => {
             />
           </View>
         </View>
-        <Button
-          onPress={() => {
-            console.log('not implemented yet functionality');
-            getHapticFeedbackTriggered(hapticFeedbackModeList.Default);
-          }}
-          text={t('agendaScreen.selectedSlot.bottomSheet.bookButton.text')}
-          accessibilityLabel={t(
-            'agendaScreen.selectedSlot.bottomSheet.bookButton.accessibilityLabel',
-          )}
-          accessibilityHint={t(
-            'agendaScreen.selectedSlot.bottomSheet.bookButton.accessibilityHint',
-          )}
-        />
+        {!isBookedButtonPressed ? (
+          <Button
+            onPress={() => {
+              agendaSlot &&
+                handleAddSlotToBookedAgendaSlotList({End: agendaSlot.End, Start: agendaSlot.Start});
+              setIsBookedButtonPressed(true);
+              getHapticFeedbackTriggered(hapticFeedbackModeList.Default);
+            }}
+            text={t('agendaScreen.selectedSlot.bottomSheet.bookButton.text')}
+            accessibilityLabel={t(
+              'agendaScreen.selectedSlot.bottomSheet.bookButton.accessibilityLabel',
+            )}
+            accessibilityHint={t(
+              'agendaScreen.selectedSlot.bottomSheet.bookButton.accessibilityHint',
+            )}
+          />
+        ) : (
+          <View style={themedStyles.reservedSLotTextContainer}>
+            <Text
+              color="Faded"
+              text={t('agendaScreen.selectedSlot.bottomSheet.reservedSlot.text')}
+              accessibilityLabel={t(
+                'agendaScreen.selectedSlot.bottomSheet.reservedSlot.accessibilityLabel',
+              )}
+            />
+          </View>
+        )}
       </View>
     </BottomSheet>
   );
