@@ -5,7 +5,7 @@ import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
 import {whyDidItRenderConfig} from '../../../debug';
 import {Text} from '../../components';
-import {useTheme, useTypedDispatch} from '../../hooks';
+import {useTheme} from '../../hooks';
 import {getHapticFeedbackTriggered, getFunctionTryCatchWrapped as tryCatch} from '../../utils';
 
 import {Props, styles} from '.';
@@ -18,7 +18,6 @@ const AgendaScreenFooter: FC<Props> = ({config}) => {
   const insets = useSafeAreaInsets();
   const {t} = useTranslation();
 
-  const dispatch = useTypedDispatch();
   const themedStyles = useTheme(styles);
 
   const {setAgendaSlotListFilter} = config;
@@ -52,7 +51,6 @@ const AgendaScreenFooter: FC<Props> = ({config}) => {
         style={themedStyles.buttonContainer}
         onPress={() => {
           console.log('not implemented yet functionality');
-          //  dispatch(fetchAgendaSlotListRequest(0));
           getHapticFeedbackTriggered(hapticFeedbackModeList.Default);
         }}>
         <Text color="Action" text={t('agendaScreen.footer.todayButton.text')} />
