@@ -52,6 +52,7 @@ const AgendaScreenHeader: FC<Props> = ({config}) => {
     (index: number) => {
       return tryCatch(function handleOnPressDayLetterWithNumberActionColumnSafe() {
         return () => {
+          getHapticFeedbackTriggered(hapticFeedbackModeList.Default);
           setSelectedDay(index);
         };
       })();
