@@ -44,6 +44,11 @@ export const en: TranslationType = {
             accessibilityLabel: 'Button to reserve the selected time slot',
             accessibilityHint: 'Press it to reserve the selected time slot',
           },
+          reservedSlot: {
+            text: 'Reserved',
+            accessibilityLabel: 'The selected shot has been successfully reserved',
+            accessibilityHint: '',
+          },
         },
       },
     },

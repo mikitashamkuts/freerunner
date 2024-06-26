@@ -75,6 +75,7 @@ export type TranslationType = {
           fromDate: TranslationValueType;
           untilDate: TranslationValueType;
           bookButton: TranslationValueType;
+          reservedSlot: TranslationValueType;
         };
       };
     };
