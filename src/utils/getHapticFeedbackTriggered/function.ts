@@ -9,7 +9,7 @@ import {getFunctionTryCatchWrapped} from '../getFunctionTryCatchWrapped';
  *
  * @param {keyof typeof HapticFeedbackTypes} [hapticFeedbackMode] - The haptic feedback mode to trigger. Defaults to a specified default mode if not provided.
  */
-function getHapticFeedbackTriggered(hapticFeedbackMode?: keyof typeof HapticFeedbackTypes) {
+function getHapticFeedbackTriggered(hapticFeedbackMode: keyof typeof HapticFeedbackTypes) {
   if (trigger && hapticFeedbackMode) {
     trigger(hapticFeedbackMode || hapticFeedbackModeList.Default);
   } else {
