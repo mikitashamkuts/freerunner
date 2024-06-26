@@ -36,6 +36,13 @@ const AgendaScreenFooter: FC<Props> = ({config}) => {
     })();
   }, [filterOptionIndex, setAgendaSlotListFilter]);
 
+  const handleOnTodayButtonPress = useCallback(() => {
+    tryCatch(function handleOnTodayButtonPressSafe() {
+      console.log('not implemented yet functionality');
+      getHapticFeedbackTriggered(hapticFeedbackModeList.Default);
+    })();
+  }, []);
+
   const dynamicStyles = StyleSheet.create({
     container: {
       paddingBottom: insets.bottom,
@@ -49,10 +56,7 @@ const AgendaScreenFooter: FC<Props> = ({config}) => {
         accessibilityLabel={t('agendaScreen.footer.todayButton.accessibilityLabel')}
         accessibilityHint={t('agendaScreen.footer.todayButton.accessibilityHint')}
         style={themedStyles.buttonContainer}
-        onPress={() => {
-          console.log('not implemented yet functionality');
-          getHapticFeedbackTriggered(hapticFeedbackModeList.Default);
-        }}>
+        onPress={handleOnTodayButtonPress}>
         <Text color="Action" text={t('agendaScreen.footer.todayButton.text')} />
       </Pressable>
       <Pressable
