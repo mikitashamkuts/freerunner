@@ -1,3 +1,5 @@
+import {exceptionList} from '../../constants';
+import {getExceptionCaptured} from '../getExceptionCaptured';
 import {getFunctionTryCatchWrapped} from '../getFunctionTryCatchWrapped';
 
 /**
@@ -11,6 +13,7 @@ function getSymbolLimitedText(text: string, limit: number) {
   if (!!text && typeof text === 'string') {
     return text.length <= limit ? text : `${text.substring(0, limit - 3)}...`;
   }
+  getExceptionCaptured(getSymbolLimitedText, exceptionList.InvalidParam);
   return '';
 }
 
