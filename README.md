@@ -1,10 +1,10 @@
 # dp-tech-task-mikita
+
 This is my Docplanner Task, which itself is [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli) and enjected with several friquently used tools.
 
 # Getting Started
 
 > **Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
-
 
 ## Step 1: Install JS Dependencies
 
@@ -53,7 +53,8 @@ yarn android
 ```
 
 ### in case android building issue of sdk context:
-in android folder create a file with the name: local.properties 
+
+in android folder create a file with the name: local.properties
 in that file put the following content: sdk.dir = /Users/userName/Library/Android/sdk
 substitute userName with your's PC profile name
 
@@ -65,7 +66,9 @@ yarn ios
 ```
 
 ### in case ios building issue of hermes & pod context:
+
 execute the following list of commands
+
 ```
 cd ios
 rm -rf ~/Library/Caches/CocoaPods
@@ -80,7 +83,9 @@ pod deintegrate
 pod setup
 pod install
 ```
+
 ### in case ios building issue of haptic feedback context:
+
 reinreintegrate the ios native package using Manual Setup Guide - iOS from the link bellow, proviously removing the old linked module from 'Libraries' and from 'Targets-> Build Phases -> Link Binary with Libraries'
 https://www.npmjs.com/package/react-native-haptic-feedback
 
@@ -109,72 +114,89 @@ This is one way to run your app — you can also run it directly from within And
 
 ## Detailed Descriptions
 
-- **`yarn start`**: 
+- **`yarn start`**:
+
   - **Purpose**: Starts the development server with a clean cache.
   - **Usage**: Useful for ensuring no stale cache issues affect development.
 
-- **`yarn start-debug`**: 
+- **`yarn start-debug`**:
+
   - **Purpose**: Starts the development server with a clean cache and enables experimental debugging features.
   - **Usage**: Ideal for debugging complex issues with enhanced debug capabilities.
 
-- **`yarn android`**: 
+- **`yarn android`**:
+
   - **Purpose**: Compiles and runs the React Native app on an Android emulator or connected device.
   - **Usage**: Used for testing and debugging the app on Android platforms.
 
-- **`yarn ios`**: 
+- **`yarn ios`**:
+
   - **Purpose**: Compiles and runs the React Native app on an iOS simulator or connected device.
   - **Usage**: Used for testing and debugging the app on iOS platforms.
 
-- **`yarn lint`**: 
+- **`yarn lint`**:
+
   - **Purpose**: Analyzes the codebase for potential errors and stylistic issues.
   - **Usage**: Ensures code quality and consistency across the codebase.
 
-- **`yarn test`**: 
+- **`yarn test`**:
+
   - **Purpose**: Runs all unit tests using Jest to verify the correctness of the codebase.
   - **Usage**: Ensures the application behaves as expected and helps catch regressions.
 
-- **`yarn generate`**: 
+- **`yarn generate`**:
+
   - **Purpose**: Generates code templates using Plop and formats them with Prettier.
   - **Usage**: Speeds up development by automating repetitive coding tasks.
 
-- **`yarn install-npm-packages`**: 
+- **`yarn install-npm-packages`**:
+
   - **Purpose**: Installs all dependencies listed in the package.json file.
   - **Usage**: Ensures all necessary packages are installed for the project to run.
 
-- **`yarn watchman-reset`**: 
+- **`yarn watchman-reset`**:
+
   - **Purpose**: Resets the Watchman server.
   - **Usage**: Useful for resolving issues related to file watching in React Native projects.
 
-- **`yarn link-assets`**: 
+- **`yarn link-assets`**:
+
   - **Purpose**: Links assets using the react-native-asset command.
   - **Usage**: Ensures that assets like images and fonts are properly linked in the project.
 
-- **`yarn type-check`**: 
+- **`yarn type-check`**:
+
   - **Purpose**: Runs the TypeScript compiler to check for type errors without emitting output files.
   - **Usage**: Ensures type safety across the codebase.
 
-- **`yarn macos:open:ios`**: 
+- **`yarn macos:open:ios`**:
+
   - **Purpose**: Opens the iOS project workspace in Xcode.
   - **Usage**: Convenient shortcut for opening the project in the appropriate development environment on macOS.
 
-- **`yarn macos:open:android`**: 
+- **`yarn macos:open:android`**:
+
   - **Purpose**: Opens the Android project in Android Studio.
   - **Usage**: Convenient shortcut for opening the project in the appropriate development environment on macOS.
 
-- **`yarn pod-install`**: 
+- **`yarn pod-install`**:
   - **Purpose**: Installs CocoaPods dependencies for the iOS project.
   - **Usage**: Ensures that all native iOS dependencies are correctly installed. Run this command whenever the iOS dependencies in the `Podfile` are changed.
 
 # Debugging
+
 [How to debug state with logger and experemental debugger](https://reactnative.dev/docs/0.73/debugging)
 
-# Boilerplate Gernerating 
+# Boilerplate Gernerating
+
 [More here](https://medium.com/@mikitashamkuts/automated-react-native-component-creation-how-to-create-components-easier-faster-3fabf9e6e147)
 
 # Phisical Device Engaging
+
 [Instruction](https://reactnative.dev/docs/0.73/running-on-device?platform=ios)
 
 # Troubleshooting
+
 If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
 
 # Learn More About This Project
@@ -303,3 +325,103 @@ The **View** is the UI of the application. It displays the data and interacts wi
 #### And so on
 
 And many of others listed in [package.json](./package.jsons) tools like image cacher.
+
+# [Folder Structure](#folder-structure)
+
+- [api](#api)
+- [components](#components)
+- [constants](#constants)
+- [design](#design)
+- [hooks](#hooks)
+- [screens](#screens)
+- [store](#store)
+- [types](#types)
+- [utils](#utils)
+
+### api
+
+Contains all API-related functions and configurations.
+Configures the Axios instance and defines API request functions.
+
+### components
+
+Reusable UI components used throughout the app.
+
+- `Text`: Custom text component with theme-based styles.
+- `Button`: Custom button component.
+
+### constants
+
+Holds constant values used across the app.
+
+- Contains constants such as `loadingStatusList`, `routes`, etc.
+
+### design
+
+Contains design-related configurations.
+
+- like background color list, etc.
+
+### hooks
+
+Custom hooks to encapsulate and reuse logic.
+
+- like hooks for navigation and typed redux hooks.
+
+### screens
+
+Contains screen components for the app.
+
+- Each screen has its own folder with components and styles specific to that screen.
+
+### store
+
+Redux store configuration and slices.
+
+- `config.ts`: Configures the Redux store with slices and middlewares.
+- `slices`: Contains Redux slices for different parts of the app.
+
+### types
+
+TypeScript type definitions used across the app.
+
+- `config.ts`: Centralized types for easy access and management.
+
+### utils
+
+Utility functions used across the app.
+
+- `getFunctionTryCatchWrapped.ts`: Utility to wrap functions with try-catch for error handling.
+- `getNearestMondayWithOffset.ts`: Utility to get the nearest Monday with an offset.
+
+# Agenda Screen Architecture
+
+- The architecture revolves around a configuration object, const config of AgendaScreen:
+
+  The configuration object passed as a prop, contains various properties and methods that control the behavior and appearance of the components.
+
+  Within a consumer component, the configuration object is destructured to extract the needed methods and data.
+
+  By using a configuration object, the components become modular and reusable. The behavior of components can be easily altered by changing the configuration object, without modifying the component's internal logic.
+
+- Separation of Concerns:
+
+  The configuration object helps in separating the logic and data management from the presentation layer. This makes the codebase cleaner and easier to maintain.
+
+- Ease of Testing:
+
+  Components that rely on a configuration object can be easily tested by providing mock configurations. This allows for thorough testing of different scenarios without altering the actual component code.
+
+- Scalability:
+
+  As the application grows, new configurations can be added without affecting existing components. This makes the system scalable and easier to extend.
+
+Conclusion:
+
+The architecture of the Agenda Screen leverages the principles of Component-Based Architecture in order to create a flexible, scalable, and maintainable system. This approach aligns with best practices in software development and provides a robust foundation for building complex user interfaces.
+
+For a reference: [Component-Based Architecture](https://en.wikipedia.org/wiki/Component-based_software_engineering)
+
+Thank you for reading it so far to here,
+
+I am looking forward to a chance to join your Product Team!
