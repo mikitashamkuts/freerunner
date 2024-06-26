@@ -9,6 +9,7 @@ import {hapticFeedbackModeList} from '../../constants';
 import {
   getFirstLetterOfDayName,
   getHapticFeedbackTriggered,
+  getSymbolLimitedText,
   getFunctionTryCatchWrapped as tryCatch,
 } from '../../utils';
 
@@ -73,14 +74,17 @@ const AgendaScreenHeader: FC<Props> = ({config}) => {
           )}
           <ActionText
             color={selectedWeekShift >= 0 ? 'Action' : 'Faded'}
-            text={previousToSelectedWeekDateText}
+            text={getSymbolLimitedText(previousToSelectedWeekDateText, 16)}
             numberOfLines={1}
           />
         </Pressable>
         <Pressable
           onPress={handleOnPressNextToSelectedWeekDateText}
           style={styles.weekSelectorContainerOptionContainer}>
-          <ActionText text={nextToSelectedWeekDateText} numberOfLines={1} />
+          <ActionText
+            text={getSymbolLimitedText(nextToSelectedWeekDateText, 16)}
+            numberOfLines={1}
+          />
           <Icon
             color="Action"
             name="Arrow"
@@ -98,15 +102,15 @@ const AgendaScreenHeader: FC<Props> = ({config}) => {
               key={day}
               onPress={handleOnPressDayLetterWithNumberActionColumn(index)}
               isActive={day === uniqueSelectedDay}
-              dayLetter={getFirstLetterOfDayName(day)}
-              dayNumber={day.slice(8)}
+              dayLetter={getSymbolLimitedText(getFirstLetterOfDayName(day), 1)}
+              dayNumber={getSymbolLimitedText(day.slice(8), 2)}
             />
           );
         })}
       </ScrollView>
       <View style={styles.dateTextContainer}>
         <AgendaScreenHeaderDateText
-          numberOfLines={1}
+          numberOfLines={2}
           text={agendaScreenHeaderDateText}
           containerStyle={styles.dateTextContainer}
         />
