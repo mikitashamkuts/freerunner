@@ -8,6 +8,7 @@ import {Props} from '.';
 
 const DayNumberText: FC<Props> = ({text, containerStyle, ...props}) => {
   const isDarkMode = useColorScheme() === 'dark';
+
   return (
     <View style={containerStyle}>
       <Text
