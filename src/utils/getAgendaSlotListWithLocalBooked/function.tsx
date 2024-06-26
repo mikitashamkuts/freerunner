@@ -3,6 +3,13 @@ import {AgendaSlotListType} from '../../types';
 import {getExceptionCaptured} from '../getExceptionCaptured';
 import {getFunctionTryCatchWrapped} from '../getFunctionTryCatchWrapped';
 
+/**
+ * Function to merge the agenda slot list with locally booked slots.
+ *
+ * @param {AgendaSlotListType} list - The original agenda slot list.
+ * @param {AgendaSlotListType} bookedList - The locally booked agenda slot list.
+ * @returns {AgendaSlotListType} The combined agenda slot list with updated "Taken" status.
+ */
 function getAgendaSlotListWithLocalBooked(
   list: AgendaSlotListType,
   bookedList: AgendaSlotListType,

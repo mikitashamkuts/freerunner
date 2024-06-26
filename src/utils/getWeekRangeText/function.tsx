@@ -2,6 +2,12 @@ import {exceptionList} from '../../constants';
 import {getExceptionCaptured} from '../getExceptionCaptured';
 import {getFunctionTryCatchWrapped} from '../getFunctionTryCatchWrapped';
 
+/**
+ * Function to get the text range of the week based on a given week shift.
+ *
+ * @param {number} [weekShift=0] - The number of weeks to shift from the current week.
+ * @returns {string} The formatted string representing the week range.
+ */
 function getWeekRangeText(weekShift: number = 0): string {
   if (typeof weekShift === 'number') {
     const currentDate = new Date();
