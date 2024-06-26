@@ -23,8 +23,14 @@ import {
 
 import {styles} from './styles';
 
+/**
+ * Type for the filter options of the agenda slot list.
+ */
 export type AgendaSlotListFilerType = 'all' | 'booked' | 'available';
 
+/**
+ * Type for the configuration object passed to various components.
+ */
 export type AgendaScreenConfigType = {
   agendaSlotList: AgendaSlotListType;
   setAgendaSlotListFilter: (value: AgendaSlotListFilerType) => void;
@@ -41,10 +47,14 @@ export type AgendaScreenConfigType = {
   setSelectedDay: (value: number) => void;
 };
 
+/**
+ * Main component for the Agenda Screen.
+ */
 const AgendaScreen: FC = () => {
   const dispatch = useTypedDispatch();
   const {t} = useTranslation();
 
+  // State variables for various UI states
   const [agendaSlotListFilter, setAgendaSlotListFilter] = useState<AgendaSlotListFilerType>('all');
   const [filteredAgendaSlotList, setFilteredAgendaSlotList] = useState<AgendaSlotListType>([]);
   const [selectedAgendaSlot, setSelectedAgendaSlot] = useState<AgendaSlotType | null>(null);
@@ -55,6 +65,7 @@ const AgendaScreen: FC = () => {
   const {list, status, bookedList} = useTypedSelector(state => state.agendaSlotList);
   const uniqueQayList = getUniqueDays(list);
 
+  // Handler to add a slot to the booked agenda slot list
   const handleAddSlotToBookedAgendaSlotList = useCallback(
     (slot: AgendaSlotType) => {
       tryCatch(function handleAddSlotToBookedAgendaSlotListSafe() {
@@ -64,6 +75,7 @@ const AgendaScreen: FC = () => {
     [dispatch],
   );
 
+  // Memoized configuration object for child components
   const config: AgendaScreenConfigType = useMemo(() => {
     return tryCatch(function getAgendaScreenConfig() {
       return {
@@ -91,12 +103,14 @@ const AgendaScreen: FC = () => {
     uniqueQayList,
   ]);
 
+  // Effect to fetch initial data
   useEffect(() => {
     tryCatch(function getInitialDataLoaded() {
       dispatch(fetchAgendaSlotListRequest(selectedWeekShift));
     })();
   }, [dispatch, selectedWeekShift]);
 
+  // Effect to filter agenda slot list based on the selected filter
   useEffect(() => {
     tryCatch(function getAgendaSlotListFiltered() {
       const mergedList: AgendaSlotListType = getAgendaSlotListWithLocalBooked(list, bookedList);
