@@ -1,19 +1,20 @@
-import React, {FC, memo, useMemo} from 'react';
+import {format} from 'date-fns';
+import React, {FC, memo, useCallback, useMemo} from 'react';
 import {Pressable, ScrollView, View} from 'react-native';
 
 import {AgendaScreenHeaderDateText} from '..';
 import {whyDidItRenderConfig} from '../../../debug';
 import {ActionText, DayLetterWithNumberActionColumn, Icon, ScreenHeader} from '../../components';
-
-import {format} from 'date-fns';
-import {Props, styles} from '.';
 import {hapticFeedbackModeList} from '../../constants';
-import {useTypedSelector} from '../../hooks';
-import {AgendaSlotListType} from '../../types';
-import {getHapticFeedbackTriggered} from '../../utils';
+import {
+  getFirstLetterOfDayName,
+  getHapticFeedbackTriggered,
+  getFunctionTryCatchWrapped as tryCatch,
+} from '../../utils';
+
+import {Props, styles} from '.';
 
 const AgendaScreenHeader: FC<Props> = ({config}) => {
-  const {list, status} = useTypedSelector(state => state.agendaSlotList);
   const {
     previousToSelectedWeekDateText,
     uniqueDayList,
@@ -24,36 +25,44 @@ const AgendaScreenHeader: FC<Props> = ({config}) => {
     selectedWeekShift,
   } = config;
 
-  const getUniqueDays = (list: AgendaSlotListType): number => {
-    const uniqueDays = new Set(list.map(slot => slot.Start.split('T')[0]));
-    return Array.from(uniqueDays);
-  };
-
-  function getFirstLetterOfDay(dateString) {
-    // Parse the date string
-    const date = new Date(dateString);
-    // Array of the first letters of the days of the week
-    const days = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
-    // Get the day of the week (0-6)
-    const dayOfWeek = date.getDay();
-    // Return the corresponding first letter
-    return days[dayOfWeek];
-  }
-
   const agendaScreenHeaderDateText = useMemo(() => {
-    return uniqueSelectedDay && format(new Date(uniqueSelectedDay), 'eeee, MMMM do, yyyy');
+    return tryCatch(function getAgendaScreenHeaderDateText() {
+      return uniqueSelectedDay && format(new Date(uniqueSelectedDay), 'eeee, MMMM do, yyyy');
+    })();
   }, [uniqueSelectedDay]);
+
+  const handleOnPressPreviousToSelectedWeekDate = useCallback(() => {
+    tryCatch(function handleOnPressPreviousToSelectedWeekDateSafe() {
+      if (selectedWeekShift >= 0) {
+        setSelectedWeekShift((currentWeek: number) => currentWeek - 1);
+        getHapticFeedbackTriggered(hapticFeedbackModeList.Default);
+      }
+    })();
+  }, [selectedWeekShift, setSelectedWeekShift]);
+
+  const handleOnPressNextToSelectedWeekDateText = useCallback(() => {
+    tryCatch(function handleOnPressNextToSelectedWeekDateTextSafe() {
+      setSelectedWeekShift((currentWeek: number) => currentWeek + 1);
+      getHapticFeedbackTriggered(hapticFeedbackModeList.Default);
+    })();
+  }, [setSelectedWeekShift]);
+
+  const handleOnPressDayLetterWithNumberActionColumn = useCallback(
+    (index: number) => {
+      return tryCatch(function handleOnPressDayLetterWithNumberActionColumnSafe() {
+        return () => {
+          setSelectedDay(index);
+        };
+      })();
+    },
+    [setSelectedDay],
+  );
 
   return (
     <ScreenHeader containerStyle={styles.container}>
       <View style={styles.weekSelectorContainer}>
         <Pressable
-          onPress={() => {
-            if (selectedWeekShift >= 0) {
-              setSelectedWeekShift((currentWeek: number) => currentWeek - 1);
-              getHapticFeedbackTriggered(hapticFeedbackModeList.Default);
-            }
-          }}
+          onPress={handleOnPressPreviousToSelectedWeekDate}
           style={styles.weekSelectorContainerOptionContainer}>
           {selectedWeekShift >= 0 && (
             <Icon
@@ -69,10 +78,7 @@ const AgendaScreenHeader: FC<Props> = ({config}) => {
           />
         </Pressable>
         <Pressable
-          onPress={() => {
-            setSelectedWeekShift((currentWeek: number) => currentWeek + 1);
-            getHapticFeedbackTriggered(hapticFeedbackModeList.Default);
-          }}
+          onPress={handleOnPressNextToSelectedWeekDateText}
           style={styles.weekSelectorContainerOptionContainer}>
           <ActionText text={nextToSelectedWeekDateText} numberOfLines={1} />
           <Icon
@@ -90,11 +96,9 @@ const AgendaScreenHeader: FC<Props> = ({config}) => {
           return (
             <DayLetterWithNumberActionColumn
               key={day}
-              onPress={() => {
-                setSelectedDay(index);
-              }}
+              onPress={handleOnPressDayLetterWithNumberActionColumn(index)}
               isActive={day === uniqueSelectedDay}
-              dayLetter={getFirstLetterOfDay(day)}
+              dayLetter={getFirstLetterOfDayName(day)}
               dayNumber={day.slice(8)}
             />
           );
@@ -102,6 +106,7 @@ const AgendaScreenHeader: FC<Props> = ({config}) => {
       </ScrollView>
       <View style={styles.dateTextContainer}>
         <AgendaScreenHeaderDateText
+          numberOfLines={1}
           text={agendaScreenHeaderDateText}
           containerStyle={styles.dateTextContainer}
         />
