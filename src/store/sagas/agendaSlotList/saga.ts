@@ -12,7 +12,9 @@ import {
 } from '../../slices/agendaSlotList';
 
 // Saga to fetch order list
-export const fetchAgendaSlotListSaga = tryCatch(function* fetchAgendaSlotListSagaSafe(action) {
+export const fetchAgendaSlotListSaga = tryCatch(function* fetchAgendaSlotListSagaSafe(action: {
+  payload: number;
+}) {
   const response: AxiosResponse<AgendaSlotListType> = yield call(
     sendFetchAgendaSlotListRequest,
     action.payload,
