@@ -1,4 +1,4 @@
-import React, {FC, memo, useEffect, useRef} from 'react';
+import React, {FC, useEffect, useRef} from 'react';
 import {Animated} from 'react-native';
 
 import {whyDidItRenderConfig} from '../../../debug';
@@ -27,4 +27,4 @@ const ScreenMainView: FC<Props> = ({children, isWithAnimation = true}) => {
 
 ScreenMainView.whyDidYouRender = whyDidItRenderConfig.UIComponentDebugActive;
 
-export default memo(ScreenMainView);
+export default ScreenMainView;
