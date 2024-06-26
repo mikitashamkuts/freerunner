@@ -34,7 +34,11 @@ export type AgendaScreenConfigType = {
   selectedWeekShift: number;
   previousToSelectedWeekDateText: string;
   nextToSelectedWeekDateText: string;
-  setSelectedWeekShift: (value: number) => void;
+  setSelectedWeekShift: (value: (value: number) => number) => void;
+  handleAddSlotToBookedAgendaSlotList: (value: AgendaSlotType) => void;
+  uniqueDayList: string[];
+  uniqueSelectedDay: string;
+  setSelectedDay: (value: number) => void;
 };
 
 const AgendaScreen: FC = () => {
@@ -52,7 +56,7 @@ const AgendaScreen: FC = () => {
   const uniqueQayList = getUniqueDays(list);
 
   const handleAddSlotToBookedAgendaSlotList = useCallback(
-    slot => {
+    (slot: AgendaSlotType) => {
       tryCatch(function handleAddSlotToBookedAgendaSlotListSafe() {
         dispatch(addSlotToBookedAgendaSlotList(slot));
       })();
@@ -96,7 +100,7 @@ const AgendaScreen: FC = () => {
 
   useEffect(() => {
     tryCatch(function getAgendaSlotListFiltered() {
-      const mergedList = getAgendaSlotListWithLocalBooked(list, bookedList);
+      const mergedList: AgendaSlotListType = getAgendaSlotListWithLocalBooked(list, bookedList);
       if (agendaSlotListFilter === 'all') {
         setFilteredAgendaSlotList(mergedList);
       }
@@ -126,9 +130,7 @@ const AgendaScreen: FC = () => {
           />
         </View>
       )}
-      {status === 'Success' && (
-        <AgendaScreenAgendaList config={config} setIsBottomSheetShown={setIsBottomSheetShown} />
-      )}
+      {status === 'Success' && <AgendaScreenAgendaList config={config} />}
       <AgendaScreenFooter config={config} />
       {isBottomSheetShown && <AgendaScreenSelectedSlotBottomSheet config={config} />}
     </ScreenMainView>
