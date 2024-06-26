@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ActionText Component Renders with custom props and matches previous snapshot:  1`] = `
+<View>
+  <Text
+    accessibilityRole="text"
+    numberOfLines={1}
+    style={
+      [
+        {
+          "color": "#8E8E93",
+          "fontFamily": "Inter-SemiBold",
+          "fontSize": 10,
+        },
+        undefined,
+      ]
+    }
+  >
+    ActionText
+  </Text>
+</View>
+`;
+
+exports[`ActionText Component Renders with default props and matches previous snapshot:  1`] = `
+<View>
+  <Text
+    accessibilityRole="text"
+    numberOfLines={1}
+    style={
+      [
+        {
+          "color": "#FF382B",
+          "fontFamily": "Inter-Regular",
+          "fontSize": 18,
+        },
+        undefined,
+      ]
+    }
+  >
+    ActionText
+  </Text>
+</View>
+`;

@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DayLetterText Component Renders with custom props and matches previous snapshot:  1`] = `
+<View>
+  <Text
+    accessibilityRole="text"
+    numberOfLines={1}
+    style={
+      [
+        {
+          "color": "#FF382B",
+          "fontFamily": "Inter-Light",
+          "fontSize": 10,
+        },
+        undefined,
+      ]
+    }
+  >
+    F
+  </Text>
+</View>
+`;
+
+exports[`DayLetterText Component Renders with default props and matches previous snapshot:  1`] = `
+<View>
+  <Text
+    accessibilityRole="text"
+    numberOfLines={1}
+    style={
+      [
+        {
+          "color": "#000000",
+          "fontFamily": "Inter-SemiBold",
+          "fontSize": 10,
+        },
+        undefined,
+      ]
+    }
+  >
+    F
+  </Text>
+</View>
+`;

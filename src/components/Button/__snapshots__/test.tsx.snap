@@ -1,0 +1,125 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button Component Renders with custom props and matches previous snapshot:  1`] = `
+<View
+  accessibilityHint=""
+  accessibilityLabel=""
+  accessibilityState={
+    {
+      "busy": undefined,
+      "checked": undefined,
+      "disabled": undefined,
+      "expanded": undefined,
+      "selected": undefined,
+    }
+  }
+  accessibilityValue={
+    {
+      "max": undefined,
+      "min": undefined,
+      "now": undefined,
+      "text": undefined,
+    }
+  }
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  onBlur={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    {
+      "alignItems": "center",
+      "backgroundColor": "#FF382B",
+      "borderRadius": 14,
+      "height": 50,
+      "justifyContent": "center",
+    }
+  }
+>
+  <Text
+    accessibilityRole="text"
+    numberOfLines={1}
+    style={
+      [
+        {
+          "color": "#FFFFFF",
+          "fontFamily": "Inter-Regular",
+          "fontSize": 18,
+        },
+        undefined,
+      ]
+    }
+  >
+    Button Title
+  </Text>
+</View>
+`;
+
+exports[`Button Component Renders with default props and matches previous snapshot:  1`] = `
+<View
+  accessibilityHint=""
+  accessibilityLabel=""
+  accessibilityState={
+    {
+      "busy": undefined,
+      "checked": undefined,
+      "disabled": undefined,
+      "expanded": undefined,
+      "selected": undefined,
+    }
+  }
+  accessibilityValue={
+    {
+      "max": undefined,
+      "min": undefined,
+      "now": undefined,
+      "text": undefined,
+    }
+  }
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  onBlur={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    {
+      "alignItems": "center",
+      "backgroundColor": "#FF382B",
+      "borderRadius": 14,
+      "height": 50,
+      "justifyContent": "center",
+    }
+  }
+>
+  <Text
+    accessibilityRole="text"
+    numberOfLines={1}
+    style={
+      [
+        {
+          "color": "#FFFFFF",
+          "fontFamily": "Inter-Regular",
+          "fontSize": 18,
+        },
+        undefined,
+      ]
+    }
+  >
+    Button Title
+  </Text>
+</View>
+`;
