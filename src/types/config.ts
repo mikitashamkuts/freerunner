@@ -7,12 +7,19 @@ import {AgendaSlotListStateType} from '../store';
 export type AgendaSlotStartType = string;
 export type AgendaSlotEndType = string;
 export type AgendaSlotIsTakenType = boolean;
+
+/**
+ * Represents a single agenda slot.
+ */
 export interface AgendaSlotType {
   Start: AgendaSlotStartType;
   End: AgendaSlotEndType;
   Taken?: AgendaSlotIsTakenType;
 }
 
+/**
+ * Represents a list of agenda slots.
+ */
 export type AgendaSlotListType = AgendaSlotType[];
 
 /**
@@ -31,7 +38,7 @@ export type DefaultStyleSheetStyleType = ViewStyle | TextStyle | ImageStyle;
  * Props for a custom component.
  *
  * @typedef {Object} CustomComponentProps
- * @property {ViewStyle | TextStyle | ViewStyle[]} [containerStyle] - The style of the container.
+ * @property {DefaultStyleSheetStyleType | DefaultStyleSheetStyleType[]} [containerStyle] - The style of the container.
  * @property {ReactNode} [children] - The children nodes.
  */
 export type CustomComponentProps = {
@@ -89,8 +96,7 @@ export type TranslationType = {
  * A type representing the global state of the application.
  *
  * @typedef {Object} GlobalStateType
- * @property {OrderListStateType} orderList - The state of the order list.
- * @property {OrderStateType} order - The state of a single order.
+ * @property {AgendaSlotListStateType} agendaSlotList - The state of the agenda slot list.
  */
 export type GlobalStateType = {
   agendaSlotList: AgendaSlotListStateType;
