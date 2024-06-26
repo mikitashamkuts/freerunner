@@ -1,75 +1,73 @@
-// orderListSaga.test.js
 import {AxiosResponse} from 'axios';
-import {expectSaga, testSaga} from 'redux-saga-test-plan';
-import {call} from 'redux-saga/effects';
+import {runSaga} from 'redux-saga';
 
-import {sendFetchOrderListRequest} from '../../../api';
-import {exceptionList, httpResponceStatusList} from '../../../constants';
-import {OrderType} from '../../../types';
-import {getExceptionCaptured} from '../../../utils';
+import {takeLatest} from 'redux-saga/effects';
+import {sendFetchAgendaSlotListRequest} from '../../../api';
+import {httpResponceStatusList} from '../../../constants';
+import {AgendaSlotListType} from '../../../types';
 import {
-  fetchOrderListFailure,
-  fetchOrderListRequest,
-  fetchOrderListSuccess,
+  fetchAgendaSlotListFailure,
+  fetchAgendaSlotListRequest,
+  fetchAgendaSlotListSuccess,
 } from '../../slices/agendaSlotList';
+import {fetchAgendaSlotListSaga, watchAgendaSlotListRequest} from './saga';
 
-import {fetchOrderListSaga, watchFetchOrderListRequest} from '.';
+describe('agendaSlotListSaga', () => {
+  it('should handle successful fetch of agenda slot list', async () => {
+    const dispatched: any[] = [];
+    const payload = 0;
+    const mockResponse: AxiosResponse<AgendaSlotListType> = {
+      data: [{Start: '2024-06-24T09:00:00', End: '2024-06-24T09:10:00', Taken: true}],
+      status: httpResponceStatusList.Ok,
+      statusText: '',
+      headers: {},
+      config: {},
+    };
 
-const mockOrders: OrderType[] = [
-  {id: '1', merchantName: 'Merchant 1'},
-  {id: '2', merchantName: 'Merchant 2'},
-];
+    (sendFetchAgendaSlotListRequest as jest.Mock) = jest.fn(() => Promise.resolve(mockResponse));
 
-const mockResponse: AxiosResponse = {
-  data: {data: {orders: mockOrders}},
-  status: httpResponceStatusList.Ok,
-  statusText: 'OK',
-  headers: {},
-  config: {},
-};
+    await runSaga(
+      {
+        dispatch: action => dispatched.push(action),
+      },
+      fetchAgendaSlotListSaga,
+      {payload},
+    ).toPromise();
 
-jest.mock('../../../utils', () => ({
-  getExceptionCaptured: jest.fn(),
-  getFunctionTryCatchWrapped: jest.fn(fn => fn),
-}));
-
-describe('fetchOrderListSaga', () => {
-  it('should handle success scenario', () => {
-    return expectSaga(fetchOrderListSaga)
-      .provide([[call(sendFetchOrderListRequest), mockResponse]])
-      .put(fetchOrderListSuccess(mockOrders))
-      .run();
+    expect(sendFetchAgendaSlotListRequest).toHaveBeenCalledWith(payload);
+    expect(dispatched).toEqual([fetchAgendaSlotListSuccess(mockResponse.data)]);
   });
 
-  it('should handle failure scenario with status not OK', () => {
-    const errorResponse: AxiosResponse = {
-      data: {},
+  it('should handle failure to fetch agenda slot list', async () => {
+    const dispatched: any[] = [];
+    const payload = 0;
+    const mockResponse: AxiosResponse<AgendaSlotListType> = {
+      data: [],
       status: 500,
       statusText: 'Internal Server Error',
       headers: {},
       config: {},
     };
 
-    return expectSaga(fetchOrderListSaga)
-      .provide([[call(sendFetchOrderListRequest), errorResponse]])
-      .put(fetchOrderListFailure())
-      .run()
-      .then(() => {
-        expect(getExceptionCaptured).toHaveBeenCalledWith(
-          fetchOrderListSaga,
-          exceptionList.Network,
-          errorResponse,
-        );
-      });
-  });
-});
+    (sendFetchAgendaSlotListRequest as jest.Mock) = jest.fn(() => Promise.resolve(mockResponse));
 
-describe('watchFetchOrderListRequest', () => {
-  it('should take latest fetchOrderListRequest and call fetchOrderListSaga', () => {
-    testSaga(watchFetchOrderListRequest)
-      .next()
-      .takeLatest(fetchOrderListRequest.type, fetchOrderListSaga)
-      .next()
-      .isDone();
+    await runSaga(
+      {
+        dispatch: action => dispatched.push(action),
+      },
+      fetchAgendaSlotListSaga,
+      {payload},
+    ).toPromise();
+
+    expect(sendFetchAgendaSlotListRequest).toHaveBeenCalledWith(payload);
+    expect(dispatched).toEqual([fetchAgendaSlotListFailure()]);
+  });
+
+  it('should watch for fetchAgendaSlotListRequest action', () => {
+    const generator = watchAgendaSlotListRequest();
+    expect(generator.next().value).toEqual(
+      takeLatest(fetchAgendaSlotListRequest.type, fetchAgendaSlotListSaga),
+    );
+    expect(generator.next().done).toBeTruthy();
   });
 });

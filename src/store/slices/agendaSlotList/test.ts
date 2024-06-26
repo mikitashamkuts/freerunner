@@ -1,49 +1,46 @@
 import {loadingStatusList} from '../../../constants';
-import {OrderType} from '../../../types';
-import orderListSlice, {
-  fetchOrderListFailure,
-  fetchOrderListRequest,
-  fetchOrderListSuccess,
+import {AgendaSlotListType, AgendaSlotType} from '../../../types';
+import agendaSlotListReducer, {
+  AgendaSlotListStateType,
+  addSlotToBookedAgendaSlotList,
+  fetchAgendaSlotListFailure,
+  fetchAgendaSlotListRequest,
+  fetchAgendaSlotListSuccess,
 } from './slice';
 
-describe('order list slice', () => {
-  const initialState = {
+describe('agendaSlotListSlice', () => {
+  const initialState: AgendaSlotListStateType = {
     list: [],
     status: loadingStatusList.Success,
+    bookedList: [],
   };
 
   it('should handle initial state', () => {
-    expect(orderListSlice(undefined, {type: 'unknown'})).toEqual(initialState);
+    expect(agendaSlotListReducer(undefined, {type: 'unknown'})).toEqual(initialState);
   });
 
-  it('should handle fetchOrderListRequest', () => {
-    const action = fetchOrderListRequest();
-    const state = orderListSlice(initialState, action);
-    expect(state).toEqual({
-      list: [],
-      status: loadingStatusList.Loading,
-    });
+  it('should handle fetchAgendaSlotListRequest', () => {
+    const actual = agendaSlotListReducer(initialState, fetchAgendaSlotListRequest());
+    expect(actual.status).toEqual(loadingStatusList.Loading);
   });
 
-  it('should handle fetchOrderListSuccess', () => {
-    const orders: OrderType[] = [
-      {id: '1', merchantName: 'Merchant 1'},
-      {id: '2', merchantName: 'Merchant 2'},
+  it('should handle fetchAgendaSlotListSuccess', () => {
+    const payload: AgendaSlotListType = [
+      {Start: '2024-06-24T09:00:00', End: '2024-06-24T09:10:00', Taken: true},
     ];
-    const action = fetchOrderListSuccess(orders);
-    const state = orderListSlice(initialState, action);
-    expect(state).toEqual({
-      list: orders,
-      status: loadingStatusList.Success,
-    });
+    const actual = agendaSlotListReducer(initialState, fetchAgendaSlotListSuccess(payload));
+    expect(actual.list).toEqual(payload);
+    expect(actual.status).toEqual(loadingStatusList.Success);
   });
 
-  it('should handle fetchOrderListFailure', () => {
-    const action = fetchOrderListFailure();
-    const state = orderListSlice(initialState, action);
-    expect(state).toEqual({
-      list: [],
-      status: loadingStatusList.Error,
-    });
+  it('should handle fetchAgendaSlotListFailure', () => {
+    const actual = agendaSlotListReducer(initialState, fetchAgendaSlotListFailure());
+    expect(actual.status).toEqual(loadingStatusList.Error);
+  });
+
+  it('should handle addSlotToBookedAgendaSlotList', () => {
+    const payload: AgendaSlotType = {Start: '2024-06-24T09:00:00', End: '2024-06-24T09:10:00'};
+    const actual = agendaSlotListReducer(initialState, addSlotToBookedAgendaSlotList(payload));
+    expect(actual.bookedList).toEqual([payload]);
   });
 });
