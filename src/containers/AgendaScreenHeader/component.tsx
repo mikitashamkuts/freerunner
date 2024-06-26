@@ -1,10 +1,11 @@
-import React, {FC, memo} from 'react';
+import React, {FC, memo, useMemo} from 'react';
 import {Pressable, ScrollView, View} from 'react-native';
 
 import {AgendaScreenHeaderDateText} from '..';
 import {whyDidItRenderConfig} from '../../../debug';
 import {ActionText, DayLetterWithNumberActionColumn, Icon, ScreenHeader} from '../../components';
 
+import {format} from 'date-fns';
 import {Props, styles} from '.';
 import {hapticFeedbackModeList} from '../../constants';
 import {useTypedSelector} from '../../hooks';
@@ -20,6 +21,7 @@ const AgendaScreenHeader: FC<Props> = ({config}) => {
     setSelectedWeekShift,
     uniqueSelectedDay,
     setSelectedDay,
+    selectedWeekShift,
   } = config;
 
   const getUniqueDays = (list: AgendaSlotListType): number => {
@@ -38,25 +40,33 @@ const AgendaScreenHeader: FC<Props> = ({config}) => {
     return days[dayOfWeek];
   }
 
-  // Example usage
-  const date = '2024-06-24';
-  console.log(getFirstLetterOfDay(date));
+  const agendaScreenHeaderDateText = useMemo(() => {
+    return uniqueSelectedDay && format(new Date(uniqueSelectedDay), 'eeee, MMMM do, yyyy');
+  }, [uniqueSelectedDay]);
 
   return (
     <ScreenHeader containerStyle={styles.container}>
       <View style={styles.weekSelectorContainer}>
         <Pressable
           onPress={() => {
-            setSelectedWeekShift((currentWeek: number) => currentWeek - 1);
-            getHapticFeedbackTriggered(hapticFeedbackModeList.Default);
+            if (selectedWeekShift >= 0) {
+              setSelectedWeekShift((currentWeek: number) => currentWeek - 1);
+              getHapticFeedbackTriggered(hapticFeedbackModeList.Default);
+            }
           }}
           style={styles.weekSelectorContainerOptionContainer}>
-          <Icon
-            color="Action"
-            name="Arrow"
-            containerStyle={styles.weekSelectorContainerOptionLeftContainer}
+          {selectedWeekShift >= 0 && (
+            <Icon
+              color="Action"
+              name="Arrow"
+              containerStyle={styles.weekSelectorContainerOptionLeftContainer}
+            />
+          )}
+          <ActionText
+            color={selectedWeekShift >= 0 ? 'Action' : 'Faded'}
+            text={previousToSelectedWeekDateText}
+            numberOfLines={1}
           />
-          <ActionText text={previousToSelectedWeekDateText} numberOfLines={1} />
         </Pressable>
         <Pressable
           onPress={() => {
@@ -77,13 +87,11 @@ const AgendaScreenHeader: FC<Props> = ({config}) => {
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={styles.daySelectorContainer}>
         {uniqueDayList.map((day, index) => {
-          console.log(index, uniqueSelectedDay);
           return (
             <DayLetterWithNumberActionColumn
+              key={day}
               onPress={() => {
                 setSelectedDay(index);
-                console.log(day);
-                console.log(uniqueDayList);
               }}
               isActive={day === uniqueSelectedDay}
               dayLetter={getFirstLetterOfDay(day)}
@@ -94,7 +102,7 @@ const AgendaScreenHeader: FC<Props> = ({config}) => {
       </ScrollView>
       <View style={styles.dateTextContainer}>
         <AgendaScreenHeaderDateText
-          text="27 of July 2024"
+          text={agendaScreenHeaderDateText}
           containerStyle={styles.dateTextContainer}
         />
       </View>
