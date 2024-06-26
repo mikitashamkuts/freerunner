@@ -6,6 +6,13 @@ import {Text} from '../../components';
 
 import {Props} from '.';
 
+/**
+ * Component for displaying date text in the header of the agenda screen.
+ *
+ * @param {Props} props - Props passed to the component.
+ * @param {ViewStyle} [props.containerStyle] - Optional style for the container view.
+ * @returns {JSX.Element} The rendered component.
+ */
 const AgendaScreenHeaderDateText: FC<Props> = ({containerStyle, ...props}) => {
   const isDarkMode = useColorScheme() === 'dark';
 

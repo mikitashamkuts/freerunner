@@ -15,6 +15,12 @@ import {
 
 import {Props, styles} from '.';
 
+/**
+ * Component for rendering the header of the Agenda screen.
+ *
+ * @param {Props} props - Props passed to the component.
+ * @returns {JSX.Element} The rendered component.
+ */
 const AgendaScreenHeader: FC<Props> = ({config}) => {
   const {
     previousToSelectedWeekDateText,
@@ -26,12 +32,18 @@ const AgendaScreenHeader: FC<Props> = ({config}) => {
     selectedWeekShift,
   } = config;
 
+  /**
+   * Memoized value for formatted date text.
+   */
   const agendaScreenHeaderDateText = useMemo(() => {
     return tryCatch(function getAgendaScreenHeaderDateText() {
       return uniqueSelectedDay && format(new Date(uniqueSelectedDay), 'eeee, MMMM do, yyyy');
     })();
   }, [uniqueSelectedDay]);
 
+  /**
+   * Handler for pressing the previous week date.
+   */
   const handleOnPressPreviousToSelectedWeekDate = useCallback(() => {
     tryCatch(function handleOnPressPreviousToSelectedWeekDateSafe() {
       if (selectedWeekShift >= 0) {
@@ -41,6 +53,9 @@ const AgendaScreenHeader: FC<Props> = ({config}) => {
     })();
   }, [selectedWeekShift, setSelectedWeekShift]);
 
+  /**
+   * Handler for pressing the next week date.
+   */
   const handleOnPressNextToSelectedWeekDateText = useCallback(() => {
     tryCatch(function handleOnPressNextToSelectedWeekDateTextSafe() {
       setSelectedWeekShift((currentWeek: number) => currentWeek + 1);
@@ -48,6 +63,9 @@ const AgendaScreenHeader: FC<Props> = ({config}) => {
     })();
   }, [setSelectedWeekShift]);
 
+  /**
+   * Handler for pressing a day column.
+   */
   const handleOnPressDayLetterWithNumberActionColumn = useCallback(
     (index: number) => {
       return tryCatch(function handleOnPressDayLetterWithNumberActionColumnSafe() {

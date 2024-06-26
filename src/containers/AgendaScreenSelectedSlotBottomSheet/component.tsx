@@ -18,6 +18,12 @@ import {Props, styles} from '.';
 import {whyDidItRenderConfig} from '../../../debug';
 import {hapticFeedbackModeList} from '../../constants';
 
+/**
+ * Bottom sheet component to display and book agenda slots.
+ *
+ * @param {Props} config - Configuration object containing agenda slot details and functions.
+ * @returns {JSX.Element} The rendered bottom sheet component.
+ */
 const AgendaScreenSelectedSlotBottomSheet: FC<Props> = ({config}) => {
   const insets = useSafeAreaInsets();
   const {t} = useTranslation();
@@ -28,6 +34,12 @@ const AgendaScreenSelectedSlotBottomSheet: FC<Props> = ({config}) => {
 
   const {setIsBottomSheetShown, agendaSlot, handleAddSlotToBookedAgendaSlotList} = config;
 
+  /**
+   * Renders the backdrop with a specific opacity.
+   *
+   * @param {any} props - Properties passed to the backdrop component.
+   * @returns {JSX.Element} The rendered backdrop component.
+   */
   const renderBackdrop = useCallback(
     (props: any) => (
       <BottomSheetBackdrop {...props} disappearsOnIndex={-1} appearsOnIndex={0} opacity={0.5} />
@@ -35,6 +47,9 @@ const AgendaScreenSelectedSlotBottomSheet: FC<Props> = ({config}) => {
     [],
   );
 
+  /**
+   * Handles the bottom sheet close action.
+   */
   const handleOnClose = useCallback(() => {
     tryCatch(function handleOnCloseSafe() {
       setIsBottomSheetShown(false);
@@ -47,6 +62,9 @@ const AgendaScreenSelectedSlotBottomSheet: FC<Props> = ({config}) => {
     },
   });
 
+  /**
+   * Handles the book button press action.
+   */
   const handleOnBookButtonPress = useCallback(() => {
     tryCatch(function handleOnBookButtonPressSafe() {
       agendaSlot &&

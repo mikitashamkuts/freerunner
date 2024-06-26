@@ -14,11 +14,20 @@ import {
 
 import {Props, styles} from '.';
 
+/**
+ * AgendaScreenAgendaListItem component to display a single agenda item.
+ *
+ * @param {Props} item - The props for the component.
+ * @returns {JSX.Element} The rendered component.
+ */
 const AgendaScreenAgendaListItem: FC<Props> = item => {
   const themedStyles = useTheme(styles);
 
   const {Taken, Start, onPress} = item;
 
+  /**
+   * Handles the press event on the agenda item.
+   */
   const handleOnPress = useCallback(() => {
     tryCatch(function handleOnPressSafe() {
       if (!Taken) {

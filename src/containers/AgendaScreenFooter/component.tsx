@@ -14,6 +14,12 @@ import {AgendaSlotListFilerType} from '../../navigation/HomeStack/AgendaScreen/s
 
 const filterOptionSequence: AgendaSlotListFilerType[] = ['all', 'booked', 'available'];
 
+/**
+ * AgendaScreenFooter component for displaying footer options.
+ *
+ * @param {Props} props - Props passed to the component.
+ * @returns {JSX.Element} The rendered component.
+ */
 const AgendaScreenFooter: FC<Props> = ({config}) => {
   const [filterOptionIndex, setFilterOptionIndex] = useState(0);
   const insets = useSafeAreaInsets();
@@ -23,6 +29,9 @@ const AgendaScreenFooter: FC<Props> = ({config}) => {
 
   const {setAgendaSlotListFilter} = config;
 
+  /**
+   * Handle the press event for the filter option button.
+   */
   const handleOnFilterOptionPress = useCallback(() => {
     tryCatch(function getFilterOptionCalculated() {
       if (filterOptionIndex >= filterOptionSequence.length - 1) {
@@ -37,6 +46,9 @@ const AgendaScreenFooter: FC<Props> = ({config}) => {
     })();
   }, [filterOptionIndex, setAgendaSlotListFilter]);
 
+  /**
+   * Handle the press event for the "Today" button.
+   */
   const handleOnTodayButtonPress = useCallback(() => {
     tryCatch(function handleOnTodayButtonPressSafe() {
       console.warn('not implemented yet functionality');

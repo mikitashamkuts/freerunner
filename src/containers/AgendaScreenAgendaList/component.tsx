@@ -9,9 +9,20 @@ import {AgendaScreenAgendaListItem} from '../AgendaScreenAgendaListItem';
 
 import {Props, styles} from '.';
 
+/**
+ * AgendaScreenAgendaList component to display a list of agenda slots.
+ *
+ * @param {Props} config - The configuration object containing necessary properties.
+ * @returns {JSX.Element} The rendered component.
+ */
 const AgendaScreenAgendaList: FC<Props> = ({config}) => {
   const {agendaSlotList, setSelectedAgendaSlot, setIsBottomSheetShown} = config;
 
+  /**
+   * Handles the press event on an agenda item.
+   *
+   * @param {AgendaSlotType} item - The agenda slot item that was pressed.
+   */
   const handleOnItemPress = useCallback(
     (item: AgendaSlotType) => {
       tryCatch(function handleOnItemPressSafe() {
