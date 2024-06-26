@@ -39,7 +39,7 @@ const AgendaScreenFooter: FC<Props> = ({config}) => {
 
   const handleOnTodayButtonPress = useCallback(() => {
     tryCatch(function handleOnTodayButtonPressSafe() {
-      console.log('not implemented yet functionality');
+      console.warn('not implemented yet functionality');
       getHapticFeedbackTriggered(hapticFeedbackModeList.Default);
     })();
   }, []);
