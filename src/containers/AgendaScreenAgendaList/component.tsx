@@ -3,7 +3,6 @@ import React, {FC, memo} from 'react';
 import {View} from 'react-native';
 
 import {whyDidItRenderConfig} from '../../../debug';
-import {useTypedSelector} from '../../hooks';
 import {AgendaScreenAgendaListItem} from '../AgendaScreenAgendaListItem';
 
 import {Props, styles} from '.';
@@ -15,7 +14,6 @@ const AgendaScreenAgendaList: FC<Props> = ({config}) => {
     setSelectedAgendaSlot(item);
   };
 
-  const {list, status} = useTypedSelector(state => state.agendaSlotList);
   return (
     <View style={[styles.container, {flex: 1}]}>
       <FlashList
@@ -30,6 +28,6 @@ const AgendaScreenAgendaList: FC<Props> = ({config}) => {
   );
 };
 
-AgendaScreenAgendaList.whyDidYouRender = whyDidItRenderConfig.UIComponentDebugActive;
+AgendaScreenAgendaList.whyDidYouRender = whyDidItRenderConfig.HolderComponentDebugActive;
 
 export default memo(AgendaScreenAgendaList);
