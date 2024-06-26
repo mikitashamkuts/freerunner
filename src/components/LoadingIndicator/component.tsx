@@ -7,7 +7,7 @@ import {iconColorList} from '../../design';
 
 import {Props} from '.';
 
-const LoadingIndicator: FC<Props> = ({}) => {
+const LoadingIndicator: FC<Props> = () => {
   return (
     <View>
       <ActivityIndicator size={'large'} color={iconColorList.Action} />
