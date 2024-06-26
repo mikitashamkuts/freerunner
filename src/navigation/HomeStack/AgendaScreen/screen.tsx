@@ -10,7 +10,7 @@ import {
   AgendaScreenSelectedSlotBottomSheet,
 } from '../../../containers';
 import {useTypedDispatch, useTypedSelector} from '../../../hooks';
-import {fetchAgendaSlotListRequest} from '../../../store';
+import {addSlotToBookedAgendaSlotList, fetchAgendaSlotListRequest} from '../../../store';
 import {AgendaSlotListType, AgendaSlotType} from '../../../types';
 import {styles} from './styles';
 
@@ -22,13 +22,15 @@ const AgendaScreen: FC = () => {
   const [selectedAgendaSlot, setSelectedAgendaSlot] = useState<AgendaSlotType | null>(null);
   const [selectedWeekShift, setSelectedWeekShift] = useState(0);
   const [isBottomSheetShown, setIsBottomSheetShown] = useState(false);
-  const {list, status} = useTypedSelector(state => state.agendaSlotList);
+  const {list, status, bookedList} = useTypedSelector(state => state.agendaSlotList);
 
   const [selectedDay, setSelectedDay] = useState(1);
 
   const dispatch = useTypedDispatch();
-  console.log(selectedAgendaSlot, ' selectedAgendaSlot');
 
+  const handleAddSlotToBookedAgendaSlotList = slot => {
+    dispatch(addSlotToBookedAgendaSlotList(slot));
+  };
   const getWeekRange = (weekShift: number = 0): string => {
     const currentDate = new Date();
     const dayOfWeek = currentDate.getDay();
@@ -61,9 +63,28 @@ const AgendaScreen: FC = () => {
 
   const uniqueQayList = getUniqueDays(list);
 
+  const getAgendaSlotListWithLocalBooked = (list, bookedList) => {
+    // Create a map using stringified Start and End times as keys
+    const bookedListMap = new Map(bookedList.map(item => [`${item.Start}-${item.End}`, item]));
+
+    return list.map(slot => {
+      const {Start, End, Taken} = slot;
+      // Check if the current slot is in the bookedListMap
+      const isBooked = bookedListMap.has(`${Start}-${End}`);
+      return {
+        Start,
+        End,
+        Taken: Taken || isBooked,
+      };
+    });
+  };
+
   const config = useMemo(
     () => ({
-      agendaSlotList: getSlotsByDay(filteredAgendaSlotList, uniqueQayList[selectedDay]), //filteredAgendaSlotList
+      agendaSlotList: getAgendaSlotListWithLocalBooked(
+        getSlotsByDay(filteredAgendaSlotList, uniqueQayList[selectedDay]),
+        bookedList,
+      ), //filteredAgendaSlotList
       setAgendaSlotListFilter,
       setSelectedAgendaSlot,
       setIsBottomSheetShown,
@@ -76,15 +97,20 @@ const AgendaScreen: FC = () => {
       uniqueSelectedDay: uniqueQayList[selectedDay],
       isPreviousToSelectedWeekDateAvailable: true,
       setSelectedDay,
+      handleAddSlotToBookedAgendaSlotList,
     }),
-    [filteredAgendaSlotList, selectedAgendaSlot, selectedDay, selectedWeekShift, uniqueQayList],
+    [
+      bookedList,
+      filteredAgendaSlotList,
+      handleAddSlotToBookedAgendaSlotList,
+      selectedAgendaSlot,
+      selectedDay,
+      selectedWeekShift,
+      uniqueQayList,
+    ],
   );
 
-  const fetchPreviousWeek = () => dispatch(fetchAgendaSlotListRequest(-1)); // Previous week
-  const fetchNextWeek = () => dispatch(fetchAgendaSlotListRequest(1)); // Next week
-
   useEffect(() => {
-    console.log(selectedWeekShift);
     dispatch(fetchAgendaSlotListRequest(selectedWeekShift));
   }, [dispatch, selectedWeekShift]);
 
