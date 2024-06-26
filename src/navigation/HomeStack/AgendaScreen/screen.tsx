@@ -37,16 +37,16 @@ export type AgendaScreenConfigType = {
 };
 
 const AgendaScreen: FC = () => {
+  const dispatch = useTypedDispatch();
   const [agendaSlotListFilter, setAgendaSlotListFilter] = useState<AgendaSlotListFilerType>('all');
   const [filteredAgendaSlotList, setFilteredAgendaSlotList] = useState<AgendaSlotListType>([]);
   const [selectedAgendaSlot, setSelectedAgendaSlot] = useState<AgendaSlotType | null>(null);
   const [selectedWeekShift, setSelectedWeekShift] = useState(0);
   const [isBottomSheetShown, setIsBottomSheetShown] = useState(false);
-  const {list, status, bookedList} = useTypedSelector(state => state.agendaSlotList);
-
   const [selectedDay, setSelectedDay] = useState(1);
 
-  const dispatch = useTypedDispatch();
+  const {list, status, bookedList} = useTypedSelector(state => state.agendaSlotList);
+  const uniqueQayList = getUniqueDays(list);
 
   const handleAddSlotToBookedAgendaSlotList = useCallback(
     slot => {
@@ -57,15 +57,10 @@ const AgendaScreen: FC = () => {
     [dispatch],
   );
 
-  const uniqueQayList = getUniqueDays(list);
-
   const config: AgendaScreenConfigType = useMemo(() => {
     return tryCatch(function getAgendaScreenConfig() {
       return {
-        agendaSlotList: getAgendaSlotListWithLocalBooked(
-          getSlotsByDay(filteredAgendaSlotList, uniqueQayList[selectedDay]),
-          bookedList,
-        ),
+        agendaSlotList: getSlotsByDay(filteredAgendaSlotList, uniqueQayList[selectedDay]),
         setAgendaSlotListFilter,
         setSelectedAgendaSlot,
         setIsBottomSheetShown,
@@ -82,7 +77,6 @@ const AgendaScreen: FC = () => {
       };
     })();
   }, [
-    bookedList,
     filteredAgendaSlotList,
     handleAddSlotToBookedAgendaSlotList,
     selectedAgendaSlot,
@@ -99,19 +93,20 @@ const AgendaScreen: FC = () => {
 
   useEffect(() => {
     tryCatch(function getAgendaSlotListFiltered() {
+      const mergedList = getAgendaSlotListWithLocalBooked(list, bookedList);
       if (agendaSlotListFilter === 'all') {
-        setFilteredAgendaSlotList(list);
+        setFilteredAgendaSlotList(mergedList);
       }
       if (agendaSlotListFilter === 'available') {
-        const availableAgendaSlotList = list.filter(({Taken}) => !Taken);
+        const availableAgendaSlotList = mergedList.filter(({Taken}) => !Taken);
         setFilteredAgendaSlotList(availableAgendaSlotList);
       }
       if (agendaSlotListFilter === 'booked') {
-        const bookedAgendaSlotList = list.filter(({Taken}) => Taken);
+        const bookedAgendaSlotList = mergedList.filter(({Taken}) => Taken);
         setFilteredAgendaSlotList(bookedAgendaSlotList);
       }
     })();
-  }, [agendaSlotListFilter, list]);
+  }, [agendaSlotListFilter, bookedList, list]);
 
   return (
     <ScreenMainView>
