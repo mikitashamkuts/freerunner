@@ -11,7 +11,10 @@ import {
   fetchAgendaSlotListSuccess,
 } from '../../slices/agendaSlotList';
 
-// Saga to fetch order list
+/**
+ * Saga to fetch agenda slot list
+ * @param action - Redux action containing the payload with week offset
+ */
 export const fetchAgendaSlotListSaga = tryCatch(function* fetchAgendaSlotListSagaSafe(action: {
   payload: number;
 }) {
@@ -31,7 +34,9 @@ export const fetchAgendaSlotListSaga = tryCatch(function* fetchAgendaSlotListSag
   }
 });
 
-// Watcher saga to watch for fetchOrderListRequest actions
+/**
+ * Watcher saga to watch for fetchAgendaSlotListRequest actions
+ */
 export const watchAgendaSlotListRequest = tryCatch(function* watchFetchAgendaSlotListRequestSafe() {
   yield takeLatest(fetchAgendaSlotListRequest.type, fetchAgendaSlotListSaga);
 });

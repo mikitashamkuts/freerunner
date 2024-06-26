@@ -1,17 +1,15 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 
 import {loadingStatusList} from '../../../constants';
-import {AgendaSlotListType} from '../../../types';
+import {AgendaSlotListType, AgendaSlotType} from '../../../types';
 import {getFunctionTryCatchWrapped as tryCatch} from '../../../utils';
 
-// Define the shape of the state
 export interface AgendaSlotListStateType {
   list: AgendaSlotListType;
   status: keyof typeof loadingStatusList;
   bookedList: AgendaSlotListType;
 }
 
-// Initial state of the agenda slot list
 const initialState: AgendaSlotListStateType = {
   list: [],
   status: loadingStatusList.Success,
@@ -24,8 +22,8 @@ const agendaSlotListSlice = tryCatch(function getAgendaSlotListSlice() {
     initialState,
     reducers: {
       /**
-       * Sets the loading status when the fetch order list request is initiated.
-       * @param state - Current state of the order list.
+       * Sets the loading status when the fetch agenda slot list request is initiated.
+       * @param state - Current state of the agenda slot list.
        */
       fetchAgendaSlotListRequest(state) {
         tryCatch(function fetchAgendaSlotListRequestSafe() {
@@ -33,9 +31,9 @@ const agendaSlotListSlice = tryCatch(function getAgendaSlotListSlice() {
         })();
       },
       /**
-       * Updates the order list and sets the status to success.
-       * @param state - Current state of the order list.
-       * @param action - Action containing the payload with the list of orders.
+       * Updates the agenda slot list and sets the status to success.
+       * @param state - Current state of the agenda slot list.
+       * @param action - Action containing the payload with the list of agenda slots.
        */
       fetchAgendaSlotListSuccess(state, action: PayloadAction<AgendaSlotListType>) {
         tryCatch(function fetchAgendaSlotListSuccessSafe() {
@@ -44,15 +42,20 @@ const agendaSlotListSlice = tryCatch(function getAgendaSlotListSlice() {
         })();
       },
       /**
-       * Sets the error status when the fetch order list request fails.
-       * @param state - Current state of the order list.
+       * Sets the error status when the fetch agenda slot list request fails.
+       * @param state - Current state of the agenda slot list.
        */
       fetchAgendaSlotListFailure(state) {
         tryCatch(function fetchAgendaSlotListFailureSafe() {
           state.status = loadingStatusList.Error;
         })();
       },
-      addSlotToBookedAgendaSlotList(state, action) {
+      /**
+       * Adds a slot to the booked agenda slot list.
+       * @param state - Current state of the agenda slot list.
+       * @param action - Action containing the payload with the slot to be added.
+       */
+      addSlotToBookedAgendaSlotList(state, action: PayloadAction<AgendaSlotType>) {
         tryCatch(function addSlotToBookedAgendaSlotListSafe() {
           state.bookedList = [...state.bookedList, action.payload];
         })();
@@ -61,7 +64,6 @@ const agendaSlotListSlice = tryCatch(function getAgendaSlotListSlice() {
   });
 })();
 
-// Export actions to be used in components and sagas
 export const {
   fetchAgendaSlotListRequest,
   fetchAgendaSlotListSuccess,
@@ -69,5 +71,4 @@ export const {
   addSlotToBookedAgendaSlotList,
 } = agendaSlotListSlice.actions;
 
-// Export the reducer to be used in the store
 export default agendaSlotListSlice.reducer;
