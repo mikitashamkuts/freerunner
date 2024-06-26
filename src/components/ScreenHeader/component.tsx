@@ -7,6 +7,12 @@ import {useTheme} from '../../hooks';
 
 import {Props, styles} from '.';
 
+/**
+ * ScreenHeader component provides a header layout with safe area handling and theme-based styling.
+ *
+ * @param {ScreenHeaderProps} props - The props for the component.
+ * @returns {JSX.Element} The ScreenHeader component.
+ */
 const ScreenHeader: FC<Props> = ({children, containerStyle}) => {
   const insets = useSafeAreaInsets();
 

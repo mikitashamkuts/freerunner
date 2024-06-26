@@ -6,6 +6,12 @@ import {fontFamilyList, fontSizeList, fontWeightList, textColorList} from '../..
 
 import {Props} from '.';
 
+/**
+ * Custom Text component with styled props.
+ *
+ * @param {Props} props - The props for the component.
+ * @returns {JSX.Element} The Text component.
+ */
 const Text: FC<Props> = ({
   text = '',
   fontWeight = 'Regular',

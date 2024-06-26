@@ -6,6 +6,12 @@ import {iconColorList} from '../../design';
 
 import {Props} from '.';
 
+/**
+ * LoadingIndicator component provides a visual feedback for loading state using an activity indicator.
+ *
+ * @param {LoadingIndicatorProps} props - The props for the component.
+ * @returns {JSX.Element} The LoadingIndicator component.
+ */
 const LoadingIndicator: FC<Props> = () => {
   return (
     <View>

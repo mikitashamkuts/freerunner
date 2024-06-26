@@ -6,6 +6,12 @@ import {Text} from '../../components';
 
 import {Props} from '.';
 
+/**
+ * AgendaRowTimeText component displays a text in a view with specific styles.
+ *
+ * @param {AgendaRowTimeTextProps} props - The props for the component.
+ * @returns {JSX.Element} The AgendaRowTimeText component.
+ */
 const AgendaRowTimeText: FC<Props> = ({text, containerStyle, ...props}) => {
   return (
     <View style={containerStyle}>

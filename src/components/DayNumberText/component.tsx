@@ -6,6 +6,12 @@ import {Text} from '../../components';
 
 import {Props} from '.';
 
+/**
+ * DayNumberText component renders a text component with dynamic color based on the current color scheme.
+ *
+ * @param {DayNumberTextProps} props - The props for the component.
+ * @returns {JSX.Element} The DayNumberText component.
+ */
 const DayNumberText: FC<Props> = ({text, containerStyle, ...props}) => {
   const isDarkMode = useColorScheme() === 'dark';
 

@@ -6,6 +6,12 @@ import {getFunctionTryCatchWrapped as tryCatch} from '../../utils';
 
 import {Props} from '.';
 
+/**
+ * StatusBar component for setting the style and behavior of the status bar.
+ *
+ * @param {Props} props - The props for the component.
+ * @returns {JSX.Element} The StatusBar component.
+ */
 const StatusBar: FC<Props> = ({customStyle}) => {
   const isDarkMode = useColorScheme() === 'dark';
 

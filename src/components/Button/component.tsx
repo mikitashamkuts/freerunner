@@ -7,6 +7,12 @@ import {getFunctionTryCatchWrapped as tryCatch} from '../../utils';
 
 import {Props, styles} from '.';
 
+/**
+ * Button component renders a pressable button with text and handles the press event safely.
+ *
+ * @param {ButtonProps} props - The props for the component.
+ * @returns {JSX.Element} The Button component.
+ */
 const Button: FC<Props> = ({onPress, text, accessibilityLabel, accessibilityHint}) => {
   const handleOnPress = useCallback(() => {
     tryCatch(function handleOnPressSafe() {

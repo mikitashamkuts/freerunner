@@ -7,6 +7,13 @@ import {useTheme} from '../../hooks';
 
 import {Props, styles} from '.';
 
+/**
+ * ScreenMainView component is a container that applies a theme-based style
+ * and an optional fade-in animation.
+ *
+ * @param {Props} props - The props for the component.
+ * @returns {JSX.Element} The ScreenMainView component.
+ */
 const ScreenMainView: FC<Props> = ({children, isWithAnimation = true}) => {
   const themedStyles = useTheme(styles);
   const fadeAnim = useRef(new Animated.Value(isWithAnimation ? 0 : 1)).current;

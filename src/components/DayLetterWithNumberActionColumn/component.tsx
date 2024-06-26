@@ -8,6 +8,13 @@ import {DayNumberText} from '../DayNumberText';
 
 import {Props, styles} from '.';
 
+/**
+ * DayLetterWithNumberActionColumn component renders a column with day letter and number,
+ * and handles press events.
+ *
+ * @param {DayLetterWithNumberActionColumnProps} props - The props for the component.
+ * @returns {JSX.Element} The DayLetterWithNumberActionColumn component.
+ */
 const DayLetterWithNumberActionColumn: FC<Props> = ({isActive, dayLetter, dayNumber, onPress}) => {
   const isDarkMode = useColorScheme() === 'dark';
 

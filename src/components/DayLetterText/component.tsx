@@ -7,6 +7,13 @@ import {getFunctionTryCatchWrapped as tryCatch} from '../../utils';
 
 import {Props} from '.';
 
+/**
+ * DayLetterText component renders a text representing the letter of the day
+ * and applies styles based on the theme.
+ *
+ * @param {DayLetterTextProps} props - The props for the component.
+ * @returns {JSX.Element} The DayLetterText component.
+ */
 const DayLetterText: FC<Props> = ({text, containerStyle, ...props}) => {
   const isDarkMode = useColorScheme() === 'dark';
 

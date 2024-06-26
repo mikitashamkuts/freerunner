@@ -6,6 +6,12 @@ import {Text} from '../../components';
 
 import {Props} from '.';
 
+/**
+ * ActionText component displays a text in a view with specific styles.
+ *
+ * @param {ActionTextProps} props - The props for the component.
+ * @returns {JSX.Element} The ActionText component.
+ */
 const ActionText: FC<Props> = ({text, containerStyle, ...props}) => {
   return (
     <View style={containerStyle}>

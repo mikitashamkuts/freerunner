@@ -7,6 +7,12 @@ import {iconColorList, iconList} from '../../design';
 
 import {Props, iconSettings} from '.';
 
+/**
+ * Icon component renders an SVG icon based on the provided name and color.
+ *
+ * @param {IconProps} props - The props for the component.
+ * @returns {JSX.Element | null} The Icon component or null if no name is provided.
+ */
 const Icon: FC<Props> = ({name, color, containerStyle}) => {
   if (!name) {
     return null;
