@@ -1,6 +1,7 @@
 import {FC, useCallback, useEffect, useMemo, useState} from 'react';
-
+import {useTranslation} from 'react-i18next';
 import {View} from 'react-native';
+
 import {whyDidItRenderConfig} from '../../../../debug';
 import {LoadingIndicator, ScreenMainView, StatusBar, Text} from '../../../components';
 import {
@@ -12,7 +13,6 @@ import {
 import {useTypedDispatch, useTypedSelector} from '../../../hooks';
 import {addSlotToBookedAgendaSlotList, fetchAgendaSlotListRequest} from '../../../store';
 import {AgendaSlotListType, AgendaSlotType} from '../../../types';
-
 import {
   getAgendaSlotListWithLocalBooked,
   getSlotsByDay,
@@ -20,6 +20,7 @@ import {
   getWeekRangeText,
   getFunctionTryCatchWrapped as tryCatch,
 } from '../../../utils';
+
 import {styles} from './styles';
 
 export type AgendaSlotListFilerType = 'all' | 'booked' | 'available';
@@ -38,6 +39,8 @@ export type AgendaScreenConfigType = {
 
 const AgendaScreen: FC = () => {
   const dispatch = useTypedDispatch();
+  const {t} = useTranslation();
+
   const [agendaSlotListFilter, setAgendaSlotListFilter] = useState<AgendaSlotListFilerType>('all');
   const [filteredAgendaSlotList, setFilteredAgendaSlotList] = useState<AgendaSlotListType>([]);
   const [selectedAgendaSlot, setSelectedAgendaSlot] = useState<AgendaSlotType | null>(null);
@@ -115,7 +118,12 @@ const AgendaScreen: FC = () => {
       {status === 'Loading' && <LoadingIndicator />}
       {status === 'Error' && (
         <View style={styles.errorTextContainer}>
-          <Text color="Faded" text="Internet connection issue..." />
+          <Text
+            color="Faded"
+            text={t('agendaScreen.fail.agendaSlotList.text')}
+            accessibilityLabel={t('agendaScreen.fail.agendaSlotList.accessibilityLabel')}
+            accessibilityHint={t('agendaScreen.fail.agendaSlotList.accessibilityHint')}
+          />
         </View>
       )}
       {status === 'Success' && (

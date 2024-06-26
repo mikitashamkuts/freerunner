@@ -51,6 +51,14 @@ export const en: TranslationType = {
           },
         },
       },
+      fail: {
+        agendaSlotList: {
+          text: 'Internet connection issue...',
+          accessibilityLabel:
+            'Internet connection issue occurred which prevented from displaying the agenda slot list',
+          accessibilityHint: 'Please, verify the internet connection and reload the app',
+        },
+      },
     },
   },
 };

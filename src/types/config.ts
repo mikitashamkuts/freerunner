@@ -78,6 +78,9 @@ export type TranslationType = {
           reservedSlot: TranslationValueType;
         };
       };
+      fail: {
+        agendaSlotList: TranslationValueType;
+      };
     };
   };
 };
