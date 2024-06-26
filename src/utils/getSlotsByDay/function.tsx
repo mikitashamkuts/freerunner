@@ -1,5 +1,4 @@
 import {AgendaSlotListType} from '../../types';
-import {getExceptionCaptured} from '../getExceptionCaptured';
 import {getFunctionTryCatchWrapped} from '../getFunctionTryCatchWrapped';
 
 function getSlotsByDay(slots: AgendaSlotListType, targetDate: string): AgendaSlotListType {
@@ -10,7 +9,8 @@ function getSlotsByDay(slots: AgendaSlotListType, targetDate: string): AgendaSlo
       return slotDate === formattedTargetDate;
     });
   }
-  getExceptionCaptured(getSlotsByDay, 'InvalidParam');
+  // TODO
+  // getExceptionCaptured(getSlotsByDay, exceptionList.InvalidParam);
   return [];
 }
 
