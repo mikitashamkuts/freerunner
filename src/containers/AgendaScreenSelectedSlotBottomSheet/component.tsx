@@ -6,13 +6,13 @@ import {StyleSheet, View, useColorScheme} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
 import {Button, Text} from '../../components';
-import {hapticFeedbackModeList} from '../../constants';
 import {paddingList} from '../../design';
 import {useTheme} from '../../hooks';
 import {getHapticFeedbackTriggered, getFunctionTryCatchWrapped as tryCatch} from '../../utils';
 
 import {Props, styles} from '.';
 import {whyDidItRenderConfig} from '../../../debug';
+import {hapticFeedbackModeList} from '../../constants';
 
 const AgendaScreenSelectedSlotBottomSheet: FC<Props> = ({config}) => {
   const insets = useSafeAreaInsets();
@@ -42,6 +42,15 @@ const AgendaScreenSelectedSlotBottomSheet: FC<Props> = ({config}) => {
       paddingBottom: insets.bottom + paddingList.Default,
     },
   });
+
+  const handleOnBookButtonPress = useCallback(() => {
+    tryCatch(function handleOnBookButtonPressSafe() {
+      agendaSlot &&
+        handleAddSlotToBookedAgendaSlotList({End: agendaSlot.End, Start: agendaSlot.Start});
+      setIsBookedButtonPressed(true);
+      getHapticFeedbackTriggered(hapticFeedbackModeList.Default);
+    })();
+  }, [agendaSlot, handleAddSlotToBookedAgendaSlotList]);
 
   return (
     <BottomSheet
@@ -96,12 +105,7 @@ const AgendaScreenSelectedSlotBottomSheet: FC<Props> = ({config}) => {
         </View>
         {!isBookedButtonPressed ? (
           <Button
-            onPress={() => {
-              agendaSlot &&
-                handleAddSlotToBookedAgendaSlotList({End: agendaSlot.End, Start: agendaSlot.Start});
-              setIsBookedButtonPressed(true);
-              getHapticFeedbackTriggered(hapticFeedbackModeList.Default);
-            }}
+            onPress={handleOnBookButtonPress}
             text={t('agendaScreen.selectedSlot.bottomSheet.bookButton.text')}
             accessibilityLabel={t(
               'agendaScreen.selectedSlot.bottomSheet.bookButton.accessibilityLabel',
