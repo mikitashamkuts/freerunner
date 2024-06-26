@@ -5,6 +5,10 @@ import {isDevelopmentEnvironment} from '../constants';
 
 const baseURL = isDevelopmentEnvironment ? DEVELOPMENT_ORIGIN : PRODUCTION_ORIGIN;
 
-export const axiosInstance = axios.create({
-  baseURL: `${baseURL}/api`,
+const axiosInstance = axios.create({
+  baseURL: `${baseURL}/api/`,
+  timeout: 10000,
+  headers: {'Content-Type': 'application/json'},
 });
+
+export default axiosInstance;
