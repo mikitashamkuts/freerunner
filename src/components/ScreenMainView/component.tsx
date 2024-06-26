@@ -21,10 +21,7 @@ const ScreenMainView: FC<Props> = ({children, isWithAnimation = true}) => {
   }, [fadeAnim, isWithAnimation]);
 
   return (
-    <Animated.View
-      style={[themedStyles.container, {opacity: fadeAnim, justifyContent: 'space-between'}]}>
-      {children}
-    </Animated.View>
+    <Animated.View style={[themedStyles.container, {opacity: fadeAnim}]}>{children}</Animated.View>
   );
 };
 
