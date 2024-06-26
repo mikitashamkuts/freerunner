@@ -10,8 +10,9 @@ import {getHapticFeedbackTriggered, getFunctionTryCatchWrapped as tryCatch} from
 
 import {Props, styles} from '.';
 import {hapticFeedbackModeList} from '../../constants';
+import {AgendaSlotListFilerType} from '../../navigation/HomeStack/AgendaScreen/screen';
 
-const filterOptionSequence = ['all', 'booked', 'available'];
+const filterOptionSequence: AgendaSlotListFilerType[] = ['all', 'booked', 'available'];
 
 const AgendaScreenFooter: FC<Props> = ({config}) => {
   const [filterOptionIndex, setFilterOptionIndex] = useState(0);
