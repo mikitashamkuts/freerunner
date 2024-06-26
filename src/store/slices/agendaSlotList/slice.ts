@@ -8,12 +8,14 @@ import {getFunctionTryCatchWrapped as tryCatch} from '../../../utils';
 export interface AgendaSlotListStateType {
   list: AgendaSlotListType;
   status: keyof typeof loadingStatusList;
+  bookedList: AgendaSlotListType;
 }
 
 // Initial state of the agenda slot list
 const initialState: AgendaSlotListStateType = {
   list: [],
   status: loadingStatusList.Success,
+  bookedList: [],
 };
 
 const agendaSlotListSlice = tryCatch(function getAgendaSlotListSlice() {
@@ -50,13 +52,22 @@ const agendaSlotListSlice = tryCatch(function getAgendaSlotListSlice() {
           state.status = loadingStatusList.Error;
         })();
       },
+      addSlotToBookedAgendaSlotList(state, action) {
+        tryCatch(function addSlotToBookedAgendaSlotListSafe() {
+          state.bookedList = [...state.bookedList, action.payload];
+        })();
+      },
     },
   });
 })();
 
 // Export actions to be used in components and sagas
-export const {fetchAgendaSlotListRequest, fetchAgendaSlotListSuccess, fetchAgendaSlotListFailure} =
-  agendaSlotListSlice.actions;
+export const {
+  fetchAgendaSlotListRequest,
+  fetchAgendaSlotListSuccess,
+  fetchAgendaSlotListFailure,
+  addSlotToBookedAgendaSlotList,
+} = agendaSlotListSlice.actions;
 
 // Export the reducer to be used in the store
 export default agendaSlotListSlice.reducer;
