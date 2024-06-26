@@ -5,6 +5,7 @@ export const styles = StyleSheet.create({
   container: {
     justifyContent: 'center',
     alignItems: 'center',
+    minWidth: 44,
   },
   dayLetterTextContainer: {
     paddingTop: paddingList.Small / 2,

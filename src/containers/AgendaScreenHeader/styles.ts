@@ -9,6 +9,7 @@ export const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   weekSelectorContainerOptionContainer: {
+    minHeight: 44,
     paddingVertical: paddingList.Small,
     flexDirection: 'row',
     alignItems: 'center',
