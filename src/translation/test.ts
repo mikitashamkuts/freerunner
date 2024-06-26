@@ -1,7 +1,7 @@
 import i18n from 'i18next';
 import {initReactI18next} from 'react-i18next';
 
-import {es, initTranslation} from '.';
+import {en, initTranslation} from '.';
 
 jest.mock('i18next', () => ({
   use: jest.fn().mockReturnThis(),
@@ -19,10 +19,10 @@ describe('initTranslation', () => {
     expect(i18n.init).toHaveBeenCalledWith({
       compatibilityJSON: 'v3',
       resources: {
-        es,
+        en,
       },
-      lng: 'es',
-      fallbackLng: 'es',
+      lng: 'en',
+      fallbackLng: 'en',
       interpolation: {
         escapeValue: false,
       },
