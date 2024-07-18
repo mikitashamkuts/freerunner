@@ -1,6 +1,6 @@
 # dp-tech-task-mikita
 
-This is my Docplanner Task, which itself is [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli) and enjected with several friquently used tools.
+This is my Docplanner Task, which itself is [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli), enjected with several friquently used tools and integrated with [**ide.frostminded**](https://ide.frostminded.com).
 
 # Getting Started
 
@@ -168,13 +168,14 @@ This is one way to run your app — you can also run it directly from within And
   - **Usage**: Convenient shortcut for opening the project in the appropriate development environment on macOS.
 
 - **`yarn pod-install`**:
+
   - **Purpose**: Installs CocoaPods dependencies for the iOS project.
   - **Usage**: Ensures that all native iOS dependencies are correctly installed. Run this command whenever the iOS dependencies in the `Podfile` are changed.
 
 - **`yarn postinstall`**:
+
   - **Purpose**: The script is executed automatically after the dependencies are installed via `yarn install`. This script is often used to run additional setup steps that are required for the project to function correctly, such as running custom build scripts, linking native dependencies, or performing clean-up tasks.
   - **Usage**: This script runs automatically after `yarn install`. No manual intervention is typically required.
-
 
 - **`yarn clean:ios`**:
   - **Purpose**: The script is used to clean up the iOS build artifacts. This includes deleting derived data, cleaning the build folder, and removing any cached files. This can be helpful in resolving issues related to corrupted caches or build errors.
