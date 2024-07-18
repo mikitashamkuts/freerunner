@@ -31,8 +31,8 @@ pod install
 The required enironment variables to your .env file are listed in [env.d.ts](./env.d.ts), feel free to take the reference from there and fill the values with empty strings if you wish, alternatively request the file content from the repository maintainer.
 
 ### Extra Not Mandatory Step:
-Add your auth.token and defaults.org to sentry.properties files of ios and android folders to use Sentry Service.
 
+Add your auth.token and defaults.org to sentry.properties files of ios and android folders to use Sentry Service.
 
 ## Step 4: Start the Metro Server
 
@@ -391,6 +391,10 @@ Utility functions used across the app.
 
 - `getFunctionTryCatchWrapped.ts`: Utility to wrap functions with try-catch for error handling.
 - `getNearestMondayWithOffset.ts`: Utility to get the nearest Monday with an offset.
+
+# Design
+
+The UI & UX design is inspired by [Apple Calendar](https://www.figma.com/design/xdooeZ6MGMYR8aAeQdvD10/Apple-Calendar-%C2%B7-iOS-(Community)?m=auto&t=VHyAb67JJZ2SK46y-6)
 
 # Agenda Screen Architecture
 
