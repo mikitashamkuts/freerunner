@@ -1,8 +1,8 @@
 import i18n from 'i18next';
 import {initReactI18next} from 'react-i18next';
-import * as Localization from 'react-native-localize';
 
-import {getFunctionTryCatchWrapped} from '../utils';
+import {deviceLanguage} from '@src/constants';
+import {getFunctionTryCatchWrapped} from '@src/utils';
 
 import {en} from './en';
 import {es} from './es';
@@ -11,9 +11,6 @@ import {es} from './es';
  * Initializes the internationalization (i18n) setup using i18next and react-i18next.
  */
 function initTranslation() {
-  // Get the device's language setting
-  const deviceLanguage = Localization.getLocales()[0].languageCode.slice(0, 2);
-
   i18n
     .use(initReactI18next) // Passes i18n instance to react-i18next
     .init({

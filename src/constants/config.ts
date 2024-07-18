@@ -1,5 +1,6 @@
 import {Platform} from 'react-native';
 import {HapticFeedbackTypes} from 'react-native-haptic-feedback';
+import * as Localization from 'react-native-localize';
 
 export enum tabs {
   HomeTab = 'HomeTab',
@@ -88,3 +89,5 @@ export enum httpResponceStatusList {
   GatewayTimeout = 504, // The server was acting as a gateway or proxy and did not receive a timely response from the upstream server.
   HttpVersionNotSupported = 505, // The server does not support the HTTP protocol version used in the request.
 }
+
+export const deviceLanguage = Localization.getLocales()[0].languageCode.slice(0, 2);
