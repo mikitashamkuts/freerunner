@@ -18,5 +18,26 @@ module.exports = {
     ],
     // The 'react-native-reanimated/plugin' plugin is required for React Native Reanimated library.
     ['react-native-reanimated/plugin'],
+    [
+      'module-resolver',
+      {
+        root: ['./src'],
+        extensions: ['.ios.js', '.android.js', '.js', '.ts', '.tsx', '.json'],
+        alias: {
+          '@api': 'src/api/index',
+          '@components': './src/components/index',
+          '@constants': 'src/constants/index',
+          '@containers': 'src/containers/index',
+          '@design': 'src/design/index',
+          '@hooks': 'src/hooks/index',
+          '@navigation': 'src/navigation/index',
+          '@services': 'src/services/index',
+          '@store': 'src/store/index',
+          '@translation': 'src/translation/index',
+          '@types': 'src/types/index',
+          '@utils': 'src/utils/index',
+        },
+      },
+    ],
   ],
 };

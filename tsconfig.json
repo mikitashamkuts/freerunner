@@ -1,5 +1,25 @@
 {
   // Extends the base TypeScript configuration provided by the @react-native/typescript-config package.
   // This configuration contains a set of sensible defaults for React Native projects.
-  "extends": "@react-native/typescript-config/tsconfig.json"
+  "extends": "@react-native/typescript-config/tsconfig.json",
+  "compilerOptions": {
+    "removeComments": true, // Removes comments from emitted files
+    "baseUrl": ".",
+    "paths": {
+      "*": ["src/*"],
+      "@api": ["src/api/index"],
+      "@components": ["src/components/index"],
+      "@constants": ["src/constants/index"],
+      "@containers": ["src/containers/index"],
+      "@design": ["src/design/index"],
+      "@hooks": ["src/hooks/index"],
+      "@navigation": ["src/navigation/index"],
+      "@services": ["src/services/index"],
+      "@store": ["src/store/index"],
+      "@translation": ["src/translation/index"],
+      "@types": ["src/types/index"],
+      "@utils": ["src/utils/index"]
+    },
+    "allowJs": true // Allows JavaScript files to be compiled
+  }
 }
