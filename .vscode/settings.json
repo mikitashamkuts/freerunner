@@ -2,5 +2,10 @@
   "editor.codeActionsOnSave": {
     "source.organizeImports": "always"
   },
-  "cSpell.words": ["Persistor", "Pressable", "redownloading"]
+  "cSpell.words": ["Persistor", "Pressable", "redownloading"],
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.patterns": {
+    "package.json": "package-lock.json, yarn.lock",
+    "Gemfile": "Gemfile.lock"
+  }
 }
