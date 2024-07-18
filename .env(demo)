@@ -1,0 +1,3 @@
+SENTRY_DSN =''
+DEVELOPMENT_ORIGIN='https://draliatest.azurewebsites.net'
+PRODUCTION_ORIGIN=''
