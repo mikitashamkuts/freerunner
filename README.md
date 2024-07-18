@@ -185,10 +185,6 @@ This is one way to run your app — you can also run it directly from within And
 
 [How to debug state with logger and experemental debugger](https://reactnative.dev/docs/0.73/debugging)
 
-# Boilerplate Gernerating
-
-[More here](https://medium.com/@mikitashamkuts/automated-react-native-component-creation-how-to-create-components-easier-faster-3fabf9e6e147)
-
 # Phisical Device Engaging
 
 [Instruction](https://reactnative.dev/docs/0.73/running-on-device?platform=ios)
