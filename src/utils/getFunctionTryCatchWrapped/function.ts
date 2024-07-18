@@ -1,7 +1,7 @@
 import * as Sentry from '@sentry/react-native';
 import _ from 'lodash';
 
-import {isDevelopmentEnvironment} from '../../constants';
+import {isDevelopmentEnvironment} from '@src/constants';
 
 /**
  * Wraps a function with a try-catch block for error handling.

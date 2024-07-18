@@ -1,8 +1,9 @@
 import React, {FC, memo, useMemo} from 'react';
 import {StatusBar as RNStatusBar, useColorScheme} from 'react-native';
 
+import {getFunctionTryCatchWrapped as tryCatch} from '@src/utils';
+
 import {whyDidItRenderConfig} from '../../../debug';
-import {getFunctionTryCatchWrapped as tryCatch} from '../../utils';
 
 import {Props} from '.';
 

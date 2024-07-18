@@ -1,6 +1,6 @@
 import * as Sentry from '@sentry/react-native';
 
-import {exceptionList, isDevelopmentEnvironment} from '../../constants';
+import {exceptionList, isDevelopmentEnvironment} from '@src/constants';
 
 /**
  * Captures and logs exceptions based on the environment.

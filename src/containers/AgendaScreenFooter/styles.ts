@@ -5,7 +5,7 @@ import {
   paddingList,
   separatorColorList,
   separatorWidthList,
-} from '../../design';
+} from '@src/design';
 
 export const styles = StyleSheet.create({
   container: {

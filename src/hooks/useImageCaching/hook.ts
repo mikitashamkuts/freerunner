@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react';
 
-import {initImageCaching, manageCacheCapacity} from '../../services';
+import {initImageCaching, manageCacheCapacity} from '@src/services';
 
 /**
  * Custom hook to handle image caching initialization and management.

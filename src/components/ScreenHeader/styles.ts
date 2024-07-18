@@ -1,10 +1,10 @@
-import {StyleSheet} from 'react-native';
 import {
   barBackgroundColorList,
   paddingList,
   separatorColorList,
   separatorWidthList,
-} from '../../design';
+} from '@src/design';
+import {StyleSheet} from 'react-native';
 
 export const styles = StyleSheet.create({
   container: {

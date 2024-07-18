@@ -1,6 +1,6 @@
 import {HapticFeedbackTypes, trigger} from 'react-native-haptic-feedback';
 
-import {exceptionList, hapticFeedbackModeList} from '../../constants';
+import {exceptionList, hapticFeedbackModeList} from '@src/constants';
 import {getExceptionCaptured} from '../getExceptionCaptured';
 import {getFunctionTryCatchWrapped} from '../getFunctionTryCatchWrapped';
 

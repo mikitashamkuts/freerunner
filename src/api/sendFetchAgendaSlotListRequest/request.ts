@@ -1,8 +1,9 @@
 import {AxiosResponse} from 'axios';
 
-import {httpResponceStatusList} from '../../constants';
-import {AgendaSlotListType} from '../../types';
-import {getNearestMondayWithOffset} from '../../utils';
+import {httpResponceStatusList} from '@src/constants';
+import {AgendaSlotListType} from '@src/types';
+import {getNearestMondayWithOffset} from '@src/utils';
+
 import axiosInstance from '../config';
 
 /**

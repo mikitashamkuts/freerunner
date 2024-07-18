@@ -1,8 +1,8 @@
 import {useEffect, useState} from 'react';
 import DeviceInfo from 'react-native-device-info';
 
-import {isDevelopmentEnvironment} from '../../constants';
-import {getFunctionTryCatchWrapped} from '../../utils';
+import {isDevelopmentEnvironment} from '@src/constants';
+import {getFunctionTryCatchWrapped} from '@src/utils';
 
 /**
  * Custom hook to check the device's approval and verification status.

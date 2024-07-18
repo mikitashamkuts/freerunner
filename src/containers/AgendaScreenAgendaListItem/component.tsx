@@ -2,15 +2,16 @@ import {format} from 'date-fns';
 import React, {FC, memo, useCallback} from 'react';
 import {Pressable, View} from 'react-native';
 
-import {whyDidItRenderConfig} from '../../../debug';
-import {AgendaRowTimeText, Icon} from '../../components';
-import {hapticFeedbackModeList} from '../../constants';
-import {useTheme} from '../../hooks';
+import {AgendaRowTimeText, Icon} from '@src/components';
+import {hapticFeedbackModeList} from '@src/constants';
+import {useTheme} from '@src/hooks';
 import {
   getHapticFeedbackTriggered,
   getSymbolLimitedText,
   getFunctionTryCatchWrapped as tryCatch,
-} from '../../utils';
+} from '@src/utils';
+
+import {whyDidItRenderConfig} from '../../../debug';
 
 import {Props, styles} from '.';
 

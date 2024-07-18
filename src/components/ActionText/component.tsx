@@ -1,8 +1,9 @@
 import React, {FC, memo} from 'react';
 import {View} from 'react-native';
 
+import {Text} from '@src/components';
+
 import {whyDidItRenderConfig} from '../../../debug';
-import {Text} from '../../components';
 
 import {Props} from '.';
 

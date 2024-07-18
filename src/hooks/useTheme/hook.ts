@@ -1,8 +1,8 @@
 import {useMemo} from 'react';
 import {StyleSheet, useColorScheme} from 'react-native';
 
-import {DefaultStyleSheetStyleType} from '../../types';
-import {getFunctionTryCatchWrapped} from '../../utils';
+import {DefaultStyleSheetStyleType} from '@src/types';
+import {getFunctionTryCatchWrapped} from '@src/utils';
 
 type StyleSheetStyleObjectType = {
   [key: string]: DefaultStyleSheetStyleType;

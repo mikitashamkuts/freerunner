@@ -2,8 +2,9 @@ import React, {FC, memo} from 'react';
 import {StyleSheet, View} from 'react-native';
 import {Path, Svg} from 'react-native-svg';
 
+import {iconColorList, iconList} from '@src/design';
+
 import {whyDidItRenderConfig} from '../../../debug';
-import {iconColorList, iconList} from '../../design';
 
 import {Props, iconSettings} from '.';
 

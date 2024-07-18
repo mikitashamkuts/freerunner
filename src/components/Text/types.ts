@@ -1,5 +1,5 @@
-import {fontFamilyList, fontSizeList, fontWeightList, textColorList} from '../../design';
-import {CustomComponentProps} from '../../types';
+import {fontFamilyList, fontSizeList, fontWeightList, textColorList} from '@src/design';
+import {CustomComponentProps} from '@src/types';
 
 export interface Props extends CustomComponentProps {
   text: string;

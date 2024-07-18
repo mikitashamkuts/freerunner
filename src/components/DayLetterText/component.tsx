@@ -1,9 +1,10 @@
 import React, {FC, memo, useMemo} from 'react';
 import {View, useColorScheme} from 'react-native';
 
+import {Text} from '@src/components';
+import {getFunctionTryCatchWrapped as tryCatch} from '@src/utils';
+
 import {whyDidItRenderConfig} from '../../../debug';
-import {Text} from '../../components';
-import {getFunctionTryCatchWrapped as tryCatch} from '../../utils';
 
 import {Props} from '.';
 

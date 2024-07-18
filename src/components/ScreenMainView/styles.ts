@@ -1,5 +1,5 @@
+import {backgroundColorList} from '@src/design';
 import {StyleSheet} from 'react-native';
-import {backgroundColorList} from '../../design';
 
 export const styles = StyleSheet.create({
   container: {

@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 import {DEVELOPMENT_ORIGIN, PRODUCTION_ORIGIN} from '@env';
-import {isDevelopmentEnvironment} from '../constants';
+import {isDevelopmentEnvironment} from '@src/constants';
 
 const baseURL = isDevelopmentEnvironment ? DEVELOPMENT_ORIGIN : PRODUCTION_ORIGIN;
 

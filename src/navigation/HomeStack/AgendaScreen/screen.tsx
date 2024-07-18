@@ -2,24 +2,25 @@ import {FC, useCallback, useEffect, useMemo, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import {View} from 'react-native';
 
-import {whyDidItRenderConfig} from '../../../../debug';
-import {LoadingIndicator, ScreenMainView, StatusBar, Text} from '../../../components';
+import {LoadingIndicator, ScreenMainView, StatusBar, Text} from '@src/components';
 import {
   AgendaScreenAgendaList,
   AgendaScreenFooter,
   AgendaScreenHeader,
   AgendaScreenSelectedSlotBottomSheet,
-} from '../../../containers';
-import {useTypedDispatch, useTypedSelector} from '../../../hooks';
-import {addSlotToBookedAgendaSlotList, fetchAgendaSlotListRequest} from '../../../store';
-import {AgendaSlotListType, AgendaSlotType} from '../../../types';
+} from '@src/containers';
+import {useTypedDispatch, useTypedSelector} from '@src/hooks';
+import {addSlotToBookedAgendaSlotList, fetchAgendaSlotListRequest} from '@src/store';
+import {AgendaSlotListType, AgendaSlotType} from '@src/types';
 import {
   getAgendaSlotListWithLocalBooked,
   getSlotsByDay,
   getUniqueDays,
   getWeekRangeText,
   getFunctionTryCatchWrapped as tryCatch,
-} from '../../../utils';
+} from '@src/utils';
+
+import {whyDidItRenderConfig} from '../../../../debug';
 
 import {styles} from './styles';
 

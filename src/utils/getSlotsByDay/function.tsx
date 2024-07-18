@@ -1,4 +1,4 @@
-import {AgendaSlotListType} from '../../types';
+import {AgendaSlotListType} from '@src/types';
 import {getFunctionTryCatchWrapped} from '../getFunctionTryCatchWrapped';
 
 /**

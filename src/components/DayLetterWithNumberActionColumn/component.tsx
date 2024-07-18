@@ -1,10 +1,11 @@
 import React, {FC, memo, useCallback, useMemo} from 'react';
 import {Pressable, useColorScheme} from 'react-native';
 
-import {whyDidItRenderConfig} from '../../../debug';
-import {getFunctionTryCatchWrapped as tryCatch} from '../../utils';
+import {getFunctionTryCatchWrapped as tryCatch} from '@src/utils';
 import {DayLetterText} from '../DayLetterText';
 import {DayNumberText} from '../DayNumberText';
+
+import {whyDidItRenderConfig} from '../../../debug';
 
 import {Props, styles} from '.';
 

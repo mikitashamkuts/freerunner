@@ -1,8 +1,8 @@
 import {CacheManager} from '@georstat/react-native-image-cache';
 import {Dirs, FileSystem} from 'react-native-file-access';
 
-import {defaultAnimationDuration, imageCacheSizeLimit, isAndroid} from '../../constants';
-import {getFunctionTryCatchWrapped as tryCatch} from '../../utils';
+import {defaultAnimationDuration, imageCacheSizeLimit, isAndroid} from '@src/constants';
+import {getFunctionTryCatchWrapped as tryCatch} from '@src/utils';
 
 /**
  * Initializes the image caching by configuring the CacheManager.

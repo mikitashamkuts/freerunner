@@ -1,5 +1,5 @@
+import {ButtonColorList} from '@src/design';
 import {StyleSheet} from 'react-native';
-import {ButtonColorList} from '../../design';
 
 export const styles = StyleSheet.create({
   container: {

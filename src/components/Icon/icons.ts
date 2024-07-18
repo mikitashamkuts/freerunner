@@ -1,5 +1,5 @@
-import {iconColorList, iconList} from '../../design';
-import {IconSettingsType} from '../../types';
+import {iconColorList, iconList} from '@src/design';
+import {IconSettingsType} from '@src/types';
 
 export const iconSettings: IconSettingsType = {
   [iconList.Arrow]: {

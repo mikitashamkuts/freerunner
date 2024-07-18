@@ -1,4 +1,4 @@
-import {TranslationType} from '../../types';
+import {TranslationType} from '@src/types';
 
 export const es: TranslationType = {
   translation: {

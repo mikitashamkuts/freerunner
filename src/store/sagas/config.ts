@@ -1,6 +1,6 @@
 import {all} from 'redux-saga/effects';
 
-import {getFunctionTryCatchWrapped as tryCatch} from '../../utils';
+import {getFunctionTryCatchWrapped as tryCatch} from '@src/utils';
 import agendaSlotListRootSaga from './agendaSlotList/saga';
 
 /**

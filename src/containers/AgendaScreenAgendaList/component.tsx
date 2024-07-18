@@ -2,10 +2,11 @@ import {FlashList} from '@shopify/flash-list';
 import React, {FC, memo, useCallback} from 'react';
 import {View} from 'react-native';
 
-import {whyDidItRenderConfig} from '../../../debug';
-import {AgendaSlotType} from '../../types';
-import {getFunctionTryCatchWrapped as tryCatch} from '../../utils';
+import {AgendaSlotType} from '@src/types';
+import {getFunctionTryCatchWrapped as tryCatch} from '@src/utils';
 import {AgendaScreenAgendaListItem} from '../AgendaScreenAgendaListItem';
+
+import {whyDidItRenderConfig} from '../../../debug';
 
 import {Props, styles} from '.';
 

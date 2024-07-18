@@ -3,14 +3,15 @@ import {useTranslation} from 'react-i18next';
 import {Pressable, StyleSheet, View} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
+import {Text} from '@src/components';
+import {hapticFeedbackModeList} from '@src/constants';
+import {useTheme} from '@src/hooks';
+import {AgendaSlotListFilerType} from '@src/navigation/HomeStack/AgendaScreen/screen';
+import {getHapticFeedbackTriggered, getFunctionTryCatchWrapped as tryCatch} from '@src/utils';
+
 import {whyDidItRenderConfig} from '../../../debug';
-import {Text} from '../../components';
-import {useTheme} from '../../hooks';
-import {getHapticFeedbackTriggered, getFunctionTryCatchWrapped as tryCatch} from '../../utils';
 
 import {Props, styles} from '.';
-import {hapticFeedbackModeList} from '../../constants';
-import {AgendaSlotListFilerType} from '../../navigation/HomeStack/AgendaScreen/screen';
 
 const filterOptionSequence: AgendaSlotListFilerType[] = ['all', 'booked', 'available'];
 

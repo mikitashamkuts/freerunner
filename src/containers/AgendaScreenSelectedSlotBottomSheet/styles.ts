@@ -1,6 +1,6 @@
 import {StyleSheet} from 'react-native';
 
-import {backgroundColorList, overlayColorList, paddingList} from '../../design';
+import {backgroundColorList, overlayColorList, paddingList} from '@src/design';
 
 export const styles = StyleSheet.create({
   contentContainer: {

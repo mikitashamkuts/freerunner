@@ -1,9 +1,10 @@
 import React, {FC, useEffect, useRef} from 'react';
 import {Animated} from 'react-native';
 
+import {defaultAnimationDuration} from '@src/constants';
+import {useTheme} from '@src/hooks';
+
 import {whyDidItRenderConfig} from '../../../debug';
-import {defaultAnimationDuration} from '../../constants';
-import {useTheme} from '../../hooks';
 
 import {Props, styles} from '.';
 

@@ -1,5 +1,5 @@
+import {iconColorList, paddingList} from '@src/design';
 import {StyleSheet} from 'react-native';
-import {iconColorList, paddingList} from '../../design';
 
 export const styles = StyleSheet.create({
   container: {

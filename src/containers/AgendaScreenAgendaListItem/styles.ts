@@ -1,5 +1,6 @@
 import {StyleSheet} from 'react-native';
-import {paddingList, separatorColorList} from '../../design';
+
+import {paddingList, separatorColorList} from '@src/design';
 
 export const styles = StyleSheet.create({
   container: {

@@ -1,8 +1,9 @@
 import React, {FC, memo} from 'react';
 import {ActivityIndicator, View} from 'react-native';
 
+import {iconColorList} from '@src/design';
+
 import {whyDidItRenderConfig} from '../../../debug';
-import {iconColorList} from '../../design';
 
 import {Props} from '.';
 

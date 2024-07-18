@@ -2,16 +2,17 @@ import {format} from 'date-fns';
 import React, {FC, memo, useCallback, useMemo} from 'react';
 import {Pressable, ScrollView, View} from 'react-native';
 
-import {AgendaScreenHeaderDateText} from '..';
-import {whyDidItRenderConfig} from '../../../debug';
-import {ActionText, DayLetterWithNumberActionColumn, Icon, ScreenHeader} from '../../components';
-import {hapticFeedbackModeList} from '../../constants';
+import {ActionText, DayLetterWithNumberActionColumn, Icon, ScreenHeader} from '@src/components';
+import {hapticFeedbackModeList} from '@src/constants';
 import {
   getFirstLetterOfDayName,
   getHapticFeedbackTriggered,
   getSymbolLimitedText,
   getFunctionTryCatchWrapped as tryCatch,
-} from '../../utils';
+} from '@src/utils';
+import {AgendaScreenHeaderDateText} from '..';
+
+import {whyDidItRenderConfig} from '../../../debug';
 
 import {Props, styles} from '.';
 

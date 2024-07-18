@@ -5,18 +5,19 @@ import {useTranslation} from 'react-i18next';
 import {StyleSheet, View, useColorScheme} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
-import {Button, Text} from '../../components';
-import {paddingList} from '../../design';
-import {useTheme} from '../../hooks';
+import {Button, Text} from '@src/components';
+import {hapticFeedbackModeList} from '@src/constants';
+import {paddingList} from '@src/design';
+import {useTheme} from '@src/hooks';
 import {
   getHapticFeedbackTriggered,
   getSymbolLimitedText,
   getFunctionTryCatchWrapped as tryCatch,
-} from '../../utils';
+} from '@src/utils';
+
+import {whyDidItRenderConfig} from '../../../debug';
 
 import {Props, styles} from '.';
-import {whyDidItRenderConfig} from '../../../debug';
-import {hapticFeedbackModeList} from '../../constants';
 
 /**
  * Bottom sheet component to display and book agenda slots.

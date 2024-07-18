@@ -1,6 +1,6 @@
 import {addWeeks, format} from 'date-fns';
 
-import {exceptionList} from '../../constants';
+import {exceptionList} from '@src/constants';
 import {getExceptionCaptured} from '../getExceptionCaptured';
 import {getFunctionTryCatchWrapped} from '../getFunctionTryCatchWrapped';
 

@@ -1,10 +1,10 @@
 import {AxiosResponse} from 'axios';
 import {call, put, takeLatest} from 'redux-saga/effects';
 
-import {sendFetchAgendaSlotListRequest} from '../../../api';
-import {exceptionList, httpResponceStatusList} from '../../../constants';
-import {AgendaSlotListType} from '../../../types';
-import {getExceptionCaptured, getFunctionTryCatchWrapped as tryCatch} from '../../../utils';
+import {sendFetchAgendaSlotListRequest} from '@src/api';
+import {exceptionList, httpResponceStatusList} from '@src/constants';
+import {AgendaSlotListType} from '@src/types';
+import {getExceptionCaptured, getFunctionTryCatchWrapped as tryCatch} from '@src/utils';
 import {
   fetchAgendaSlotListFailure,
   fetchAgendaSlotListRequest,

@@ -1,5 +1,5 @@
-import {exceptionList} from '../../constants';
-import {AgendaSlotListType} from '../../types';
+import {exceptionList} from '@src/constants';
+import {AgendaSlotListType} from '@src/types';
 import {getExceptionCaptured} from '../getExceptionCaptured';
 import {getFunctionTryCatchWrapped} from '../getFunctionTryCatchWrapped';
 

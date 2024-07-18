@@ -1,7 +1,7 @@
 import * as Sentry from '@sentry/react-native';
 
 import {SENTRY_DSN} from '@env';
-import {getFunctionTryCatchWrapped} from '../../utils';
+import {getFunctionTryCatchWrapped} from '@src/utils';
 
 /**
  * Initializes the Sentry service for error tracking and monitoring.

@@ -1,5 +1,5 @@
-import {loadingStatusList} from '../../../constants';
-import {AgendaSlotListType, AgendaSlotType} from '../../../types';
+import {loadingStatusList} from '@src/constants';
+import {AgendaSlotListType, AgendaSlotType} from '@src/types';
 import agendaSlotListReducer, {
   AgendaSlotListStateType,
   addSlotToBookedAgendaSlotList,

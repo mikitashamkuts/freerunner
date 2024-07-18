@@ -5,9 +5,9 @@ import {
 import {useMemo} from 'react';
 import {useColorScheme} from 'react-native';
 
-import {defaultAnimationDuration, routes} from '../../constants';
-import {backgroundColorList} from '../../design';
-import {getFunctionTryCatchWrapped as tryCatch} from '../../utils';
+import {defaultAnimationDuration, routes} from '@src/constants';
+import {backgroundColorList} from '@src/design';
+import {getFunctionTryCatchWrapped as tryCatch} from '@src/utils';
 
 import {AgendaScreen} from '.';
 

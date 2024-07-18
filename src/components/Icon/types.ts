@@ -1,5 +1,5 @@
-import {CustomComponentProps} from '../../types';
-import {iconColorList, iconList} from '../../design';
+import {iconColorList, iconList} from '@src/design';
+import {CustomComponentProps} from '@src/types';
 
 export interface Props extends CustomComponentProps {
   name: keyof typeof iconList;

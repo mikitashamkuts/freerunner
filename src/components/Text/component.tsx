@@ -1,8 +1,9 @@
 import React, {FC, memo} from 'react';
 import {Text as RNText, StyleSheet} from 'react-native';
 
+import {fontFamilyList, fontSizeList, fontWeightList, textColorList} from '@src/design';
+
 import {whyDidItRenderConfig} from '../../../debug';
-import {fontFamilyList, fontSizeList, fontWeightList, textColorList} from '../../design';
 
 import {Props} from '.';
 

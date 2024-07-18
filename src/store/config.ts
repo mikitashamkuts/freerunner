@@ -14,11 +14,12 @@ import {
 } from 'redux-persist';
 import createSagaMiddleware from 'redux-saga';
 
-import {isReduxLoggerEnabled} from '../../debug';
 import {isDevelopmentEnvironment} from '../constants';
 import {getFunctionTryCatchWrapped as tryCatch} from '../utils';
 import rootSaga from './sagas/config';
 import {stateStructure} from './slices';
+
+import {isReduxLoggerEnabled} from '../../debug';
 
 // Configuration for persisting Redux state in AsyncStorage
 const persistConfig = {

@@ -1,8 +1,8 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 
-import {loadingStatusList} from '../../../constants';
-import {AgendaSlotListType, AgendaSlotType} from '../../../types';
-import {getFunctionTryCatchWrapped as tryCatch} from '../../../utils';
+import {loadingStatusList} from '@src/constants';
+import {AgendaSlotListType, AgendaSlotType} from '@src/types';
+import {getFunctionTryCatchWrapped as tryCatch} from '@src/utils';
 
 export interface AgendaSlotListStateType {
   list: AgendaSlotListType;
