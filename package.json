@@ -17,7 +17,8 @@
     "macos:open:ios": "open ios/AwesomeProject.xcworkspace",
     "macos:open:android": "open -a 'Android Studio' android",
     "pod-install": "cd ios && pod install && cd ..",
-    "postinstall": "patch-package"
+    "postinstall": "patch-package",
+    "clean:ios": "cd ios && rm -rf ~/Library/Caches/CocoaPods && rm -rf ~/Library/Developer/Xcode/DerivedData/* && rm -rf Pods && rm -rf Podfile.lock && rm -rf Pods.xcodeproj && rm -rf .xcode.env.local && rm -rf .xcode.env && echo export NODE_BINARY=$(command -v node) > .xcode.env && pod deintegrate && pod setup && pod install"
   },
   "dependencies": {
     "@georstat/react-native-image-cache": "^3.1.0",
