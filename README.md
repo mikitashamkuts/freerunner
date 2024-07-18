@@ -30,6 +30,10 @@ pod install
 
 The required enironment variables to your .env file are listed in [env.d.ts](./env.d.ts), feel free to take the reference from there and fill the values with empty strings if you wish, alternatively request the file content from the repository maintainer.
 
+### Extra Not Mandatory Step:
+Add your auth.token and defaults.org to sentry.properties files of ios and android folders to use Sentry Service.
+
+
 ## Step 4: Start the Metro Server
 
 Second, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
