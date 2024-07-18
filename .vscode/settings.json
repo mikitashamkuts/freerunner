@@ -3,6 +3,7 @@
     "source.organizeImports": "always"
   },
   "cSpell.words": ["Persistor", "Pressable", "redownloading"],
+  "cSpell.language": "en, es",
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.patterns": {
     "package.json": "package-lock.json, yarn.lock",
