@@ -62,6 +62,13 @@ in android folder create a file with the name: local.properties
 in that file put the following content: sdk.dir = /Users/userName/Library/Android/sdk
 substitute userName with your's PC profile name
 
+then
+
+```bash
+# using Yarn
+yarn android
+```
+
 ### For iOS
 
 ```bash
@@ -71,9 +78,28 @@ yarn ios
 
 ### in case ios building issue of hermes & pod context:
 
+execute the following list of commands
+
+```
+cd ios
+rm -rf ~/Library/Caches/CocoaPods
+rm -rf ~/Library/Developer/Xcode/DerivedData/*
+rm -rf Pods
+rm -rf Podfile.lock
+rm -rf Pods.xcodeproj
+rm -rf .xcode.env.local
+rm -rf .xcode.env
+echo export NODE_BINARY=$(command -v node) > .xcode.env
+pod deintegrate
+pod setup
+pod install
+```
+
+then
+
 ```bash
 # using Yarn
-yarn clean:ios
+yarn ios
 ```
 
 ### in case ios building issue of haptic feedback context:
@@ -86,6 +112,10 @@ In case any other issue, please, feel free to refer it to the repository maintai
 If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
 
 This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+
+## Step 6: Install Visual Studio Code Extensions (if applicable)
+
+Navigate to Extension Marketplace and check if you have all the recommended extensions installed.
 
 # Available Scripts
 
@@ -180,10 +210,6 @@ This is one way to run your app — you can also run it directly from within And
 
   - **Purpose**: The script is executed automatically after the dependencies are installed via `yarn install`. This script is often used to run additional setup steps that are required for the project to function correctly, such as running custom build scripts, linking native dependencies, or performing clean-up tasks.
   - **Usage**: This script runs automatically after `yarn install`. No manual intervention is typically required.
-
-- **`yarn clean:ios`**:
-  - **Purpose**: The script is used to clean up the iOS build artifacts. This includes deleting derived data, cleaning the build folder, and removing any cached files. This can be helpful in resolving issues related to corrupted caches or build errors.
-  - **Usage**: This script can be run manually when you need to perform a clean build of your iOS project.
 
 # Debugging
 
@@ -394,7 +420,7 @@ Utility functions used across the app.
 
 # Design
 
-The UI & UX design is inspired by [Apple Calendar](https://www.figma.com/design/xdooeZ6MGMYR8aAeQdvD10/Apple-Calendar-%C2%B7-iOS-(Community)?m=auto&t=VHyAb67JJZ2SK46y-6)
+The UI & UX design is inspired by [Apple Calendar](<https://www.figma.com/design/xdooeZ6MGMYR8aAeQdvD10/Apple-Calendar-%C2%B7-iOS-(Community)?m=auto&t=VHyAb67JJZ2SK46y-6>)
 
 # Agenda Screen Architecture
 
