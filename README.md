@@ -81,7 +81,7 @@ yarn clean:ios
 reinreintegrate the ios native package using Manual Setup Guide - iOS from the link bellow, proviously removing the old linked module from 'Libraries' and from 'Targets-> Build Phases -> Link Binary with Libraries'
 https://www.npmjs.com/package/react-native-haptic-feedback
 
-In case any other issue, please, feel free to refer it to the repository maintainer: mikitashamkuts@gmail.com
+In case any other issue, please, feel free to refer it to the repository maintainer.
 
 If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
 
