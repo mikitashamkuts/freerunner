@@ -1,0 +1,33 @@
+{
+  "languages": ["en", "es"],
+  "component": {
+    "keyWords": ["component"],
+    "pathToParentFolder": "./src/components/",
+    "pathToParentExportFile": "./src/components/index.ts",
+    "exportCode": "export {__name__} from './__name__'"
+  },
+  "container": {
+    "keyWords": ["container", "holder"],
+    "pathToParentFolder": "./src/containers/",
+    "pathToParentExportFile": "./src/containers/index.ts",
+    "exportCode": "export {__name__} from './__name__'"
+  },
+  "api": {
+    "keyWords": ["api", "fetch", "send", "request"],
+    "pathToParentFolder": "./src/api/",
+    "pathToParentExportFile": "./src/api/index.ts",
+    "exportCode": "export {__name__} from './__name__'"
+  },
+  "hook": {
+    "keyWords": ["use", "hook"],
+    "pathToParentFolder": "./src/hooks/",
+    "pathToParentExportFile": "./src/hooks/index.ts",
+    "exportCode": "export {__name__} from './__name__'"
+  },
+  "util": {
+    "keyWords": ["util", "function", "get"],
+    "pathToParentFolder": "./src/utils/",
+    "pathToParentExportFile": "./src/utils/index.ts",
+    "exportCode": "export {__name__} from './__name__'"
+  }
+}
