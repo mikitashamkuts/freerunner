@@ -6,7 +6,7 @@
     "start": "yarn run watchman-reset && react-native start --reset-cache",
     "start-debug": "yarn run watchman-reset && react-native start --reset-cache --experimental-debugger",
     "android": "react-native run-android",
-    "ios": "react-native run-ios",
+    "ios": "react-native run-ios --simulator='iPhone 15 Pro Max'",
     "lint": "eslint .",
     "test": "jest  --transformIgnorePatterns 'node_modules/(?!my-library-dir)/'",
     "generate": "plop && prettier src/components/index.ts --write && prettier src/utils/index.ts --write",
