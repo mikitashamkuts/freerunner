@@ -70,6 +70,7 @@
     "@types/react-native-dotenv": "^0.2.2",
     "@types/react-test-renderer": "^18.0.0",
     "@types/redux-logger": "^3.0.13",
+    "@types/redux-persist": "^4.3.1",
     "@welldone-software/why-did-you-render": "^8.0.1",
     "babel-jest": "^29.6.3",
     "babel-plugin-module-resolver": "^5.0.2",
