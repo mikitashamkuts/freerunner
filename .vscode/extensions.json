@@ -5,7 +5,6 @@
   // List of extensions which should be recommended for users of this workspace.
   "recommendations": [
     "esbenp.prettier-vscode",
-    "JuanJoseCarracedo.vscode-un-button-script",
     "dbaeumer.vscode-eslint",
     "chinchiheather.vscode-margin-colours",
     "wix.vscode-import-cost",
