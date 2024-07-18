@@ -67,21 +67,9 @@ yarn ios
 
 ### in case ios building issue of hermes & pod context:
 
-execute the following list of commands
-
-```
-cd ios
-rm -rf ~/Library/Caches/CocoaPods
-rm -rf ~/Library/Developer/Xcode/DerivedData/*
-rm -rf Pods
-rm -rf Podfile.lock
-rm -rf Pods.xcodeproj
-rm -rf .xcode.env.local
-rm -rf .xcode.env
-echo export NODE_BINARY=$(command -v node) > .xcode.env
-pod deintegrate
-pod setup
-pod install
+```bash
+# using Yarn
+yarn clean:ios
 ```
 
 ### in case ios building issue of haptic feedback context:
@@ -182,6 +170,15 @@ This is one way to run your app — you can also run it directly from within And
 - **`yarn pod-install`**:
   - **Purpose**: Installs CocoaPods dependencies for the iOS project.
   - **Usage**: Ensures that all native iOS dependencies are correctly installed. Run this command whenever the iOS dependencies in the `Podfile` are changed.
+
+- **`yarn postinstall`**:
+  - **Purpose**: The script is executed automatically after the dependencies are installed via `yarn install`. This script is often used to run additional setup steps that are required for the project to function correctly, such as running custom build scripts, linking native dependencies, or performing clean-up tasks.
+  - **Usage**: This script runs automatically after `yarn install`. No manual intervention is typically required.
+
+
+- **`yarn clean:ios`**:
+  - **Purpose**: The script is used to clean up the iOS build artifacts. This includes deleting derived data, cleaning the build folder, and removing any cached files. This can be helpful in resolving issues related to corrupted caches or build errors.
+  - **Usage**: This script can be run manually when you need to perform a clean build of your iOS project.
 
 # Debugging
 
