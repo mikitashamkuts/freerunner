@@ -11,12 +11,12 @@ import SplashScreen from 'react-native-splash-screen';
 import {Provider} from 'react-redux';
 import {PersistGate} from 'redux-persist/integration/react';
 
-import {useDeviceCheck, useImageCaching} from './src/hooks';
-import {Navigation} from './src/navigation';
-import {initSentryService} from './src/services';
-import {persistor, store} from './src/store';
-import {initTranslation} from './src/translation';
-import {getFunctionTryCatchWrapped as tryCatch} from './src/utils';
+import {useDeviceCheck, useImageCaching} from '@src/hooks';
+import {Navigation} from '@src/navigation';
+import {initSentryService} from '@src/services';
+import {persistor, store} from '@src/store';
+import {initTranslation} from '@src/translation';
+import {getFunctionTryCatchWrapped as tryCatch} from '@src/utils';
 
 // Initialize Sentry for error tracking and monitoring
 initSentryService();
