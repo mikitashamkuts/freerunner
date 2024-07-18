@@ -1,4 +1,4 @@
-mikitashamkuts@Mikitas-MacBook-Pro Desktop % npx react-native@latest init AwesomeProject --version 0.73.8 
+Desktop % npx react-native@latest init AwesomeProject --version 0.73.8 
 
 
 Running: npx @react-native-community/cli init
@@ -58,10 +58,8 @@ For more details, see https://github.com/react-native-community/cli/blob/main/do
   
   Run instructions for Android:
     • Have an Android emulator running (quickest way to get started), or a device connected.
-    • cd "/Users/mikitashamkuts/Desktop/AwesomeProject" && npx react-native run-android
-  
+
   Run instructions for iOS:
-    • cd "/Users/mikitashamkuts/Desktop/AwesomeProject"
     
     • npx react-native run-ios
     - or -

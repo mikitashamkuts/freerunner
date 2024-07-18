@@ -1,4 +1,4 @@
-# dp-tech-task-mikita
+# Docplanner Tech Task
 
 This is my Docplanner Task, which itself is [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli), enjected with several friquently used tools and integrated with [**ide.frostminded**](https://ide.frostminded.com).
 
