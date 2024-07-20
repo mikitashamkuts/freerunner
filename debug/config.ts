@@ -14,4 +14,4 @@ export const whyDidItRenderConfig = {
   HolderComponentDebugActive: HolderComponentWhyDidItRenderDebugActive,
 };
 
-export const isReduxLoggerEnabled = false;
+export const isReduxLoggerEnabled = true;
