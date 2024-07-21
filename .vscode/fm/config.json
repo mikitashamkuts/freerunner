@@ -16,18 +16,18 @@
     "keyWords": ["api", "fetch", "send", "request"],
     "pathToParentFolder": "./src/api/",
     "pathToParentExportFile": "./src/api/index.ts",
-    "exportCode": "export {__name__} from './__name__'"
+    "exportCode": "export * from './__name__'"
   },
   "hook": {
     "keyWords": ["use", "hook"],
     "pathToParentFolder": "./src/hooks/",
     "pathToParentExportFile": "./src/hooks/index.ts",
-    "exportCode": "export {__name__} from './__name__'"
+    "exportCode": "export * from './__name__'"
   },
   "util": {
     "keyWords": ["util", "function", "get"],
     "pathToParentFolder": "./src/utils/",
     "pathToParentExportFile": "./src/utils/index.ts",
-    "exportCode": "export {__name__} from './__name__'"
+    "exportCode": "export * from './__name__'"
   }
 }
