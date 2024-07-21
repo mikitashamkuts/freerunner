@@ -6,6 +6,7 @@
  */
 
 import React, {useCallback, useEffect, useState} from 'react';
+import {AppState, AppStateStatus} from 'react-native';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import SplashScreen from 'react-native-splash-screen';
 import {Provider} from 'react-redux';
@@ -32,7 +33,7 @@ function App(): React.JSX.Element {
  */
   const {isEnabled: isImageCachingEnabled} = useImageCaching();
   // Initialize internationalization
-  initTranslation();
+  const translationInstance = initTranslation();
   // Initialize device distinguishing
   const {isDeviceApproved, isDeviceVerified} = useDeviceCheck();
 
@@ -44,6 +45,20 @@ function App(): React.JSX.Element {
       setIsStateReady(true);
     })();
   }, []);
+
+  useEffect(() => {
+    tryCatch(function handleAppStateChangeSafe() {
+      const handleAppStateChange = (nextAppState: AppStateStatus) => {
+        if (nextAppState === 'active') {
+          translationInstance.changeLanguage();
+        }
+      };
+      const appStateListener = AppState.addEventListener('change', handleAppStateChange);
+      return () => {
+        appStateListener.remove();
+      };
+    })();
+  }, [translationInstance]);
 
   // Set app ready state when device is verified, approved, and state is ready
   useEffect(() => {

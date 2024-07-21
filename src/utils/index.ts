@@ -1,4 +1,5 @@
 export * from './getAgendaSlotListWithLocalBooked';
+export * from './getDeviceLanguage';
 export * from './getExceptionCaptured';
 export * from './getFirstLetterOfDayName';
 export * from './getFunctionTryCatchWrapped';
