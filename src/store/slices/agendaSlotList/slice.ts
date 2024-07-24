@@ -71,4 +71,17 @@ export const {
   addSlotToBookedAgendaSlotList,
 } = agendaSlotListSlice.actions;
 
+export type FetchAgendaSlotListRequestActionType = ReturnType<typeof fetchAgendaSlotListRequest>;
+export type FetchAgendaSlotListSuccessActionType = ReturnType<typeof fetchAgendaSlotListSuccess>;
+export type FetchAgendaSlotListFailureActionType = ReturnType<typeof fetchAgendaSlotListFailure>;
+export type AddSlotToBookedAgendaSlotListActionType = ReturnType<
+  typeof addSlotToBookedAgendaSlotList
+>;
+
+export type AgendaSlotListActionTypeList =
+  | FetchAgendaSlotListRequestActionType
+  | FetchAgendaSlotListSuccessActionType
+  | FetchAgendaSlotListFailureActionType
+  | AddSlotToBookedAgendaSlotListActionType;
+
 export default agendaSlotListSlice.reducer;
