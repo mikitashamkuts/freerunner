@@ -1,21 +1,27 @@
 import {ReactNode} from 'react';
 import {ImageStyle, TextStyle, ViewStyle} from 'react-native/types';
+import {z} from 'zod';
 
 import {routes} from '../constants';
 import {AgendaSlotListStateType} from '../store';
 
-export type AgendaSlotStartType = string;
-export type AgendaSlotEndType = string;
-export type AgendaSlotIsTakenType = boolean;
-
 /**
- * Represents a single agenda slot.
+ * Represents a single agenda slot with its data validation schema
  */
-export interface AgendaSlotType {
-  Start: AgendaSlotStartType;
-  End: AgendaSlotEndType;
-  Taken?: AgendaSlotIsTakenType;
-}
+const stringValidationSchema = z.string();
+const booleanValidationSchema = z.boolean();
+
+export const AgendaSlotStartType = stringValidationSchema.default('');
+export const AgendaSlotEndType = stringValidationSchema.default('');
+export const AgendaSlotIsTakenType = booleanValidationSchema.default(false);
+
+export const AgendaSlotValidationSchema = z.object({
+  Start: AgendaSlotStartType,
+  End: AgendaSlotEndType,
+  Taken: AgendaSlotIsTakenType,
+});
+
+export interface AgendaSlotType extends z.infer<typeof AgendaSlotValidationSchema> {}
 
 /**
  * Represents a list of agenda slots.
