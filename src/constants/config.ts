@@ -27,6 +27,8 @@ export enum exceptionList {
   InvalidParam = 'InvalidParam', //'Undefined or Falsy or Incorrect Parameter',
   UnavailableModule = 'UnavailableModule', //'Unavailable Module Or Service Not Initiated Or Failed',
   Network = 'Network', // Network communication issue
+  InvalidData = 'InvalidData',
+  UnhandledException = 'UnhandledException',
 }
 
 export enum hapticFeedbackModeList {
