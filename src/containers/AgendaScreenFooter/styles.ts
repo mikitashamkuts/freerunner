@@ -1,6 +1,7 @@
 import {StyleSheet} from 'react-native';
 
 import {
+  backgroundColorList,
   barBackgroundColorList,
   paddingList,
   separatorColorList,
@@ -9,16 +10,16 @@ import {
 
 export const styles = StyleSheet.create({
   container: {
+    backgroundColor: barBackgroundColorList.Light,
+    borderTopColor: separatorColorList.Light,
     paddingHorizontal: paddingList.Default,
     paddingTop: paddingList.Small / 2,
-    backgroundColor: barBackgroundColorList.Light,
     borderTopWidth: separatorWidthList.Default,
-    borderTopColor: separatorColorList.Light,
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
   dark_container: {
-    backgroundColor: 'black',
+    backgroundColor: backgroundColorList.Dark,
     borderTopColor: barBackgroundColorList.Dark,
   },
   buttonContainer: {
