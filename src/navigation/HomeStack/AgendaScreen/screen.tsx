@@ -1,3 +1,4 @@
+import {useRoute} from '@react-navigation/native';
 import {FC, useCallback, useEffect, useMemo, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import {View} from 'react-native';
@@ -54,6 +55,10 @@ export type AgendaScreenConfigType = {
 const AgendaScreen: FC = () => {
   const dispatch = useTypedDispatch();
   const {t} = useTranslation();
+
+  // Deeplinking demo param passing
+  const route = useRoute();
+  const {name} = route.params || {};
 
   // State variables for various UI states
   const [agendaSlotListFilter, setAgendaSlotListFilter] = useState<AgendaSlotListFilerType>('all');
@@ -144,6 +149,7 @@ const AgendaScreen: FC = () => {
           />
         </View>
       )}
+      {/* <Text text={'Deeplinking demo param passing: ' + name} /> */}
       {status === 'Success' && <AgendaScreenAgendaList config={config} />}
       <AgendaScreenFooter config={config} />
       {isBottomSheetShown && <AgendaScreenSelectedSlotBottomSheet config={config} />}
