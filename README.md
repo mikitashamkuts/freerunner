@@ -1,6 +1,6 @@
 # Docplanner Tech Task
 
-This is my Docplanner Task, which itself is [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli), enjected with several friquently used tools and integrated with [**ide.frostminded**](https://ide.frostminded.com).
+This is my [Docplanner Task](https://drive.google.com/file/d/1b0kTnUdeRzSaSsTrISawP4Px0ANRbCjN/view?usp=sharing), which itself is [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli), enjected with several friquently used tools and integrated with [**ide.frostminded**](https://ide.frostminded.com).
 
 # Getting Started
 
